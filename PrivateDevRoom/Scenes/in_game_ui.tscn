@@ -37,8 +37,8 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer"]
-custom_minimum_size = Vector2(360, 0)
+[node name="TaskbarReferenceRect" type="ReferenceRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(360, 150)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
