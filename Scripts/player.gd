@@ -95,3 +95,4 @@ func esc_to_show_mouse():
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		camera_look_input = event.relative * look_sensitivity
+
