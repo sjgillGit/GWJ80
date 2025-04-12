@@ -13,10 +13,10 @@ MVP:
 [ ]	3.2. Progress visualizer (bar?)
 [ ]	3.3. Failure visualizer ($ of damage?)
 [ ]	3.4. Pockets inventory
-[ ]	3.5. Key items progress visualizer
+[x]	3.5. Key items progress visualizer
 
-[ ]4. Message pop-ups
-[ ]	4.1. Win, Lose
+[x]4. Message pop-ups
+[?]	4.1. Win, Lose
 
 [x]5. Scene-changing system
 	(simple for MVP, but expected to be extended)

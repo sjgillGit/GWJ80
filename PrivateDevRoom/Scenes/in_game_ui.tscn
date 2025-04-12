@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://0u12ygea35q"]
+
+[ext_resource type="Script" uid="uid://5dipfswld5ci" path="res://PrivateDevRoom/Scripts/in_game_ui.gd" id="1_d072m"]
+[ext_resource type="PackedScene" uid="uid://b7sg7iky655mc" path="res://PrivateDevRoom/Scenes/SubScenes/task_bar.tscn" id="2_jj7yp"]
+
+[node name="InGameUI" type="CanvasLayer"]
+script = ExtResource("1_d072m")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="TimerPanel" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="TimerLabel" type="Label" parent="MarginContainer/TimerPanel"]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "24:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TaskBar" parent="MarginContainer" instance=ExtResource("2_jj7yp")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
