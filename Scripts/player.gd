@@ -18,8 +18,11 @@ var is_running: bool = false
 @export var look_sensitivity: float = 0.005
 var camera_look_input: Vector2
 
+var grabbedItem: RigidBody3D
+
 # Assigned when node is initialized
 @onready var camera: Camera3D = get_node("Camera3D")
+@onready var collisionShapeNode: CollisionShape3D = get_node("InteractionArea/InteractionRadius")
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity") * gravity_mod
 
 func _ready():
@@ -27,18 +30,20 @@ func _ready():
 
 #Called every physics frame
 func _process(delta):
-	#Implements Jump and apply gravity
-	define_jumping(delta)
-
 	#Movement relative to mouse direction
 	move_relative_to_mouse(delta)
 
 	#Camera Look
 	camera_look()
 
+	#Implements Jump and apply gravity
+	define_jumping(delta)
+
+	#Apply grabing items
+	grab_items()
+	
 	#Apply bind to show mouse cursor
 	esc_to_show_mouse()
-
 
 
 func move_relative_to_mouse(delta):
@@ -92,7 +97,10 @@ func esc_to_show_mouse():
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		camera_look_input = event.relative * look_sensitivity
 
+func grab_items():
+	pass
