@@ -1,4 +1,4 @@
-class_name player_controller
+class_name PlayerController
 
 extends CharacterBody3D
 
@@ -18,12 +18,15 @@ var is_running: bool = false
 @export var look_sensitivity: float = 0.005
 var camera_look_input: Vector2
 
-var grabbedItem: RigidBody3D
+@export_group("Grab Items Settings")
+@export var grab_distance: float = -6.0
+
+var grabbed_item: GrabbableItem
 
 # Assigned when node is initialized
 @onready var camera: Camera3D = get_node("Camera3D")
-@onready var collisionShapeNode: CollisionShape3D = get_node("InteractionArea/InteractionRadius")
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity") * gravity_mod
+@onready var raycast: RayCast3D = get_node("Camera3D/InteractionRayCast")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -38,13 +41,12 @@ func _process(delta):
 
 	#Implements Jump and apply gravity
 	define_jumping(delta)
-
-	#Apply grabing items
-	grab_items()
 	
 	#Apply bind to show mouse cursor
 	esc_to_show_mouse()
-
+	
+	##Apply grabbing items mechanic
+	grab_items(delta)
 
 func move_relative_to_mouse(delta):
 	var move_input: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backwards")
@@ -102,5 +104,15 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		camera_look_input = event.relative * look_sensitivity
 
-func grab_items():
-	pass
+func set_grabbed_item(item: GrabbableItem):
+	grabbed_item = item
+
+func grab_items(delta: float):
+	if grabbed_item:
+		var target_position: Vector3 = camera.global_transform.origin + camera.global_transform.basis.z * grab_distance
+
+		# Smooth movement (adjust lerp speed)
+		grabbed_item.global_transform.origin = grabbed_item.global_transform.origin.lerp(target_position, delta * 10)
+		
+		# Match rotation to camera
+		grabbed_item.global_transform.basis = camera.global_transform.basis

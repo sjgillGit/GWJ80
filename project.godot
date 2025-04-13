@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [global_group]
 
-grabbables="Grabbable items"
+Player=""
 
 [input]
 
