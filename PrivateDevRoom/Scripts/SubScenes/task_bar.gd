@@ -3,6 +3,14 @@ extends Control
 
 @export var tasks_container : VBoxContainer
 
+func _ready():
+	#test list of items
+	get_task_list({
+		"Chair" : 1 ,
+		"Table" : 3 ,
+		"Apple" : 15
+		})
+
 func get_task_list(tasks_dictionary : Dictionary) -> void:
 	for task in tasks_dictionary:
 		tasks_container.add_child(

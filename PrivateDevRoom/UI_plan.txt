@@ -12,7 +12,7 @@ MVP:
 [ ]	3.1. Timer / Clock
 [ ]	3.2. Progress visualizer (bar?)
 [ ]	3.3. Failure visualizer ($ of damage?)
-[ ]	3.4. Pockets inventory
+[x]	3.4. Pockets inventory
 [x]	3.5. Key items progress visualizer
 
 [x]4. Message pop-ups
