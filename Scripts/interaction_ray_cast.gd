@@ -9,5 +9,10 @@ func _process(_delta):
 	if object and object is InteractableItem:
 		prompt_label.text = "[E] " + object.interaction_prompt
 		
+		# TODO: Implement better grabbed item check to avoid picking up two items at the same time
 		if Input.is_action_just_pressed("grab_item"):
-			object.interact()
+			if ObjectInteraction.grabbed_item == null:
+				ObjectInteraction.set_player_grabbable_item(object)
+			else:
+				ObjectInteraction.unset_player_grabbable_item()
+				

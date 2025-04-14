@@ -15,6 +15,10 @@ run/main_scene="uid://byubivpj3vm2q"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ObjectInteraction="*res://Scripts/object_interaction.gd"
+
 [global_group]
 
 Player=""

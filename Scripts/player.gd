@@ -19,14 +19,13 @@ var is_running: bool = false
 var camera_look_input: Vector2
 
 @export_group("Grab Items Settings")
-@export var grab_distance: float = -6.0
+@export var grab_distance: float = -10.0
 
 var grabbed_item: GrabbableItem
 
 # Assigned when node is initialized
 @onready var camera: Camera3D = get_node("Camera3D")
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity") * gravity_mod
-@onready var raycast: RayCast3D = get_node("Camera3D/InteractionRayCast")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -45,8 +44,9 @@ func _process(delta):
 	#Apply bind to show mouse cursor
 	esc_to_show_mouse()
 	
-	##Apply grabbing items mechanic
+	#Apply grabbing items mechanic
 	grab_items(delta)
+
 
 func move_relative_to_mouse(delta):
 	var move_input: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backwards")
@@ -108,11 +108,20 @@ func set_grabbed_item(item: GrabbableItem):
 	grabbed_item = item
 
 func grab_items(delta: float):
-	if grabbed_item:
+	if grabbed_item != null:
+		# Get target position relative to point in front of camera
 		var target_position: Vector3 = camera.global_transform.origin + camera.global_transform.basis.z * grab_distance
 
+		# TODO: implement physics based hitting object feedback
 		# Smooth movement (adjust lerp speed)
 		grabbed_item.global_transform.origin = grabbed_item.global_transform.origin.lerp(target_position, delta * 10)
-		
 		# Match rotation to camera
 		grabbed_item.global_transform.basis = camera.global_transform.basis
+
+func drop_item():
+	# TODO: implement drop and throw force according to how long player presses the release button
+	# Apply throw force using camera direction
+	grabbed_item.linear_velocity = camera.global_transform.basis.z * -6
+	
+	# Clear reference
+	grabbed_item = null
