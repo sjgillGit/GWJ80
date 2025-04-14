@@ -1,4 +1,4 @@
-extends ColorRect
+extends Control
 
 @onready var Master_Bus = AudioServer.get_bus_index("Master")
 @onready var SFX_Bus = AudioServer.get_bus_index("SFX")
