@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://pxstp0eubbcl"]
 
-[ext_resource type="Script" uid="uid://brg1oluiv22ag" path="res://PrivateDevRoom/Scripts/SubScenes/timer_panel.gd" id="1_og0km"]
+[ext_resource type="Script" uid="uid://brg1oluiv22ag" path="res://PrivateDevRoom/Scripts/InGameUISubScenes/timer_panel.gd" id="1_og0km"]
 
 [node name="TimerPanel" type="PanelContainer" node_paths=PackedStringArray("time_label")]
 offset_right = 120.0

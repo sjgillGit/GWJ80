@@ -1,12 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://b12uur4rb6irn"]
 
-[ext_resource type="Script" uid="uid://nxi1vct66cd7" path="res://PrivateDevRoom/Scripts/SubScenes/task_progress.gd" id="1_8nrli"]
+[ext_resource type="Script" uid="uid://nxi1vct66cd7" path="res://PrivateDevRoom/Scripts/InGameUISubScenes/task_progress.gd" id="1_8b4mi"]
 
 [node name="TaskProgress" type="PanelContainer" node_paths=PackedStringArray("task_label", "task_checkbox")]
 custom_minimum_size = Vector2(300, 0)
 offset_right = 133.0
 offset_bottom = 28.0
-script = ExtResource("1_8nrli")
+script = ExtResource("1_8b4mi")
 task_label = NodePath("MarginContainer/VboxContainer/TaskDescriptionLabel")
 task_checkbox = NodePath("MarginContainer/VboxContainer/TaskCheckBox")
 

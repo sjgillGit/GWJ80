@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://0u12ygea35q"]
 
 [ext_resource type="Script" uid="uid://5dipfswld5ci" path="res://PrivateDevRoom/Scripts/in_game_ui.gd" id="1_d072m"]
-[ext_resource type="PackedScene" uid="uid://pxstp0eubbcl" path="res://PrivateDevRoom/Scenes/SubScenes/timer_panel.tscn" id="2_6vmd0"]
-[ext_resource type="PackedScene" uid="uid://b7sg7iky655mc" path="res://PrivateDevRoom/Scenes/SubScenes/task_bar.tscn" id="2_jj7yp"]
-[ext_resource type="PackedScene" uid="uid://v121yj4qv31i" path="res://PrivateDevRoom/Scenes/SubScenes/level_progress_bar.tscn" id="2_m00a7"]
-[ext_resource type="PackedScene" uid="uid://b5sqb848jv55a" path="res://PrivateDevRoom/Scenes/SubScenes/pocket_inventory.tscn" id="3_rrm0x"]
+[ext_resource type="PackedScene" uid="uid://pxstp0eubbcl" path="res://PrivateDevRoom/Scenes/InGameUISubScenes/timer_panel.tscn" id="2_6vmd0"]
+[ext_resource type="PackedScene" uid="uid://b7sg7iky655mc" path="res://PrivateDevRoom/Scenes/InGameUISubScenes/task_bar.tscn" id="2_jj7yp"]
+[ext_resource type="PackedScene" uid="uid://v121yj4qv31i" path="res://PrivateDevRoom/Scenes/InGameUISubScenes/level_progress_bar.tscn" id="2_m00a7"]
+[ext_resource type="PackedScene" uid="uid://b5sqb848jv55a" path="res://PrivateDevRoom/Scenes/InGameUISubScenes/pocket_inventory.tscn" id="3_rrm0x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86nw1"]
 
