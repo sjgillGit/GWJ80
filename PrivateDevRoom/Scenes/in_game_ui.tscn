@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://0u12ygea35q"]
+[gd_scene load_steps=5 format=3 uid="uid://0u12ygea35q"]
 
 [ext_resource type="Script" uid="uid://5dipfswld5ci" path="res://PrivateDevRoom/Scripts/in_game_ui.gd" id="1_d072m"]
+[ext_resource type="PackedScene" uid="uid://pxstp0eubbcl" path="res://PrivateDevRoom/Scenes/SubScenes/timer_panel.tscn" id="2_6vmd0"]
 [ext_resource type="PackedScene" uid="uid://b7sg7iky655mc" path="res://PrivateDevRoom/Scenes/SubScenes/task_bar.tscn" id="2_jj7yp"]
 [ext_resource type="PackedScene" uid="uid://b5sqb848jv55a" path="res://PrivateDevRoom/Scenes/SubScenes/pocket_inventory.tscn" id="3_rrm0x"]
 
-[node name="InGameUI" type="CanvasLayer"]
+[node name="InGameUI" type="CanvasLayer" node_paths=PackedStringArray("timer_panel", "task_bar", "pocket_inventory")]
 script = ExtResource("1_d072m")
+timer_panel = NodePath("MarginContainer/TimerPanel")
+task_bar = NodePath("MarginContainer/TaskBar")
+pocket_inventory = NodePath("MarginContainer/PocketInventory")
+metadata/_custom_type_script = "uid://5dipfswld5ci"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -19,20 +24,8 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="TimerPanel" type="PanelContainer" parent="MarginContainer"]
+[node name="TimerPanel" parent="MarginContainer" instance=ExtResource("2_6vmd0")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-
-[node name="TimerLabel" type="Label" parent="MarginContainer/TimerPanel"]
-custom_minimum_size = Vector2(120, 60)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "Night"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="TaskBar" parent="MarginContainer" instance=ExtResource("2_jj7yp")]
 layout_mode = 2

@@ -9,7 +9,7 @@ MVP:
 [x]	2.1. Audio control
 
 [ ]3. In-game UI
-[ ]	3.1. Timer / Clock
+[x]	3.1. Timer / Clock
 [ ]	3.2. Progress visualizer (bar?)
 [ ]	3.3. Failure visualizer ($ of damage?)
 [x]	3.4. Pockets inventory
@@ -23,6 +23,10 @@ MVP:
 
 [ ]6. Core of MVC/MVP system
 	(Global system that other parts of game can sent signals to)
+
+TODO:
+	Adapt pocket_inventory script to items system
+	Message_box change path to scene
 
 Mid:
 

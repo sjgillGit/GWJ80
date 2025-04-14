@@ -15,7 +15,6 @@ var selected : bool = false :
 func take_item(new_item) -> void:
 	stored_item = new_item
 	#icon = new_item.pocket_icon
-	# add weight of item to player's total weight
 
 func give_item():
 	var item_to_return = stored_item

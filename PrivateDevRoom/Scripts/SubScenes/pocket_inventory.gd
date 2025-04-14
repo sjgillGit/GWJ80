@@ -29,17 +29,10 @@ var new_slot_name_prefix : String = "Slot"
 
 func _ready() -> void:
 	_expand_pockets()
-	print(pockets_container.get_children())
 
 func _expand_pockets() -> void:
 	for i in pockets_amount - pockets.size():
 		var new_pocket = pockets[0].duplicate()
-		
-		# prevent duplicating items on creating extra pockets
-		# not necessary, since pockets will be probably added between days
-		#for child in new_pocket.get_children():
-			#child.queue_free()
-		
 		new_pocket.name = new_slot_name_prefix + str(pockets.size())
 		pockets.append(new_pocket)
 		pockets_container.add_child(new_pocket)
@@ -94,14 +87,9 @@ func drop_item_in_selected_slot():
 				return pocket.give_item()
 			return null
 
-
-func _on_remove_pressed() -> void:
-	pockets_amount -= 1
-
-
-func _on_add_pressed() -> void:
-	pockets_amount += 1
-
-
-func _on_drop_item_pressed() -> void:
-	print(drop_item_in_selected_slot())
+func collect_item(item_to_collect) -> bool :
+	for pocket in pockets:
+		if pocket.stored_item == null:
+			pocket.take_item(item_to_collect)
+			return true
+	return false
