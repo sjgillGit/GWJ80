@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://v121yj4qv31i"]
+
+[ext_resource type="Script" uid="uid://dmj17kabj6b15" path="res://PrivateDevRoom/Scripts/SubScenes/level_progress_bar.gd" id="1_jhwsm"]
+[ext_resource type="Texture2D" uid="uid://cb1gutswmyptu" path="res://PrivateDevRoom/Assets/2D_Assets/game_progress_bar_middle.png" id="2_wl3lx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vmd0"]
+bg_color = Color(0, 0.666667, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m00a7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86nw1"]
+bg_color = Color(0.54902, 0.117647, 0.117647, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gewly"]
+
+[node name="LevelProgressBar" type="PanelContainer" node_paths=PackedStringArray("positive_progress_bar", "negative_progress_bar", "extra_progress_bar")]
+offset_right = 500.0
+offset_bottom = 32.0
+size_flags_vertical = 0
+script = ExtResource("1_jhwsm")
+positive_progress_bar = NodePath("MarginContainer/PositiveProgress")
+negative_progress_bar = NodePath("MarginContainer/NegativeProgress")
+extra_progress_bar = NodePath("MarginContainer/Control/ExtraProgress")
+metadata/_custom_type_script = "uid://dmj17kabj6b15"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(500, 30)
+layout_mode = 2
+theme_override_constants/margin_top = 1
+
+[node name="PositiveProgress" type="ProgressBar" parent="MarginContainer"]
+custom_minimum_size = Vector2(500, 30)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_6vmd0")
+value = 50.0
+show_percentage = false
+
+[node name="NegativeProgress" type="ProgressBar" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_m00a7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_86nw1")
+value = 30.0
+fill_mode = 1
+show_percentage = false
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ExtraProgress" type="ProgressBar" parent="MarginContainer/Control"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_styles/background = SubResource("StyleBoxEmpty_gewly")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6vmd0")
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_wl3lx")
+stretch_mode = 2

@@ -1,7 +1,7 @@
 class_name PocketInventory
 extends PanelContainer
 
-@export var pockets_amount : int = 5:
+@export var pockets_amount : int = 10:
 	set(new_amount):
 		if new_amount < min_pockets:
 			new_amount = min_pockets

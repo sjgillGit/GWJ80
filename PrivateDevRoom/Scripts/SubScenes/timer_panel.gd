@@ -8,6 +8,7 @@ var nighttime_triggered : bool = false
 
 func update_time(new_time_seconds : int) -> void:
 	if nighttime_triggered: return
+	@warning_ignore("integer_division")
 	time_label.text = "%02d:%02d" % [roundi(new_time_seconds / 60) , new_time_seconds % 60]
 
 func trigger_nighttime() -> void:

@@ -8,10 +8,10 @@ MVP:
 [x]2. Settings
 [x]	2.1. Audio control
 
-[ ]3. In-game UI
+[x]3. In-game UI
 [x]	3.1. Timer / Clock
-[ ]	3.2. Progress visualizer (bar?)
-[ ]	3.3. Failure visualizer ($ of damage?)
+[x]	3.2. Progress visualizer (bar?)
+[x]	3.3. Failure visualizer ($ of damage?)
 [x]	3.4. Pockets inventory
 [x]	3.5. Key items progress visualizer
 
@@ -22,6 +22,7 @@ MVP:
 	(simple for MVP, but expected to be extended)
 
 [ ]6. Core of MVC/MVP system
+	upd: Should consult with other devs, in case some of them already using Global or in-game-global
 	(Global system that other parts of game can sent signals to)
 
 TODO:

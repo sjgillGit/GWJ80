@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://nxi1vct66cd7" path="res://PrivateDevRoom/Scripts/SubScenes/task_progress.gd" id="1_8nrli"]
 
 [node name="TaskProgress" type="PanelContainer" node_paths=PackedStringArray("task_label", "task_checkbox")]
-custom_minimum_size = Vector2(360, 0)
+custom_minimum_size = Vector2(300, 0)
 offset_right = 133.0
 offset_bottom = 28.0
 script = ExtResource("1_8nrli")

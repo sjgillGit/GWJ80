@@ -5,6 +5,7 @@ extends CanvasLayer
 @export var timer_panel : TimerPanel
 @export var task_bar : TaskBar
 @export var pocket_inventory : PocketInventory
+@export var level_progress_bar : LevelProgressBar
 
 #region TimerPanel
 func update_timer(new_time_seconds : int) -> void:
@@ -35,4 +36,15 @@ func pockets_add_item(item_to_collect) -> bool:
 
 func drop_item_in_selected_slot() : # -> pocket_item class
 	return pocket_inventory.drop_item_in_selected_slot()
+#endregion
+
+#region LevelProgressBar
+func pass_level_progress_values(value_to_pass : int , value_to_fail : int , total_value_on_level : int):
+	level_progress_bar.get_level_progress_values(value_to_pass,value_to_fail,total_value_on_level)
+
+func level_progress_update_positive_progress(new_positive_amount : int) -> void:
+	level_progress_bar.update_positive_progress(new_positive_amount)
+
+func level_progress_update_negative_progress(new_damage_amount : int) -> void:
+	level_progress_bar.update_negative_progress(new_damage_amount)
 #endregion
