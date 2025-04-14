@@ -3,6 +3,8 @@ extends Node3D
 @export var weight: float = 0.0
 # Durability should be changed from external scripts
 @export var durability: float:
+	get:
+		return durability
 	set(durability_in):
 		durability = durability_in
 		print("Durability has changed")
@@ -25,4 +27,11 @@ func obj_highlight() -> void:
 	pass
 
 func take_damage(damage_val: float) -> void:
-	durability -= damage_val
+	var dur = get("durability")
+	if damage_val >= dur:
+		#TODO finish logic when player scripts handle object grabbing
+		print("Implement breaking logic1")
+		set("durability", 0.0)
+	else:
+		dur -= damage_val
+		set("durability", dur)
