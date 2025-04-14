@@ -48,7 +48,7 @@ func _process(delta):
 	grab_items(delta)
 
 
-func move_relative_to_mouse(delta):
+func move_relative_to_mouse(delta: float):
 	var move_input: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backwards")
 	var move_direction: Vector3 = (transform.basis * Vector3(move_input.x, 0, move_input.y)).normalized()
 
@@ -68,16 +68,19 @@ func move_relative_to_mouse(delta):
 
 	move_and_slide()
 
-func move_or_run(y: float) -> float:
+func move_or_run(y_pos: float) -> float:
 	var speed: float = max_speed
 	is_running = Input.is_action_pressed("run")
 	
-	if y < 0 and is_running and is_on_floor():
+	if y_pos < 0 and is_running and is_on_floor():
 		speed = max_run_speed
 	
 	return speed
 
 func camera_look():
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+		return
+		
 	rotate_y(-camera_look_input.x * look_sensitivity)
 
 	camera.rotate_x(-camera_look_input.y * look_sensitivity)
@@ -85,9 +88,11 @@ func camera_look():
 
 	camera_look_input = Vector2.ZERO
 
-func define_jumping(delta):
+func define_jumping(delta: float):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
+	elif Input.is_action_just_released("jump"): 
+		velocity.y *= 0.5
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
