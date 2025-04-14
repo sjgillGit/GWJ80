@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ctferwj741det"]
 
-[ext_resource type="Script" uid="uid://ctsgh3ff2das4" path="res://PrivateDevRoom/Scripts/message_box.gd" id="1_w56o5"]
+[ext_resource type="Script" uid="uid://ctsgh3ff2das4" path="res://Scripts/message_box.gd" id="1_w56o5"]
 
 [node name="MessageBox" type="Control" node_paths=PackedStringArray("title_label", "message_label")]
 z_index = 10

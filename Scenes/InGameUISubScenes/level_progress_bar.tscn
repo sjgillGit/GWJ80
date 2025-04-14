@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://v121yj4qv31i"]
 
-[ext_resource type="Script" uid="uid://dmj17kabj6b15" path="res://PrivateDevRoom/Scripts/InGameUISubScenes/level_progress_bar.gd" id="1_jhwsm"]
-[ext_resource type="Texture2D" uid="uid://cb1gutswmyptu" path="res://PrivateDevRoom/Assets/2D_Assets/game_progress_bar_middle.png" id="2_wl3lx"]
+[ext_resource type="Script" uid="uid://dmj17kabj6b15" path="res://Scripts/InGameUISubScenes/level_progress_bar.gd" id="1_jhwsm"]
+[ext_resource type="Texture2D" uid="uid://cb1gutswmyptu" path="res://Assets/2D_Assets/game_progress_bar_middle.png" id="2_wl3lx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vmd0"]
 bg_color = Color(0, 0.666667, 0, 1)

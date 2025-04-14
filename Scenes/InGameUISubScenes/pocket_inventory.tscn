@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5sqb848jv55a"]
 
-[ext_resource type="Script" uid="uid://dn1ucna2p05w0" path="res://PrivateDevRoom/Scripts/InGameUISubScenes/pocket_inventory.gd" id="1_a0o6h"]
-[ext_resource type="PackedScene" uid="uid://mpih3ytlnet3" path="res://PrivateDevRoom/Scenes/InGameUISubScenes/pocket_slot.tscn" id="2_vcrk5"]
+[ext_resource type="Script" uid="uid://dn1ucna2p05w0" path="res://Scripts/InGameUISubScenes/pocket_inventory.gd" id="1_a0o6h"]
+[ext_resource type="PackedScene" uid="uid://mpih3ytlnet3" path="res://Scenes/InGameUISubScenes/pocket_slot.tscn" id="2_vcrk5"]
 
 [node name="PocketInventory" type="PanelContainer" node_paths=PackedStringArray("pockets", "pockets_container")]
 offset_right = 80.0
