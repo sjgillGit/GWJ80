@@ -1,0 +1,98 @@
+Env-Objects types:
+1. Non-grabbable without value.
+	Static object. No need for extra code
+2. Non-grabbable with value. Windows are good example
+	Low priority of implimentation
+	Static object that looses value on collision.
+3. Non-static objects: 
+	1. Pocketable.
+		Picking up:
+			Player calls player UI (via in-game-global) for confirmation of empty pocket
+			If true returned, object is removed from scene and it's data stored in pocket
+			Object's weight added to player's weight
+		Carrying:
+			none
+		Putting down:
+			Item apears at grabbing distance (added back to scene)
+			Object's weight removed from player's weight
+			(?) Whats next:
+				1. Item falls on ground?
+				2. Item is held in hands?
+		(?) Putting in container for small items:
+			Container can store limited (?)amount/volume of small items
+			Items are not meant to leave container. Smth like permanent pocket
+	2. Grabbable.
+		Picking up:
+			If player not holding anything, player marks looked_at_item:
+				Player's head emmits RayCast
+				First non-static object that's not NPC is marked as "want to pick"
+					Those items change their outline color:
+						Green - can be picked up
+						Red - can't be picked up
+			If item can be picked up:
+				Player stores reference to item
+				Item's weight added to player
+		Carrying:
+			Item follows distance from player in looking direction:
+			Item have bubble around it.
+			Player moving bubble, item is trying to stay in center.
+				Level of control is defined by player's str vs item's weight
+			If Item leaves bubble, it's forced dropped.
+				(?) Define "leaving bubble":
+					1. Fully leave bubble
+					2. Touch border
+		Putting down:
+			Item stops been affected by drag bubble
+	3. Grabbable with tools:
+		Dolly:
+			Dolly itself:
+				Limits player's rotation
+				Weight is added to player at lowered multiplier
+				Proper moving with Dolly "in hands" needs to be planned
+			Picking up:
+				Copy of object's mesh is put on dolly in place
+				If mesh copy is not colliding with anything:
+					Move object on dolly(?how):
+						1. Teleport to position
+						2. Move to position, ignoring collisions in process
+						3. Move to position, if collision with static item happens in process - stop and force player to try again
+					Weight of item added to player at lowered multiplier
+			Moving around:
+				Dolly is staying at locked position in front of player (?part of player)
+				Both Dolly and carried item can collide:
+					(?) Combination of those two can be problematic, expect issues
+			Putting down:
+				On ground:
+					Object's copy mesh is put in front of dolly
+					If copy is not colliding with anything:
+						Move item to location on ground in front of dolly.
+						(Same dicision as in picking up)
+				In truck:
+					Object teleports to deepest unoccupied location in truck.
+Notes:
+	Player's speed [(?) and mouse sensitivity] negatively affected by player's weight
+	Figure out way to put items that are meant to be moved with dolly at it (at correct position, rotation)
+
+
+Objects structure:
+	Static objects
+	Character bodies
+		Player
+		NPC
+	IneractableItems (extend RigidBody3D):
+		Pocketable Items
+		Grabbable Items
+			Tool Requiring Items
+
+
+Interactable Items:
+	Weight
+	Value
+	Durability
+	Fragility
+
+Pocketable Items:
+	Icon (.png 64x64)
+
+Tool Requiring Items:
+	Acceptable by tools
