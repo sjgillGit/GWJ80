@@ -22,7 +22,7 @@ extends InteractableItem
 		obj_name = name_in
 
 # Can object be pocketed
-@export var pocketable: bool:
+@export var pocketable: bool = false:
 	get:
 		return pocketable
 	set(pocketable_in):
