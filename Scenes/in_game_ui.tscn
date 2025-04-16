@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://0u12ygea35q"]
+
+[ext_resource type="Script" uid="uid://5dipfswld5ci" path="res://Scripts/in_game_ui.gd" id="1_d072m"]
+[ext_resource type="PackedScene" uid="uid://pxstp0eubbcl" path="res://Scenes/InGameUISubScenes/timer_panel.tscn" id="2_6vmd0"]
+[ext_resource type="PackedScene" uid="uid://b7sg7iky655mc" path="res://Scenes/InGameUISubScenes/task_bar.tscn" id="2_jj7yp"]
+[ext_resource type="PackedScene" uid="uid://v121yj4qv31i" path="res://Scenes/InGameUISubScenes/level_progress_bar.tscn" id="2_m00a7"]
+[ext_resource type="PackedScene" uid="uid://b5sqb848jv55a" path="res://Scenes/InGameUISubScenes/pocket_inventory.tscn" id="3_rrm0x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86nw1"]
+
+[node name="InGameUI" type="CanvasLayer" node_paths=PackedStringArray("timer_panel", "task_bar", "pocket_inventory", "level_progress_bar")]
+script = ExtResource("1_d072m")
+timer_panel = NodePath("MarginContainer/ScreenSplit/RestOfScreen/TimerPanel")
+task_bar = NodePath("MarginContainer/ScreenSplit/RestOfScreen/TaskBar")
+pocket_inventory = NodePath("MarginContainer/ScreenSplit/RestOfScreen/PocketInventory")
+level_progress_bar = NodePath("MarginContainer/ScreenSplit/ProgressSpace/LevelProgressBar")
+metadata/_custom_type_script = "uid://5dipfswld5ci"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="ScreenSplit" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ProgressSpace" type="MarginContainer" parent="MarginContainer/ScreenSplit"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_right = 80
+
+[node name="LevelProgressBar" parent="MarginContainer/ScreenSplit/ProgressSpace" instance=ExtResource("2_m00a7")]
+layout_mode = 2
+
+[node name="RestOfScreen" type="PanelContainer" parent="MarginContainer/ScreenSplit"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_86nw1")
+
+[node name="TimerPanel" parent="MarginContainer/ScreenSplit/RestOfScreen" instance=ExtResource("2_6vmd0")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TaskBar" parent="MarginContainer/ScreenSplit/RestOfScreen" instance=ExtResource("2_jj7yp")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="PocketInventory" parent="MarginContainer/ScreenSplit/RestOfScreen" instance=ExtResource("3_rrm0x")]
+layout_mode = 2
+pockets_amount = 5

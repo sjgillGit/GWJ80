@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://3g4q1f5mslvq"]
+
+[ext_resource type="Script" uid="uid://bedhk0u57v4f5" path="res://Scripts/Global/scene_transition.gd" id="1_tpt1y"]
+
+[node name="GlobalSceneTransition" type="CanvasLayer" node_paths=PackedStringArray("fading_texture")]
+script = ExtResource("1_tpt1y")
+fading_texture = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
