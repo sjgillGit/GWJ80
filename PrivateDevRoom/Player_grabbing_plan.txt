@@ -1,0 +1,23 @@
+Ray part:
+Ray checks for first collider
+If collider is GrabbableObject - pass reference to player (object_to_grab)
+
+Player's part:
+
+If carryign object:
+	pass it global position to try to move to
+
+On getting new object_to_grab:
+	Change old object_to_grab outline to black
+	If not null:
+		If can pick up that object
+			change it's outline to green
+		else:
+			change it's outline to red
+
+On pressing "pick/drop" button:
+	if carrying object:
+		drop object
+	else:
+		if there's object_to_grab and can_pick_it_up:
+			pick it up

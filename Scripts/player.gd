@@ -19,12 +19,23 @@ var is_running: bool = false
 var camera_look_input: Vector2
 
 @export_group("Grab Items Settings")
-@export var grab_distance: float = -10.0
-
-@export_group("Temp connections")
+@export var grab_distance: float = -5.0
+@export var pickup_mass_limit : float = 50.0
 @export var ray : RayCast3D
 
-var grabbed_item: GrabbableObject
+var object_to_grab : GrabbableObject :
+		set(new_object):
+			if !carrying_object:
+				if object_to_grab:
+					object_to_grab.change_outline_color(Color.BLACK)
+				if new_object:
+					if new_object.mass > pickup_mass_limit:
+						new_object.change_outline_color(Color.DARK_RED)
+					else:
+						new_object.change_outline_color(Color.DARK_GREEN)
+				object_to_grab = new_object
+
+var carrying_object: GrabbableObject
 
 # Assigned when node is initialized
 @onready var camera: Camera3D = get_node("Camera3D")
@@ -50,8 +61,9 @@ func _process(delta):
 	esc_to_show_mouse()
 	
 	#Apply grabbing items mechanic
-	grab_items(delta)
+	process_grabbed_object()
 
+#region Player movement
 
 func move_relative_to_mouse(delta: float):
 	var move_input: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backwards")
@@ -113,32 +125,34 @@ func esc_to_show_mouse():
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		camera_look_input = event.relative * look_sensitivity
+#endregion
 
-func set_grabbed_item(item: GrabbableObject):
-	if grabbed_item == null:
-		grabbed_item = item
-		item.get_grabbed()
+#region Player Object Grabbing
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.is_action_pressed("grab_item"):
+			if carrying_object:
+				drop_grabbable_object()
+			else:
+				if object_to_grab and object_to_grab.mass <= pickup_mass_limit:
+					grab_grabbable_object(object_to_grab)
 
-func grab_items(delta: float):
-	if grabbed_item != null:
-		# Get target position relative to point in front of camera
-		var target_position: Vector3 = camera.global_transform.origin + camera.global_transform.basis.z * grab_distance
-		
-		if grabbed_item is GrabbableObject:
-			grabbed_item.move_bubble(target_position)
-			print("player_trying_to_move_item")
-		## TODO: implement physics based hitting object feedback
-		## Smooth movement (adjust lerp speed)
-		#grabbed_item.global_transform.origin = grabbed_item.global_transform.origin.lerp(target_position, delta * 10)
-		## Match rotation to camera
-		#grabbed_item.global_transform.basis = camera.global_transform.basis
+func drop_grabbable_object():
+	carrying_object.get_dropped()
+	carrying_object.self_drop.disconnect(drop_grabbable_object)
+	carrying_object.can_sleep = true
+	carrying_object = null
 
-func drop_item():
-	grabbed_item.get_dropped()
-	
-	## TODO: implement drop and throw force according to how long player presses the release button
-	## Apply throw force using camera direction
-	#grabbed_item.linear_velocity = camera.global_transform.basis.z * -6
-	
-	# Clear reference
-	grabbed_item = null
+func grab_grabbable_object(to_grab : GrabbableObject):
+	to_grab.get_grabbed()
+	carrying_object = to_grab
+	to_grab.can_sleep = false
+	to_grab.self_drop.connect(drop_grabbable_object)
+
+func process_grabbed_object():
+	if carrying_object:
+		carrying_object.move_bubble(
+			camera.global_transform.origin + \
+			camera.global_transform.basis.z * grab_distance
+			)
+#endregion

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://byubivpj3vm2q"]
+
+[ext_resource type="PackedScene" uid="uid://s1v7yry4tael" path="res://Scenes/player.tscn" id="1_xvi5f"]
+[ext_resource type="PackedScene" uid="uid://dgdoqac35yqdd" path="res://PrivateDevRoom/Scenes/Classes/grabbable_object.tscn" id="4_nxqn7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6qvqt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dstt7"]
+size = Vector3(1000, 1, 1000)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7nc06"]
+
+[node name="PlayerScene" type="Node3D"]
+
+[node name="gound_example" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_6qvqt")
+
+[node name="ground_collision" type="CollisionShape3D" parent="gound_example"]
+shape = SubResource("BoxShape3D_dstt7")
+debug_color = Color(2.31028e-06, 0.271908, 0.743496, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="gound_example/ground_collision"]
+transform = Transform3D(498.7, 0, 0, 0, 82.286, 0, 0, 0, 498.7, 0, 0, 0)
+mesh = SubResource("PlaneMesh_7nc06")
+
+[node name="Player" parent="." instance=ExtResource("1_xvi5f")]
+
+[node name="GrabbableObject" parent="." instance=ExtResource("4_nxqn7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4748, -10.0827)
+
+[node name="GrabbableObject2" parent="." instance=ExtResource("4_nxqn7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3565, 4.4748, -10.0827)

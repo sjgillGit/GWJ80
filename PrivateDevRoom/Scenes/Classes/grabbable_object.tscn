@@ -16,10 +16,8 @@ material = SubResource("StandardMaterial3D_3nse8")
 size = Vector3(5, 5, 5)
 
 [node name="GrabbableObject" type="RigidBody3D" node_paths=PackedStringArray("mesh", "collision_shape")]
-mass = 10.0
+mass = 30.0
 script = ExtResource("1_3nse8")
-stiffness = 500.0
-damping = 20.0
 mesh = NodePath("MeshInstance3D")
 collision_shape = NodePath("CollisionShape3D")
 metadata/_custom_type_script = "uid://bmfxel2asr1k0"

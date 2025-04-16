@@ -17,9 +17,14 @@ extends RigidBody3D
 @export var mesh : MeshInstance3D
 @export var collision_shape : CollisionShape3D
 
+func _ready() -> void:
+	# make outline unique
+	if mesh and mesh is MeshInstance3D and mesh.material_overlay:
+		mesh.material_overlay = mesh.material_overlay.duplicate()
+
+
 func change_outline_color(new_color : Color = Color.BLACK) -> void:
-	if mesh and mesh is MeshInstance3D:
-		#var i2 = mesh.next_pass
+	if mesh and mesh is MeshInstance3D and mesh.material_overlay:
 		mesh.material_overlay.albedo_color = new_color
 
 #TODO Connect value reporting to MVP
@@ -28,4 +33,3 @@ func report_starting_value(amount : int) -> void:
 
 func report_value_loss(amount : int) -> void:
 	pass
-	print("Value loss: " , amount)
