@@ -1,0 +1,11 @@
+NPC States:
+Idle / Normal
+	walking by, possibly looking for items to steal in (var) radius
+NightIdle
+	walking directly into the house, search radius and chance to find desired item is greatly increased
+Get_the_item
+	walking to item and grabbing it
+Stolen item
+	Carrying item, quickly heading to exit
+Lost item
+	Not looking for new items, walks to exit at normal speed
