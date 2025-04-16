@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://mpih3ytlnet3"]
+
+[ext_resource type="Texture2D" uid="uid://bwq30dqu7mjgq" path="res://icon.svg" id="1_pw4pf"]
+[ext_resource type="Script" uid="uid://cqytjbk666801" path="res://Scripts/InGameUISubScenes/pocket_slot.gd" id="1_uhx2b"]
+[ext_resource type="Texture2D" uid="uid://gphkygwmqw3e" path="res://Assets/2D_Assets/Pockets_select.png" id="2_uhx2b"]
+
+[node name="Slot0" type="CenterContainer" node_paths=PackedStringArray("icon", "selected_border")]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_uhx2b")
+icon = NodePath("Icon")
+selected_border = NodePath("Icon/TextureRect")
+metadata/_custom_type_script = "uid://cqytjbk666801"
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_pw4pf")
+expand_mode = 1
+
+[node name="TextureRect" type="NinePatchRect" parent="Icon"]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uhx2b")
+draw_center = false
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6

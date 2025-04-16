@@ -70,3 +70,7 @@ drop_pocket_item={
 3d_physics/layer_1="Environment"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="NPC"
+
+[audio]
+
+buses/default_bus_layout="res://Assets/default_bus_layout.tres"

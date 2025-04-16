@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7sg7iky655mc"]
+
+[ext_resource type="Script" uid="uid://d0pvyesv2nor1" path="res://Scripts/InGameUISubScenes/task_bar.gd" id="1_cf2ov"]
+
+[node name="TaskBar" type="PanelContainer" node_paths=PackedStringArray("tasks_container")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_cf2ov")
+tasks_container = NodePath("VBoxContainer")
+metadata/_custom_type_script = "uid://d0pvyesv2nor1"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 3
