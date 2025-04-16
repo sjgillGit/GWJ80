@@ -75,7 +75,7 @@ func _process(delta):
 func handle_movement_animations():
 	print(player_animation.current_animation)
 	# If the animation player isn't playing a non-movement animation
-	if grabbed_item || player_animation.current_animation == "Drop_down":
+	if object_to_grab || player_animation.current_animation == "Drop_down":
 		return
 
 	if is_running:
