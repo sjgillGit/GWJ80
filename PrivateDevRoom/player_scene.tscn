@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://knybav6ck11e"]
+
+[ext_resource type="PackedScene" uid="uid://bg1o7x344k0vj" path="res://PrivateDevRoom/player.tscn" id="1_xvi5f"]
+[ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_xvi5f"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xvi5f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6qvqt"]
+size = Vector3(1000, 1, 1000)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nxqn7"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6qvqt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2vf5l"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xpltn"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvi5f"]
+albedo_color = Color(0.90063, 0.69289, 1, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_xvi5f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3681, 0, 0)
+shape = SubResource("BoxShape3D_6qvqt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("PlaneMesh_nxqn7")
+skeleton = NodePath("")
+
+[node name="GrabbableObject" type="RigidBody3D" parent="." node_paths=PackedStringArray("mesh", "collision_shape")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.59241, 0)
+physics_material_override = SubResource("PhysicsMaterial_6qvqt")
+script = ExtResource("2_xvi5f")
+drag_max_distance = 20.0
+mesh = NodePath("CollisionShape3D/MeshInstance3D")
+collision_shape = NodePath("CollisionShape3D")
+metadata/_custom_type_script = "uid://bmfxel2asr1k0"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrabbableObject"]
+shape = SubResource("BoxShape3D_2vf5l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GrabbableObject/CollisionShape3D"]
+mesh = SubResource("BoxMesh_xpltn")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_xvi5f")
+
+[node name="Player" parent="." instance=ExtResource("1_xvi5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.14257, 0.5, -5.89071)

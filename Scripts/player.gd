@@ -73,7 +73,6 @@ func _process(delta):
 #region Player movement
 
 func handle_movement_animations():
-	print(player_animation.current_animation)
 	# If the animation player isn't playing a non-movement animation
 	if object_to_grab || player_animation.current_animation == "Drop_down":
 		return

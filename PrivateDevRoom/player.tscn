@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cw48pihrhyut7"]
+[gd_scene load_steps=6 format=3 uid="uid://bg1o7x344k0vj"]
 
 [ext_resource type="Script" uid="uid://bexpo3jm6yb56" path="res://Scripts/player.gd" id="1_1sht0"]
-[ext_resource type="Script" uid="uid://cgqsmivsqrlr6" path="res://Scripts/interaction_ray_cast.gd" id="2_8iyu6"]
-[ext_resource type="PackedScene" uid="uid://m60ktnvxh2hq" path="res://PrivateDevRoom/player_model.tscn" id="2_hac05"]
+[ext_resource type="Script" uid="uid://qrkm5vtum6yi" path="res://Scripts/interaction_ray_cast.gd" id="2_8iyu6"]
+[ext_resource type="PackedScene" path="res://PrivateDevRoom/player_model.tscn" id="2_hac05"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dstt7"]
 height = 1.8
@@ -10,12 +10,13 @@ height = 1.8
 [sub_resource type="LabelSettings" id="LabelSettings_2vf5l"]
 font_size = 24
 
-[node name="Player" type="CharacterBody3D" groups=["Player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("ray") groups=["Player"]]
 script = ExtResource("1_1sht0")
 max_speed = 10.0
 acceleration = 20.0
 jump_velocity = 10.0
 look_sensitivity = 0.05
+ray = NodePath("Camera3D/InteractionRayCast")
 
 [node name="Player_model" parent="." instance=ExtResource("2_hac05")]
 unique_name_in_owner = true
