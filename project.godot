@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="GWJ80"
-run/main_scene="uid://byubivpj3vm2q"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
