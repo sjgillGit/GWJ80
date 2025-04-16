@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bmkrl043hr0i"
+path="res://.godot/imported/plastic pipe 1.wav-2a0f0790b2b9d1af38dd856947ff9142.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/plastic pipe 1.wav"
+dest_files=["res://.godot/imported/plastic pipe 1.wav-2a0f0790b2b9d1af38dd856947ff9142.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

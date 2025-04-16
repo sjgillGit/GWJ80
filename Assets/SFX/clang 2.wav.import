@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqxf4c83cn8aj"
+path="res://.godot/imported/clang 2.wav-16d410affc5e08b032e595ee32d05abf.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/clang 2.wav"
+dest_files=["res://.godot/imported/clang 2.wav-16d410affc5e08b032e595ee32d05abf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

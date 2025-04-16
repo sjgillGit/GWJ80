@@ -12,6 +12,7 @@ extends RigidBody3D
 		durability = new_value
 		
 @export_range(0.01, 100, 0.01) var fragility : float = 1
+@export var damage_sound : AudioStreamWAV = preload("res://Assets/SFX/thump 1.wav")
 
 @export_group("Internal connections")
 @export var mesh : MeshInstance3D
@@ -34,7 +35,7 @@ func _ready() -> void:
 func set_up_inv_timer() -> void:
 	collision_spam_prevention_timer = Timer.new()
 	collision_spam_prevention_timer.one_shot = true
-	collision_spam_prevention_timer.wait_time = 0.1
+	collision_spam_prevention_timer.wait_time = 0.5
 	add_child(collision_spam_prevention_timer)
 
 func change_outline_color(new_color : Color = Color.BLACK) -> void:
@@ -63,6 +64,7 @@ func _physics_process(delta: float) -> void:
 				count_damage_from_collision(impact_power, null)
 
 func count_damage_from_collision(impact : float, other_body):
+	print(impact)
 	if impact < 0.1:
 		return
 	var napkin_damage : float
@@ -70,6 +72,16 @@ func count_damage_from_collision(impact : float, other_body):
 		napkin_damage = mass * impact / other_body.mass * fragility
 	else:
 		napkin_damage = mass * impact / fragility
-	if napkin_damage > 0.3:
+	if napkin_damage > 3:
 		durability -= napkin_damage
 		collision_spam_prevention_timer.start()
+		play_damage_sound()
+
+
+func play_damage_sound():
+	var audio_player = AudioStreamPlayer3D.new()
+	audio_player.stream = damage_sound
+	add_child(audio_player)
+	audio_player.play()
+	await audio_player.finished
+	audio_player.queue_free()

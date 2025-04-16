@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b427b3td3ypp8"
+path="res://.godot/imported/thump 1.wav-70108a8d9163d3f9dfda858aea919bd6.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/thump 1.wav"
+dest_files=["res://.godot/imported/thump 1.wav-70108a8d9163d3f9dfda858aea919bd6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
