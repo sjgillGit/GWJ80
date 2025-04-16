@@ -26,12 +26,16 @@ var grabbed_item: GrabbableItem
 # Assigned when node is initialized
 @onready var camera: Camera3D = get_node("Camera3D")
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity") * gravity_mod
+@onready var player_animation: AnimationPlayer = get_node("Player_model/AnimationPlayer")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 #Called every physics frame
 func _process(delta):
+	#Handle movement animations
+	handle_movement_animations()
+
 	#Movement relative to mouse direction
 	move_relative_to_mouse(delta)
 
@@ -46,6 +50,23 @@ func _process(delta):
 	
 	#Apply grabbing items mechanic
 	grab_items(delta)
+
+
+func handle_movement_animations():
+	print(player_animation.current_animation)
+	# If the animation player isn't playing a non-movement animation
+	if grabbed_item || player_animation.current_animation == "Drop_down":
+		return
+
+	if is_running:
+		player_animation.play("Run")
+		return
+	elif Input.get_vector("move_left", "move_right", "move_forward", "move_backwards").is_zero_approx():
+		player_animation.play("Idle")
+		return
+	else:
+		player_animation.play("Walk")
+		return
 
 
 func move_relative_to_mouse(delta: float):
@@ -112,6 +133,9 @@ func _unhandled_input(event):
 func set_grabbed_item(item: GrabbableItem):
 	grabbed_item = item
 
+	# Play pick up animation
+	player_animation.play("Pick_up")
+
 func grab_items(delta: float):
 	if grabbed_item != null:
 		# Get target position relative to point in front of camera
@@ -130,3 +154,6 @@ func drop_item():
 	
 	# Clear reference
 	grabbed_item = null
+
+	# Play drop animation
+	player_animation.play("Drop_down")

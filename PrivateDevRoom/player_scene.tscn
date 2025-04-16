@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://byubivpj3vm2q"]
+[gd_scene load_steps=9 format=3 uid="uid://byubivpj3vm2q"]
 
-[ext_resource type="Script" uid="uid://bexpo3jm6yb56" path="res://Scripts/player.gd" id="1_7nc06"]
-[ext_resource type="Script" uid="uid://cgqsmivsqrlr6" path="res://Scripts/interaction_ray_cast.gd" id="2_6qvqt"]
+[ext_resource type="PackedScene" uid="uid://cw48pihrhyut7" path="res://PrivateDevRoom/player.tscn" id="1_xvi5f"]
 [ext_resource type="Script" uid="uid://behpobh6icjy5" path="res://Scripts/grabbable_item.gd" id="3_nxqn7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6qvqt"]
@@ -10,12 +9,6 @@
 size = Vector3(1000, 1, 1000)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7nc06"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dstt7"]
-height = 1.8
-
-[sub_resource type="LabelSettings" id="LabelSettings_2vf5l"]
-font_size = 24
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xvi5f"]
 
@@ -37,39 +30,7 @@ debug_color = Color(2.31028e-06, 0.271908, 0.743496, 1)
 transform = Transform3D(498.7, 0, 0, 0, 82.286, 0, 0, 0, 498.7, 0, 0, 0)
 mesh = SubResource("PlaneMesh_7nc06")
 
-[node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
-script = ExtResource("1_7nc06")
-max_speed = 10.0
-acceleration = 20.0
-jump_velocity = 10.0
-look_sensitivity = 0.05
-
-[node name="PlayerBodyExample" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-shape = SubResource("CapsuleShape3D_dstt7")
-debug_color = Color(0.854902, 0, 0.215686, 1)
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-current = true
-
-[node name="InteractionRayCast" type="RayCast3D" parent="Player/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
-target_position = Vector3(0, 0, -2)
-script = ExtResource("2_6qvqt")
-
-[node name="InteractionPromptLabel" type="Label" parent="Player/Camera3D/InteractionRayCast"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -206.0
-offset_right = 206.0
-offset_bottom = 74.0
-grow_horizontal = 2
-text = "Press E to Grab"
-label_settings = SubResource("LabelSettings_2vf5l")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Player" parent="." instance=ExtResource("1_xvi5f")]
 
 [node name="GrabbableItem" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.666, 7.03863, -12.454)
