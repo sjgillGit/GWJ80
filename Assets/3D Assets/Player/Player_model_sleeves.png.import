@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cusmjhejffuvd"
-path.s3tc="res://.godot/imported/Player_model_Arms 1.png-4914048364061bd5892dab5ab9d5e0e5.s3tc.ctex"
+uid="uid://cwfkc8rqar3ek"
+path.s3tc="res://.godot/imported/Player_model_sleeves.png-ec07e34168960a7b9a475501f6a7c212.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "7aadcdf86476beb3e10bf072f0a55b85"
+"md5": "854eb182861f334321c210b9e0e0151e"
 }
 
 [deps]
 
-source_file="res://PrivateDevRoom/assets/Player_model_Arms 1.png"
-dest_files=["res://.godot/imported/Player_model_Arms 1.png-4914048364061bd5892dab5ab9d5e0e5.s3tc.ctex"]
+source_file="res://Assets/3D Assets/Player/Player_model_sleeves.png"
+dest_files=["res://.godot/imported/Player_model_sleeves.png-ec07e34168960a7b9a475501f6a7c212.s3tc.ctex"]
 
 [params]
 

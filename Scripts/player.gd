@@ -45,6 +45,7 @@ var carrying_object: GrabbableObject
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity") * gravity_mod
 @onready var player_animation: AnimationPlayer = get_node("Player_model/AnimationPlayer")
 
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if ray:
@@ -74,7 +75,7 @@ func _process(delta):
 
 func handle_movement_animations():
 	# If the animation player isn't playing a non-movement animation
-	if object_to_grab || player_animation.current_animation == "Drop_down":
+	if carrying_object || player_animation.current_animation == "Drop_down":
 		return
 
 	if is_running:
@@ -171,11 +172,15 @@ func drop_grabbable_object():
 	carrying_object.can_sleep = true
 	carrying_object = null
 
+	player_animation.play("Drop_down")
+
 func grab_grabbable_object(to_grab : GrabbableObject):
 	to_grab.get_grabbed()
 	carrying_object = to_grab
 	to_grab.can_sleep = false
 	to_grab.self_drop.connect(drop_grabbable_object)
+
+	player_animation.play("Pick_up")
 
 func process_grabbed_object():
 	if carrying_object:
