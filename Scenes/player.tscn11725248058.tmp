@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://s1v7yry4tael"]
+
+[ext_resource type="Script" uid="uid://bexpo3jm6yb56" path="res://Scripts/player.gd" id="1_v0iea"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dstt7"]
+height = 1.8
+
+[sub_resource type="GDScript" id="GDScript_cvnsp"]
+script/source = "extends RayCast3D
+
+@onready var prompt_label: Label = get_node(\"InteractionPromptLabel\")
+
+var player : PlayerController
+
+func _process(_delta):
+	var object: Object = get_collider()
+	#prompt_label.text = \"\"
+
+	if object and object is GrabbableObject:
+		#prompt_label.text = \"[E] \" + object.interaction_prompt
+		player.object_to_grab = object
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_2vf5l"]
+font_size = 24
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("ray") groups=["Player"]]
+script = ExtResource("1_v0iea")
+max_speed = 10.0
+acceleration = 20.0
+jump_velocity = 10.0
+look_sensitivity = 0.05
+ray = NodePath("Camera3D/InteractionRayCast")
+
+[node name="PlayerBodyExample" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_dstt7")
+debug_color = Color(0.854902, 0, 0.215686, 1)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+current = true
+
+[node name="InteractionRayCast" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+target_position = Vector3(0, 0, -2)
+script = SubResource("GDScript_cvnsp")
+
+[node name="InteractionPromptLabel" type="Label" parent="Camera3D/InteractionRayCast"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -206.0
+offset_right = 206.0
+offset_bottom = 74.0
+grow_horizontal = 2
+text = "Press E to Grab"
+label_settings = SubResource("LabelSettings_2vf5l")
+horizontal_alignment = 1
+vertical_alignment = 1

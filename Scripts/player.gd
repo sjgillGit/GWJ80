@@ -19,9 +19,26 @@ var is_running: bool = false
 var camera_look_input: Vector2
 
 @export_group("Grab Items Settings")
-@export var grab_distance: float = -10.0
+@export var grab_distance: float = -5.0
+@export var pickup_mass_limit : float = 50.0
+@export var ray : RayCast3D
 
-var grabbed_item: GrabbableItem
+var object_to_grab : InteractableObject :
+		set(new_object):
+			if !carrying_object:
+				if object_to_grab:
+					object_to_grab.change_outline_color(Color.BLACK)
+				if new_object:
+					if new_object is GrabbableObject:
+						if new_object.mass > pickup_mass_limit:
+							new_object.change_outline_color(Color.DARK_RED)
+						else:
+							new_object.change_outline_color(Color.DARK_GREEN)
+					elif new_object is PocketableObject:
+						new_object.change_outline_color(Color.DARK_CYAN)
+				object_to_grab = new_object
+
+var carrying_object: GrabbableObject
 
 # Assigned when node is initialized
 @onready var camera: Camera3D = get_node("Camera3D")
@@ -30,6 +47,8 @@ var grabbed_item: GrabbableItem
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if ray:
+		ray.player = self
 
 #Called every physics frame
 func _process(delta):
@@ -49,8 +68,9 @@ func _process(delta):
 	esc_to_show_mouse()
 	
 	#Apply grabbing items mechanic
-	grab_items(delta)
+	process_grabbed_object()
 
+#region Player movement
 
 func handle_movement_animations():
 	print(player_animation.current_animation)
@@ -129,31 +149,48 @@ func esc_to_show_mouse():
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		camera_look_input = event.relative * look_sensitivity
+#endregion
 
-func set_grabbed_item(item: GrabbableItem):
-	grabbed_item = item
+#region Player Object Grabbing
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.is_action_pressed("grab_item"):
+			if carrying_object:
+				drop_grabbable_object()
+			else:
+				if object_to_grab and object_to_grab is GrabbableObject and \
+					object_to_grab.mass <= pickup_mass_limit:
+					grab_grabbable_object(object_to_grab)
+				elif object_to_grab is PocketableObject:
+					grab_pocket_item(object_to_grab)
+		elif event.is_action_pressed("drop_pocket_item"):
+			drop_pocket_item()
 
-	# Play pick up animation
-	player_animation.play("Pick_up")
+func drop_grabbable_object():
+	carrying_object.get_dropped()
+	carrying_object.self_drop.disconnect(drop_grabbable_object)
+	carrying_object.can_sleep = true
+	carrying_object = null
 
-func grab_items(delta: float):
-	if grabbed_item != null:
-		# Get target position relative to point in front of camera
-		var target_position: Vector3 = camera.global_transform.origin + camera.global_transform.basis.z * grab_distance
+func grab_grabbable_object(to_grab : GrabbableObject):
+	to_grab.get_grabbed()
+	carrying_object = to_grab
+	to_grab.can_sleep = false
+	to_grab.self_drop.connect(drop_grabbable_object)
 
-		# TODO: implement physics based hitting object feedback
-		# Smooth movement (adjust lerp speed)
-		grabbed_item.global_transform.origin = grabbed_item.global_transform.origin.lerp(target_position, delta * 10)
-		# Match rotation to camera
-		grabbed_item.global_transform.basis = camera.global_transform.basis
+func process_grabbed_object():
+	if carrying_object:
+		carrying_object.move_bubble(
+			camera.global_transform.origin + \
+			camera.global_transform.basis.z * grab_distance
+			)
 
-func drop_item():
-	# TODO: implement drop and throw force according to how long player presses the release button
-	# Apply throw force using camera direction
-	grabbed_item.linear_velocity = camera.global_transform.basis.z * -6
-	
-	# Clear reference
-	grabbed_item = null
+func grab_pocket_item(item : PocketableObject):
+	item.grab_in_pocket()
 
-	# Play drop animation
-	player_animation.play("Drop_down")
+func drop_pocket_item():
+	var item : PocketableObject # get from UI from selected slot.
+		#If no slot selected - try dropping slot 1 (default slot)
+	if item:
+		item.enable_existance(self)
+#endregion
