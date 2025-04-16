@@ -1,6 +1,4 @@
-class_name GrabbableItem
-
-extends InteractableItem
+extends Node3D
 
 @export var weight: float = 0.0
 # Durability should be changed from external scripts
@@ -10,44 +8,30 @@ extends InteractableItem
 	set(durability_in):
 		durability = durability_in
 		print("Durability has changed")
-@export var value: float = 0.0:
-	get:
-		return value
-	set(value_in):
-		value = value_in
-@export var obj_name: String = "placeholder":
-	get:
-		return obj_name
-	set(name_in):
-		obj_name = name_in
+@export var value: float = 0.0
+@export var obj_name: String = "placeholder"
 
 # Can object be pocketed
-@export var pocketable: bool = false:
-	get:
-		return pocketable
-	set(pocketable_in):
-		pocketable = pocketable_in
-		
-var is_grabbed: bool = false:
-	get:
-		return is_grabbed
-	set(grabbed_in):
-		is_grabbed = grabbed_in
+@export var pocketable: bool
+
+# Definition for what type of object this is to be
+@export var obj_asset: Node3D
 
 func _physics_process(delta: float) -> void:
 	pass
 
 func obj_pickup() -> void:
 	pass
-
+	
 func obj_highlight() -> void:
 	pass
 
 func take_damage(damage_val: float) -> void:
 	var dur = get("durability")
 	if damage_val >= dur:
+		#TODO finish logic when player scripts handle object grabbing
+		print("Implement breaking logic1")
 		set("durability", 0.0)
-		queue_free()
 	else:
 		dur -= damage_val
 		set("durability", dur)
