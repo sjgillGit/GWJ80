@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c38waj3eoqaox"]
+
+[resource]
+blend_mode = 4
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+texture_filter = 1
+texture_repeat = false
+grow = true
+grow_amount = 0.005
+point_size = 9.2
+distance_fade_min_distance = 10.0

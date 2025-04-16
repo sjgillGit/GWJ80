@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bel3u8vylnto0"]
 
-[ext_resource type="Script" uid="uid://bkg75d873j3i3" path="res://PrivateDevRoom/grabbable_object.gd" id="1_024no"]
+[ext_resource type="Script" uid="uid://bkg75d873j3i3" path="res://PrivateDevRoom/old_grabbable_object.gd" id="1_024no"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vd82q"]
 

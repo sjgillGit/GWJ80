@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://byubivpj3vm2q"]
+[gd_scene load_steps=13 format=3 uid="uid://byubivpj3vm2q"]
 
 [ext_resource type="Script" uid="uid://bexpo3jm6yb56" path="res://Scripts/player.gd" id="1_7nc06"]
 [ext_resource type="Script" uid="uid://cgqsmivsqrlr6" path="res://Scripts/interaction_ray_cast.gd" id="2_6qvqt"]
 [ext_resource type="Script" uid="uid://behpobh6icjy5" path="res://Scripts/grabbable_item.gd" id="3_nxqn7"]
+[ext_resource type="PackedScene" uid="uid://dgdoqac35yqdd" path="res://PrivateDevRoom/Scenes/Classes/grabbable_object.tscn" id="4_nxqn7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6qvqt"]
 
@@ -37,12 +38,13 @@ debug_color = Color(2.31028e-06, 0.271908, 0.743496, 1)
 transform = Transform3D(498.7, 0, 0, 0, 82.286, 0, 0, 0, 498.7, 0, 0, 0)
 mesh = SubResource("PlaneMesh_7nc06")
 
-[node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("ray") groups=["Player"]]
 script = ExtResource("1_7nc06")
 max_speed = 10.0
 acceleration = 20.0
 jump_velocity = 10.0
 look_sensitivity = 0.05
+ray = NodePath("Camera3D/InteractionRayCast")
 
 [node name="PlayerBodyExample" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -73,6 +75,7 @@ vertical_alignment = 1
 
 [node name="GrabbableItem" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.666, 7.03863, -12.454)
+visible = false
 mass = 10.0
 script = ExtResource("3_nxqn7")
 interaction_prompt = "to grab"
@@ -85,8 +88,15 @@ shape = SubResource("BoxShape3D_xvi5f")
 mesh = SubResource("BoxMesh_6qvqt")
 surface_material_override/0 = SubResource("StandardMaterial3D_nxqn7")
 
+[node name="GrabbableObject" parent="." instance=ExtResource("4_nxqn7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4748, -10.0827)
+
+[node name="GrabbableObject2" parent="." instance=ExtResource("4_nxqn7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3565, 4.4748, -10.0827)
+
 [node name="GrabbableItem2" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81975, 7.03863, -43.6414)
+visible = false
 mass = 100.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GrabbableItem2"]

@@ -86,7 +86,7 @@ Objects structure:
 
 
 Interactable Items:
-	Weight
+	Weight (Mass in RigidBody3D)
 	Value
 	Durability
 	Fragility

@@ -21,7 +21,10 @@ var camera_look_input: Vector2
 @export_group("Grab Items Settings")
 @export var grab_distance: float = -10.0
 
-var grabbed_item: GrabbableItem
+@export_group("Temp connections")
+@export var ray : RayCast3D
+
+var grabbed_item: GrabbableObject
 
 # Assigned when node is initialized
 @onready var camera: Camera3D = get_node("Camera3D")
@@ -29,6 +32,8 @@ var grabbed_item: GrabbableItem
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if ray:
+		ray.player = self
 
 #Called every physics frame
 func _process(delta):
@@ -109,24 +114,31 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		camera_look_input = event.relative * look_sensitivity
 
-func set_grabbed_item(item: GrabbableItem):
-	grabbed_item = item
+func set_grabbed_item(item: GrabbableObject):
+	if grabbed_item == null:
+		grabbed_item = item
+		item.get_grabbed()
 
 func grab_items(delta: float):
 	if grabbed_item != null:
 		# Get target position relative to point in front of camera
 		var target_position: Vector3 = camera.global_transform.origin + camera.global_transform.basis.z * grab_distance
-
-		# TODO: implement physics based hitting object feedback
-		# Smooth movement (adjust lerp speed)
-		grabbed_item.global_transform.origin = grabbed_item.global_transform.origin.lerp(target_position, delta * 10)
-		# Match rotation to camera
-		grabbed_item.global_transform.basis = camera.global_transform.basis
+		
+		if grabbed_item is GrabbableObject:
+			grabbed_item.move_bubble(target_position)
+			print("player_trying_to_move_item")
+		## TODO: implement physics based hitting object feedback
+		## Smooth movement (adjust lerp speed)
+		#grabbed_item.global_transform.origin = grabbed_item.global_transform.origin.lerp(target_position, delta * 10)
+		## Match rotation to camera
+		#grabbed_item.global_transform.basis = camera.global_transform.basis
 
 func drop_item():
-	# TODO: implement drop and throw force according to how long player presses the release button
-	# Apply throw force using camera direction
-	grabbed_item.linear_velocity = camera.global_transform.basis.z * -6
+	grabbed_item.get_dropped()
+	
+	## TODO: implement drop and throw force according to how long player presses the release button
+	## Apply throw force using camera direction
+	#grabbed_item.linear_velocity = camera.global_transform.basis.z * -6
 	
 	# Clear reference
 	grabbed_item = null

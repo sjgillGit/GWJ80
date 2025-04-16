@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgdoqac35yqdd"]
+
+[ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://PrivateDevRoom/Scripts/Classes/grabbable_object.gd" id="1_3nse8"]
+[ext_resource type="Texture2D" uid="uid://bwq30dqu7mjgq" path="res://icon.svg" id="2_73w13"]
+[ext_resource type="Material" uid="uid://c38waj3eoqaox" path="res://PrivateDevRoom/test_models/outline.tres" id="2_u0k55"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3nse8"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nse8"]
+blend_mode = 4
+albedo_texture = ExtResource("2_73w13")
+
+[sub_resource type="BoxMesh" id="BoxMesh_u0k55"]
+material = SubResource("StandardMaterial3D_3nse8")
+size = Vector3(5, 5, 5)
+
+[node name="GrabbableObject" type="RigidBody3D" node_paths=PackedStringArray("mesh", "collision_shape")]
+mass = 10.0
+script = ExtResource("1_3nse8")
+stiffness = 500.0
+damping = 20.0
+mesh = NodePath("MeshInstance3D")
+collision_shape = NodePath("CollisionShape3D")
+metadata/_custom_type_script = "uid://bmfxel2asr1k0"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3nse8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_overlay = ExtResource("2_u0k55")
+mesh = SubResource("BoxMesh_u0k55")
