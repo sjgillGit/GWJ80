@@ -14,6 +14,10 @@ config/name="GWJ80"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://Assets/default_bus_layout.tres"
+
 [global_group]
 
 Player=""
@@ -70,7 +74,3 @@ drop_pocket_item={
 3d_physics/layer_1="Environment"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="NPC"
-
-[audio]
-
-buses/default_bus_layout="res://Assets/default_bus_layout.tres"
