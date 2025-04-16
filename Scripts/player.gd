@@ -23,16 +23,19 @@ var camera_look_input: Vector2
 @export var pickup_mass_limit : float = 50.0
 @export var ray : RayCast3D
 
-var object_to_grab : GrabbableObject :
+var object_to_grab : InteractableObject :
 		set(new_object):
 			if !carrying_object:
 				if object_to_grab:
 					object_to_grab.change_outline_color(Color.BLACK)
 				if new_object:
-					if new_object.mass > pickup_mass_limit:
-						new_object.change_outline_color(Color.DARK_RED)
-					else:
-						new_object.change_outline_color(Color.DARK_GREEN)
+					if new_object is GrabbableObject:
+						if new_object.mass > pickup_mass_limit:
+							new_object.change_outline_color(Color.DARK_RED)
+						else:
+							new_object.change_outline_color(Color.DARK_GREEN)
+					elif new_object is PocketableObject:
+						new_object.change_outline_color(Color.DARK_CYAN)
 				object_to_grab = new_object
 
 var carrying_object: GrabbableObject
@@ -134,8 +137,13 @@ func _input(event: InputEvent) -> void:
 			if carrying_object:
 				drop_grabbable_object()
 			else:
-				if object_to_grab and object_to_grab.mass <= pickup_mass_limit:
+				if object_to_grab and object_to_grab is GrabbableObject and \
+					object_to_grab.mass <= pickup_mass_limit:
 					grab_grabbable_object(object_to_grab)
+				elif object_to_grab is PocketableObject:
+					grab_pocket_item(object_to_grab)
+		elif event.is_action_pressed("drop_pocket_item"):
+			drop_pocket_item()
 
 func drop_grabbable_object():
 	carrying_object.get_dropped()
@@ -155,4 +163,13 @@ func process_grabbed_object():
 			camera.global_transform.origin + \
 			camera.global_transform.basis.z * grab_distance
 			)
+
+func grab_pocket_item(item : PocketableObject):
+	item.grab_in_pocket()
+
+func drop_pocket_item():
+	var item : PocketableObject # get from UI from selected slot.
+		#If no slot selected - try dropping slot 1 (default slot)
+	if item:
+		item.enable_existance(self)
 #endregion

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://kr0a6imxw8x4"]
+
+[ext_resource type="Script" uid="uid://dwluy37jct5xj" path="res://PrivateDevRoom/Scripts/Classes/pocketable_object.gd" id="1_d5yn3"]
+[ext_resource type="Texture2D" uid="uid://bwq30dqu7mjgq" path="res://icon.svg" id="2_nj3ep"]
+
+[node name="PocketableObject" type="RigidBody3D"]
+script = ExtResource("1_d5yn3")
+icon = ExtResource("2_nj3ep")
+metadata/_custom_type_script = "uid://dwluy37jct5xj"
