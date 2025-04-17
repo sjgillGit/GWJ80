@@ -13,10 +13,10 @@ dest_files=["res://.godot/imported/Windows 2.glb-c9f91d90564dec07ebe16c692e6091e
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="StaticBody3D"
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=1.5
 nodes/import_as_skeleton_bones=false
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true

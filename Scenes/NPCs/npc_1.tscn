@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bikc1to5sd6d"]
+
+[ext_resource type="PackedScene" uid="uid://bc1d1183qy6ul" path="res://Assets/3D Assets/NPCs/NPC 1.glb" id="1_1oey7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nnii4"]
+radius = 0.25
+height = 1.8
+
+[node name="NPC 1" instance=ExtResource("1_1oey7")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(0, 0, 0)
+bones/2/rotation = Quaternion(0.0674546, 1.18938e-07, 8.04121e-09, 0.997722)
+bones/3/rotation = Quaternion(0.0110168, -0.0109203, -0.0164169, 0.999745)
+bones/4/rotation = Quaternion(-0.00121684, 0.00398926, -0.710946, 0.703234)
+bones/5/rotation = Quaternion(-0.0312935, 0.0402418, -0.631522, 0.77368)
+bones/6/rotation = Quaternion(0.0890013, -0.0157649, -0.050853, 0.994608)
+bones/7/rotation = Quaternion(-7.78678e-10, -4.01863e-08, -0.0107277, 0.999942)
+bones/8/rotation = Quaternion(-0.00121684, -0.00398926, 0.710946, 0.703234)
+bones/9/rotation = Quaternion(-0.290329, 0.087026, 0.434945, 0.847914)
+bones/10/rotation = Quaternion(0.348191, -0.565859, 0.349048, 0.660857)
+bones/11/rotation = Quaternion(-0.0132082, 0.446701, -0.119415, 0.88658)
+bones/12/position = Vector3(0, 0, 0)
+bones/12/rotation = Quaternion(-0.360953, -0.60804, -0.360953, 0.60804)
+bones/13/rotation = Quaternion(-0.859526, -0.0253303, -0.0150369, 0.510243)
+bones/14/rotation = Quaternion(-1.25242e-08, 7.31613e-10, 0.0213173, 0.999773)
+bones/15/rotation = Quaternion(-4.95485e-08, -6.01211e-09, -0.409142, 0.912471)
+bones/16/rotation = Quaternion(-5.06668e-08, -3.25383e-08, -0.318613, 0.947885)
+bones/17/position = Vector3(0, 0, 0)
+bones/17/rotation = Quaternion(-0.360953, 0.60804, 0.360953, 0.60804)
+bones/18/rotation = Quaternion(-0.859895, 0.00241104, 0.00143122, 0.510463)
+bones/19/rotation = Quaternion(-1.25242e-08, -7.31614e-10, -0.0213173, 0.999773)
+bones/20/rotation = Quaternion(-5.43667e-08, 6.10583e-09, 0.461466, 0.887158)
+bones/21/rotation = Quaternion(-5.06668e-08, 3.25383e-08, 0.318613, 0.947885)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.890154, -0.0794171)
+shape = SubResource("CapsuleShape3D_nnii4")
