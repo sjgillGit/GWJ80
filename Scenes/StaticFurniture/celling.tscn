@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv8cuqfjj51em"]
+
+[ext_resource type="PackedScene" uid="uid://drsx7db8xekd0" path="res://Assets/3D Assets/HouseBuildingBlocks/Celling.glb" id="1_btdq0"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_61sfg"]
+points = PackedVector3Array(-5.69248, -0.0791092, -5.69248, -5.69248, 0.0791092, -5.69248, 5.69248, -0.0791092, -5.69248, -5.69248, -0.0791092, 5.69248, -5.69248, 0.0791092, 5.69248, 5.69248, 0.0791092, -5.69248, 5.69248, -0.0791092, 5.69248, 5.69248, 0.0791092, 5.69248)
+
+[node name="Celling" instance=ExtResource("1_btdq0")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_61sfg")

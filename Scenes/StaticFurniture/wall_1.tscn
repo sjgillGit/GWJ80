@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2rmnkn10p1km"]
+
+[ext_resource type="PackedScene" uid="uid://dv1qbugg61s2j" path="res://Assets/3D Assets/HouseBuildingBlocks/Wall 1.glb" id="1_hvsi6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hvsi6"]
+size = Vector3(6.62201, 3.32478, 0.27771)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_igm87"]
+size = Vector3(6.62201, 0.128437, 0.0558472)
+
+[node name="Wall 1" instance=ExtResource("1_hvsi6")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015564, 1.66003, -0.00115967)
+shape = SubResource("BoxShape3D_hvsi6")
+debug_color = Color(0.801359, 0.0476112, 1, 0.42)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015564, 0.0618534, 0.165968)
+shape = SubResource("BoxShape3D_igm87")
+debug_color = Color(0.801359, 0.0476112, 1, 0.42)

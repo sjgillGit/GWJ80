@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://biljlu5wpcth7"]
+
+[ext_resource type="PackedScene" uid="uid://6sylvqhtysbq" path="res://Assets/3D Assets/Grabbables/Cardboard box 1.glb" id="1_sxcod"]
+[ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_7blvs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kv1m6"]
+size = Vector3(0.668635, 0.435213, 0.661333)
+
+[node name="Cardboard box 1" instance=ExtResource("1_sxcod")]
+script = ExtResource("2_7blvs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00197189, 0.21545, -0.0185669)
+shape = SubResource("BoxShape3D_kv1m6")

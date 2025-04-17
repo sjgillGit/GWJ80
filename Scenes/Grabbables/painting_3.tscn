@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpr0vmklxdatk"]
+
+[ext_resource type="PackedScene" uid="uid://dg03m62bxgxn8" path="res://Assets/3D Assets/Grabbables/Painting 3.glb" id="1_jhjtb"]
+[ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_ovm1o"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_aq0c7"]
+points = PackedVector3Array(0.546516, 0.0348368, 0.731183, -0.546516, 0.0348368, 0.731183, 0.546516, -0.0348368, 0.731183, 0.546516, 0.0348368, -0.731183, -0.546516, -0.0348368, 0.731183, -0.546516, 0.0348368, -0.731183, 0.546516, -0.0348368, -0.731183, -0.546516, -0.0348368, -0.731183)
+
+[node name="Painting 3" instance=ExtResource("1_jhjtb")]
+script = ExtResource("2_ovm1o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.72173, 0)
+shape = SubResource("ConvexPolygonShape3D_aq0c7")

@@ -64,7 +64,6 @@ func _physics_process(delta: float) -> void:
 				count_damage_from_collision(impact_power, null)
 
 func count_damage_from_collision(impact : float, other_body):
-	print(impact)
 	if impact < 0.1:
 		return
 	var napkin_damage : float
