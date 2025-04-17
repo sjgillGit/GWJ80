@@ -71,15 +71,6 @@ func select_previous_pocket() -> void:
 	# none of pockets selected, select first pocket
 	pockets[0].selected = true
 
-# TODO Adapt inventory selection to input map
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.is_pressed():
-			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-				select_next_pocket()
-			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-				select_previous_pocket()
-
 func drop_item_in_selected_slot():
 	for pocket in pockets:
 		if pocket.selected:
@@ -87,7 +78,7 @@ func drop_item_in_selected_slot():
 				return pocket.give_item()
 			return null
 
-func collect_item(item_to_collect) -> bool :
+func collect_item(item_to_collect : PocketableObject) -> bool :
 	for pocket in pockets:
 		if pocket.stored_item == null:
 			pocket.take_item(item_to_collect)
