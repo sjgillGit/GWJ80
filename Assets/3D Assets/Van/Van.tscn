@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=3 uid="uid://cq3q5p80ycuco"]
+
+[ext_resource type="Script" uid="uid://b7nlkgr67stbm" path="res://Scripts/objective_van.gd" id="1_sl4ce"]
+[ext_resource type="PackedScene" uid="uid://kppmuyxyw62b" path="res://Assets/3D Assets/Van/van.glb" id="1_vc0o8"]
+[ext_resource type="MeshLibrary" uid="uid://dk1qofg7q24h8" path="res://Assets/MeshLibrary/voxels_mesh_library.tres" id="2_tusgx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tusgx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vc0o8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sl4ce"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sl4ce"]
+size = Vector3(1, 1, 1.39)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6oxtg"]
+size = Vector3(1, 1, 1.38956)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sl4ce"]
+radius = 6.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sl4ce"]
+size = Vector3(2.7672, 3.54987, 2.61017)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tusgx"]
+size = Vector3(1.14336, 3.54987, 3.4241)
+
+[node name="RootVan" type="StaticBody3D" node_paths=PackedStringArray("tile_map", "placement_area", "collision_shape")]
+script = ExtResource("1_sl4ce")
+tile_map = NodePath("GridMap")
+placement_area = NodePath("van/PlacementArea")
+collision_shape = NodePath("van/PlacementArea/CollisionShape3D/MeshInstance3D")
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh_library = ExtResource("2_tusgx")
+physics_material = SubResource("PhysicsMaterial_tusgx")
+cell_size = Vector3(0.1, 0.1, 0.1)
+collision_layer = 16
+collision_mask = 16
+data = {
+"cells": PackedInt32Array(196602, 65534, 589825, 196603, 65534, 589825, 196604, 65534, 589825, 196605, 65534, 589825, 196606, 65534, 589825, 196607, 65534, 589825, 131072, 65534, 589825, 131073, 65534, 589825, 131074, 65534, 589825, 131075, 65534, 589825, 131075, 65533, 589825, 131076, 65533, 589825, 131077, 65534, 589825, 131077, 65535, 589825, 131078, 65533, 589825, 131077, 65533, 589825, 131076, 65534, 589825, 131076, 65535, 589825, 131075, 65535, 589825, 131074, 65535, 589825, 131073, 0, 589825, 131072, 0, 589825, 131072, 1, 589825, 196607, 1, 589825, 196607, 2, 589825, 131072, 2, 589825, 131072, 3, 589825, 196607, 3, 589825, 196607, 4, 589825, 196607, 5, 589825, 196606, 5, 589825, 196606, 6, 589825, 196606, 7, 589825, 196607, 7, 589825, 131072, 7, 589825, 196607, 8, 589825, 196606, 8, 589825, 196606, 9, 589825, 262140, 2, 589825, 262140, 3, 589825, 262141, 3, 589825, 262141, 4, 589825, 262142, 4, 589825, 262143, 4, 589825, 196608, 5, 589825, 196609, 5, 589825, 196610, 4, 589825, 196611, 4, 589825, 196610, 5, 589825, 196608, 6, 589825, 262143, 6, 589825, 262142, 6, 589825, 196609, 6, 589825, 262143, 7, 589825, 262142, 7, 589825, 262141, 7, 589825, 262140, 8, 589825, 262137, 9, 589825, 196611, 11, 589825, 196615, 10, 589825, 196612, 9, 589825, 196610, 8, 589825, 196609, 8, 589825, 196608, 8, 589825, 196608, 4, 589825, 262143, 5, 589825, 262142, 5, 589825, 262141, 5, 589825, 262140, 5, 589825, 196609, 4, 589825)
+}
+metadata/_editor_floor_ = Vector3(0, 3, 0)
+
+[node name="van" parent="." instance=ExtResource("1_vc0o8")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="PlacementArea" type="Area3D" parent="van"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696545, 1.84245)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="van/PlacementArea"]
+shape = SubResource("BoxShape3D_vc0o8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="van/PlacementArea/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00499141, 0.00486267, 0.000398755)
+material_override = SubResource("StandardMaterial3D_sl4ce")
+mesh = SubResource("BoxMesh_sl4ce")
+
+[node name="GridParent" type="Area3D" parent="van"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696545, 0.538312)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="van/GridParent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00155342, 0.0772043, 0.0119612)
+shape = SubResource("BoxShape3D_6oxtg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="van/GridParent/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00499141, 0.00486267, 0.000398755)
+visible = false
+material_override = SubResource("StandardMaterial3D_sl4ce")
+mesh = SubResource("BoxMesh_sl4ce")
+
+[node name="PlayerDetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionArea"]
+shape = SubResource("SphereShape3D_sl4ce")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.275, -2.159)
+visible = false
+shape = SubResource("BoxShape3D_sl4ce")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26826, 1.27493, 0.807222)
+visible = false
+shape = SubResource("BoxShape3D_tusgx")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3339, 1.27493, 0.807222)
+visible = false
+shape = SubResource("BoxShape3D_tusgx")
+
+[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_exited"]
+
+[editable path="van"]

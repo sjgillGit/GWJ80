@@ -19,7 +19,10 @@ var is_running: bool = false
 var camera_look_input: Vector2
 
 @export_group("Grab Items Settings")
-@export var grab_distance: float = -5.0
+@export var max_grab_distance: float = -15.0
+@export var min_grab_distance: float = -5.0
+@export var default_grab_distance: float = -4.0
+@export var current_hold_distance: float = default_grab_distance
 @export var pickup_mass_limit : float = 50.0
 @export var ray : RayCast3D
 
@@ -44,7 +47,6 @@ var carrying_object: GrabbableObject
 @onready var camera: Camera3D = get_node("Camera3D")
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity") * gravity_mod
 @onready var player_animation: AnimationPlayer = get_node("Player_model/AnimationPlayer")
-
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -165,12 +167,19 @@ func _input(event: InputEvent) -> void:
 					grab_pocket_item(object_to_grab)
 		elif event.is_action_pressed("drop_pocket_item"):
 			drop_pocket_item()
+	elif event is InputEvent:
+		# Sets the distance of the grabbed object based on mouse wheel scroll
+		detect_scroll_to_set_distance(event)
+		
 
 func drop_grabbable_object():
 	carrying_object.get_dropped()
 	carrying_object.self_drop.disconnect(drop_grabbable_object)
 	carrying_object.can_sleep = true
 	carrying_object = null
+
+	# Resets holding distance
+	current_hold_distance = default_grab_distance
 
 	player_animation.play("Drop_down")
 
@@ -180,13 +189,16 @@ func grab_grabbable_object(to_grab : GrabbableObject):
 	to_grab.can_sleep = false
 	to_grab.self_drop.connect(drop_grabbable_object)
 
+	# Resets holding distance
+	current_hold_distance = -camera.global_position.distance_to(carrying_object.global_position)
+
 	player_animation.play("Pick_up")
 
 func process_grabbed_object():
 	if carrying_object:
 		carrying_object.move_bubble(
 			camera.global_transform.origin + \
-			camera.global_transform.basis.z * grab_distance
+			camera.global_transform.basis.z * current_hold_distance
 			)
 
 func grab_pocket_item(item : PocketableObject):
@@ -197,4 +209,22 @@ func drop_pocket_item():
 		#If no slot selected - try dropping slot 1 (default slot)
 	if item:
 		item.enable_existance(self)
+
+func detect_scroll_to_set_distance(event: InputEvent) -> void:
+	var new_grab_distance: float
+	# TODO: check why mouse wheel scroll up always drops objects
+	if event.is_action_released("mouse_wheel_up"):
+		new_grab_distance = current_hold_distance - 0.5
+
+		if new_grab_distance >= max_grab_distance:
+			current_hold_distance = max_grab_distance
+		else:
+			current_hold_distance = new_grab_distance	
+	elif event.is_action_released("mouse_wheel_down"):
+		new_grab_distance = current_hold_distance + 0.5
+
+		if new_grab_distance <= min_grab_distance:
+			current_hold_distance = min_grab_distance
+		else:
+			current_hold_distance = new_grab_distance
 #endregion
