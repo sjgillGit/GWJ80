@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctfdxqams0thq"]
+
+[ext_resource type="PackedScene" uid="uid://bwlqo5erx807h" path="res://Assets/3D Assets/Neighborhood/Road.glb" id="1_cpoe1"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nr3p7"]
+points = PackedVector3Array(-6.09735, 0.000921804, -2.74878, -6.09735, 0.160988, -2.74878, 6.09735, 0.000921804, -2.74878, -6.09735, 0.000921804, 2.74878, -6.09735, 0.160988, 2.74878, 6.09735, 0.160988, -2.74878, 6.09735, 0.000921804, 2.74878, 6.09735, 0.160988, 2.74878)
+
+[node name="Road" instance=ExtResource("1_cpoe1")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.213297, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_nr3p7")

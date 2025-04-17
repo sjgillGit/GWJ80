@@ -1,14 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://48umg052nfnw"]
+[gd_scene load_steps=19 format=3 uid="uid://48umg052nfnw"]
 
 [ext_resource type="PackedScene" uid="uid://bg1o7x344k0vj" path="res://PrivateDevRoom/player.tscn" id="1_xvi5f"]
 [ext_resource type="AudioStream" uid="uid://q8vyujupcike" path="res://Assets/SFX/shatter 1.wav" id="2_6qvqt"]
 [ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_xvi5f"]
 [ext_resource type="PackedScene" uid="uid://kxkha4ojhku6" path="res://Scenes/Grabbables/table.tscn" id="7_r8xaa"]
 [ext_resource type="PackedScene" uid="uid://bdpb46do8ukk" path="res://Scenes/Grabbables/baseball.tscn" id="7_wlo5a"]
-[ext_resource type="PackedScene" uid="uid://bkqrssfnte0pj" path="res://Scenes/StaticFurniture/floor_1.tscn" id="8_7h42e"]
+[ext_resource type="PackedScene" uid="uid://bkqrssfnte0pj" path="res://Scenes/StaticEnvironment/floor_1.tscn" id="8_7h42e"]
 [ext_resource type="PackedScene" uid="uid://doyf3yr2657id" path="res://Scenes/Grabbables/boombox.tscn" id="8_r8xaa"]
-[ext_resource type="PackedScene" uid="uid://n7yx7bt2metu" path="res://Scenes/StaticFurniture/shelf.tscn" id="9_7h42e"]
-[ext_resource type="PackedScene" uid="uid://d2rmnkn10p1km" path="res://Scenes/StaticFurniture/wall_1.tscn" id="9_ycyu3"]
+[ext_resource type="PackedScene" uid="uid://n7yx7bt2metu" path="res://Scenes/StaticEnvironment/shelf.tscn" id="9_7h42e"]
+[ext_resource type="PackedScene" uid="uid://d2rmnkn10p1km" path="res://Scenes/StaticEnvironment/wall_1.tscn" id="9_ycyu3"]
+[ext_resource type="PackedScene" uid="uid://b5kfr5k8cov30" path="res://Scenes/StaticEnvironment/lamp.tscn" id="10_ycyu3"]
+[ext_resource type="PackedScene" uid="uid://cv8cuqfjj51em" path="res://Scenes/StaticEnvironment/celling.tscn" id="11_pxq72"]
+[ext_resource type="PackedScene" uid="uid://ckmnw2q3lrapg" path="res://Scenes/StaticEnvironment/sidewalk.tscn" id="12_okso6"]
+[ext_resource type="PackedScene" uid="uid://ctfdxqams0thq" path="res://Scenes/StaticEnvironment/road.tscn" id="13_4l74l"]
+[ext_resource type="PackedScene" uid="uid://wbwrnwg11atf" path="res://Assets/3D Assets/Neighborhood/Stop sign.glb" id="14_dx1ba"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6qvqt"]
 
@@ -56,6 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.53517, 0.128013, -40.4956)
 
 [node name="Table" parent="." instance=ExtResource("7_r8xaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.45226, 0.0545925, -43.5839)
+stiffness = 1000.0
 
 [node name="Floor 1" parent="." instance=ExtResource("8_7h42e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89327, 9.53674e-07, -41.7454)
@@ -69,14 +75,55 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7007, 9.53674e-07, -50.089
 [node name="Floor 3" parent="." instance=ExtResource("8_7h42e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7078, 9.53674e-07, -41.7454)
 
+[node name="Floor 10" parent="." instance=ExtResource("8_7h42e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7078, 9.53674e-07, -37.5924)
+
+[node name="Floor 11" parent="." instance=ExtResource("8_7h42e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7078, 9.53674e-07, -33.4521)
+
+[node name="Floor 12" parent="." instance=ExtResource("8_7h42e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7078, 9.53674e-07, -29.3137)
+
 [node name="Floor 4" parent="." instance=ExtResource("8_7h42e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6968, 1.90735e-06, -45.9098)
 
 [node name="Floor 2" parent="." instance=ExtResource("8_7h42e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.86472, 0, -45.9219)
 
+[node name="Floor 7" parent="." instance=ExtResource("8_7h42e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10746, 0, -49.7014)
+
+[node name="Floor 8" parent="." instance=ExtResource("8_7h42e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10746, 0, -45.646)
+
+[node name="Floor 9" parent="." instance=ExtResource("8_7h42e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10746, 0, -41.9646)
+
 [node name="Wall 1" parent="." instance=ExtResource("9_ycyu3")]
 transform = Transform3D(-8.32702e-08, 0, -1, 0, 1, 0, 1.905, 0, -4.37114e-08, 16.4775, 0, -45.8851)
 
 [node name="Wall 2" parent="." instance=ExtResource("9_ycyu3")]
 transform = Transform3D(1.905, 0, 0, 0, 1, 0, 0, 0, 1, 10.4775, 0, -51.8851)
+
+[node name="Wall 3" parent="." instance=ExtResource("9_ycyu3")]
+transform = Transform3D(-1.905, 0, 8.74228e-08, 0, 1, 0, -1.6654e-07, 0, -1, 5.40953, 0, -39.7418)
+
+[node name="Wall 4" parent="." instance=ExtResource("9_ycyu3")]
+transform = Transform3D(1.905, 0, 0, 0, 1, 0, 0, 0, 1, 5.40344, 0, -39.7354)
+
+[node name="GridMap" type="GridMap" parent="."]
+
+[node name="Lamp" parent="." instance=ExtResource("10_ycyu3")]
+transform = Transform3D(-0.988565, 0, -0.150795, 0, 1, 0, 0.150795, 0, -0.988565, 0.363162, 0.194874, -59.5229)
+
+[node name="Celling" parent="." instance=ExtResource("11_pxq72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.96936, 3.8969, -45.8837)
+
+[node name="Sidewalk" parent="." instance=ExtResource("12_okso6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39217, 0, -52.1094)
+
+[node name="Road" parent="." instance=ExtResource("13_4l74l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.18519, 0, -63.7972)
+
+[node name="Stop sign" parent="." instance=ExtResource("14_dx1ba")]
+transform = Transform3D(0.0519565, 0, 2.99455, 0, 2.995, 0, -2.99455, 0, 0.0519565, -0.814738, 0.0646544, -61.1014)

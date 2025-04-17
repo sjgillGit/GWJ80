@@ -9,6 +9,7 @@ size = Vector3(6.62201, 3.32478, 0.27771)
 size = Vector3(6.62201, 0.128437, 0.0558472)
 
 [node name="Wall 1" instance=ExtResource("1_hvsi6")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015564, 1.66003, -0.00115967)
