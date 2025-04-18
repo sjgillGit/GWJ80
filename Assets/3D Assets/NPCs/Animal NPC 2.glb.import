@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bf276ehqcb0r"
-path="res://.godot/imported/NPC 3.glb-24baa6cfc14237cd66909bc5a21e06da.scn"
+uid="uid://bpafefs4vcjsb"
+path="res://.godot/imported/Animal NPC 2.glb-c9313725659a3dfd3de4d62fc4ae07bd.scn"
 
 [deps]
 
-source_file="res://Assets/3D Assets/NPCs/NPC 3.glb"
-dest_files=["res://.godot/imported/NPC 3.glb-24baa6cfc14237cd66909bc5a21e06da.scn"]
+source_file="res://Assets/3D Assets/NPCs/Animal NPC 2.glb"
+dest_files=["res://.godot/imported/Animal NPC 2.glb-c9313725659a3dfd3de4d62fc4ae07bd.scn"]
 
 [params]
 
 nodes/root_type="CharacterBody3D"
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=1.2
+nodes/root_scale=0.75
 nodes/import_as_skeleton_bones=false
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true

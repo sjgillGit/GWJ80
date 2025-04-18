@@ -1,6 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://47biixrqx30t"]
+[gd_scene load_steps=35 format=3 uid="uid://47biixrqx30t"]
 
-[ext_resource type="Script" uid="uid://cfbvn3hmfllby" path="res://Scenes/DayNight/day_night_light.gd" id="1_j6p1u"]
+[ext_resource type="PackedScene" uid="uid://x4n1u0yvhq6c" path="res://Scenes/DayNight/day_night_controller.tscn" id="1_w0qe7"]
 [ext_resource type="PackedScene" uid="uid://bg1o7x344k0vj" path="res://PrivateDevRoom/player.tscn" id="1_xvi5f"]
 [ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_xvi5f"]
 [ext_resource type="PackedScene" uid="uid://kxkha4ojhku6" path="res://Scenes/Grabbables/table.tscn" id="7_r8xaa"]
@@ -22,6 +22,11 @@
 [ext_resource type="PackedScene" uid="uid://duhhtgtyh0mmn" path="res://Scenes/NPCs/npc_5.tscn" id="20_7bvcc"]
 [ext_resource type="PackedScene" uid="uid://dhwtwsuoudulh" path="res://Scenes/StaticEnvironment/windows_1.tscn" id="21_j6p1u"]
 [ext_resource type="PackedScene" uid="uid://cqe227xldt4bp" path="res://Scenes/StaticEnvironment/windows_2.tscn" id="22_dubux"]
+[ext_resource type="PackedScene" uid="uid://funqt52qtw2y" path="res://Assets/3D Assets/NPCs/Animal NPC 1.glb" id="23_pl6v4"]
+[ext_resource type="PackedScene" uid="uid://bpafefs4vcjsb" path="res://Assets/3D Assets/NPCs/Animal NPC 2.glb" id="24_iyhjq"]
+[ext_resource type="PackedScene" uid="uid://j5js63j8i0g6" path="res://Assets/3D Assets/NPCs/Animal NPC 3.glb" id="25_hdlmm"]
+[ext_resource type="PackedScene" uid="uid://dd33y6uds6wp3" path="res://Assets/3D Assets/NPCs/Animal NPC 4.glb" id="26_tyyuk"]
+[ext_resource type="PackedScene" uid="uid://dkx85c0wwm8e4" path="res://Assets/3D Assets/NPCs/Animal NPC 5.glb" id="27_r3lss"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j6p1u"]
 
@@ -48,20 +53,7 @@ albedo_color = Color(0.90063, 0.69289, 1, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dubux")
 
-[node name="DayNightController" type="DirectionalLight3D" parent="." node_paths=PackedStringArray("worldEnvironment", "nightLight")]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-light_energy = 0.0
-shadow_enabled = true
-script = ExtResource("1_j6p1u")
-worldEnvironment = NodePath("../WorldEnvironment")
-nightLight = NodePath("DirectionalLight3D")
-speedMultiplier = 25.0
-dayColor = Color(0.81272, 0.739029, 0.504405, 1)
-sunsetColor = Color(0.999997, 0.340697, 0.695914, 1)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DayNightController"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-light_color = Color(0.437799, 0.616361, 1, 1)
+[node name="DayNightController" parent="." instance=ExtResource("1_w0qe7")]
 
 [node name="GrabbableObject" type="RigidBody3D" parent="." node_paths=PackedStringArray("mesh", "collision_shape")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.28905, 2.05899, -43.759)
@@ -191,3 +183,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.13565, 0.446257, -52.1121)
 
 [node name="Windows 4" parent="." instance=ExtResource("22_dubux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.13565, 0.446257, -51.7359)
+
+[node name="Animal NPC 1" parent="." instance=ExtResource("23_pl6v4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.93181, 0.171672, -59.6074)
+
+[node name="Animal NPC 2" parent="." instance=ExtResource("24_iyhjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.112833, -59.5843)
+
+[node name="Animal NPC 3" parent="." instance=ExtResource("25_hdlmm")]
+transform = Transform3D(-0.00202457, 0, -0.999998, 0, 1, 0, 0.999998, 0, -0.00202457, 8, 0.130227, -58)
+
+[node name="Animal NPC 4" parent="." instance=ExtResource("26_tyyuk")]
+transform = Transform3D(-0.471043, 0, -0.88211, 0, 1, 0, 0.88211, 0, -0.471043, 7.89709, 0.171671, -55.0989)
+
+[node name="Animal NPC 5" parent="." instance=ExtResource("27_r3lss")]
+transform = Transform3D(-0.617763, 0, -0.786364, 0, 1, 0, 0.786364, 0, -0.617763, 7.27182, 0.239823, -54.1387)
