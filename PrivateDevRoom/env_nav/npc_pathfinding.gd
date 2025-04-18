@@ -34,13 +34,22 @@ var holding_object: bool = false:
 var paths = []
 
 # The purpose is to get random range of coordinates npc wants to go towards
-func set_random_path_list():
+func set_random_path_list() -> Array:
 	var path_list = []
-	for i in range(len(number_of_locations)):
+	if number_of_locations <= 0:
+		push_error("Number of locations must be greater than zero.")
+		return path_list
+
+	for i in range(number_of_locations):
+		if lower_x >= upper_x or lower_y >= upper_y or lower_z >= upper_z:
+			push_error("Lower bounds must be less than upper bounds.")
+			return path_list
+
 		var x = randf_range(lower_x, upper_x)
 		var y = randf_range(lower_y, upper_y)
 		var z = randf_range(lower_z, upper_z)
 		path_list.append(Vector3(x, y, z))
+	
 	return path_list
 
 func _ready() -> void:

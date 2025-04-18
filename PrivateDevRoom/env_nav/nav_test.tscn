@@ -1,23 +1,36 @@
-[gd_scene load_steps=9 format=3 uid="uid://caib07rjonumi"]
+[gd_scene load_steps=13 format=3 uid="uid://caib07rjonumi"]
 
-[ext_resource type="Script" uid="uid://d2112k28t46qy" path="res://PrivateDevRoom/env_nav/npc_pathfinding.gd" id="1_02u15"]
+[ext_resource type="PackedScene" uid="uid://35kgdu08kukq" path="res://PrivateDevRoom/env_nav/test_npc.tscn" id="1_iiwat"]
+[ext_resource type="PackedScene" uid="uid://dbccdbgxduanj" path="res://PrivateDevRoom/env_nav/npc_entrance.tscn" id="2_iiwat"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_02u15"]
 vertices = PackedVector3Array(-13, 0.75, 0, -7, 0.75, 0, -6.25, 0.75, -2, -5.25, 0.75, -2.5, -3.25, 0.75, -13, -13, 0.75, -13, -3.25, 0.75, -2.5, 3.5, 0.75, -2.5, 3.5, 0.75, -13, 6.5, 0.75, -2, 7.25, 0.75, 0, 13, 0.75, 0, 5.5, 0.75, -2.5, 13, 0.75, -13, -6.25, 0.75, 2.25, -13, 0.75, 13, -4, 0.75, 13, -3.75, 0.75, 2.75, 6.25, 0.75, 2.25, 4, 0.75, 13, 13, 0.75, 13, 3.75, 0.75, 2.75)
 polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 5), PackedInt32Array(3, 5, 4), PackedInt32Array(4, 6, 3), PackedInt32Array(4, 8, 6), PackedInt32Array(6, 8, 7), PackedInt32Array(11, 10, 9), PackedInt32Array(9, 12, 11), PackedInt32Array(11, 12, 13), PackedInt32Array(13, 12, 8), PackedInt32Array(12, 7, 8), PackedInt32Array(1, 14, 0), PackedInt32Array(0, 14, 15), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 17), PackedInt32Array(10, 11, 18), PackedInt32Array(18, 11, 20), PackedInt32Array(18, 20, 19), PackedInt32Array(19, 21, 18), PackedInt32Array(17, 21, 16), PackedInt32Array(16, 21, 19)]
 agent_radius = 2.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02u15"]
+albedo_color = Color(0.299547, 0.299547, 0.299547, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_6q3ud"]
+material = SubResource("StandardMaterial3D_02u15")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_02u15"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iiwat"]
+albedo_color = Color(0.662452, 0.662452, 0.662452, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_02u15"]
+material = SubResource("StandardMaterial3D_iiwat")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iiwat"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_02u15"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_14sbu"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iiwat"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3e0n"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ef4aq"]
+material = SubResource("StandardMaterial3D_q3e0n")
 
 [node name="NavTest" type="Node3D"]
 
@@ -52,26 +65,26 @@ mesh = SubResource("BoxMesh_02u15")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("BoxShape3D_iiwat")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_iiwat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00302792, 1.40019, 11.1912)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("1_02u15")
-speed = 15.0
-destination = Vector3(0, 0, -10)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
-mesh = SubResource("CapsuleMesh_02u15")
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21574, -4.45618)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("CapsuleShape3D_iiwat")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_14sbu")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
-navigation_layers = 3
-avoidance_enabled = true
-use_3d_avoidance = true
-avoidance_layers = 3
-avoidance_mask = 3
-debug_enabled = true
-debug_use_custom = true
-debug_path_custom_color = Color(4.52429e-06, 0, 0.871864, 1)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_ef4aq")
+
+[node name="NpcEntrance" parent="." instance=ExtResource("2_iiwat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3465, 0.25, -12.8727)
+
+[node name="NpcEntrance2" parent="." instance=ExtResource("2_iiwat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2562, 0.25, 12.8584)
+
+[node name="NpcEntrance3" parent="." instance=ExtResource("2_iiwat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5833, 0.25, 12.3769)
+
+[node name="NpcEntrance4" parent="." instance=ExtResource("2_iiwat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1957, 0.250001, -12.5603)
