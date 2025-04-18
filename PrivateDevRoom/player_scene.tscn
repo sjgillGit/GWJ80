@@ -23,7 +23,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_xvi5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.14257, 0.5, -5.89071)
+transform = Transform3D(-0.930654, 0, -0.3659, 0, 1, 0, 0.3659, 0, -0.930654, -8.14257, 0.5, -5.89071)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_nxqn7")
@@ -37,7 +37,7 @@ mesh = SubResource("PlaneMesh_wlo5a")
 skeleton = NodePath("../..")
 
 [node name="Van" parent="." instance=ExtResource("3_6qvqt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.34356, 1.02908, 1.62455)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0404, 0)
 
 [node name="Baseball" parent="." instance=ExtResource("3_nxqn7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68167, 0.870234, -3.12578)

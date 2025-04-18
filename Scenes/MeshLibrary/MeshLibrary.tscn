@@ -8,16 +8,16 @@
 
 [node name="MeshLibrary" type="Node3D"]
 
-[node name="BusyVoxel" parent="." instance=ExtResource("1_cop4n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
-
 [node name="EmptyVoxel" parent="." instance=ExtResource("2_vtejd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
 
-[node name="GhostDoesntFitVoxel" parent="." instance=ExtResource("3_30gyo")]
+[node name="BusyVoxel" parent="." instance=ExtResource("1_cop4n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
 
 [node name="GhostFitVoxel" parent="." instance=ExtResource("4_3k7i0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
+
+[node name="GhostDoesntFitVoxel" parent="." instance=ExtResource("3_30gyo")]
 
 [node name="GhostForceDoesntFitVoxel" parent="." instance=ExtResource("5_g7fb0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0)
