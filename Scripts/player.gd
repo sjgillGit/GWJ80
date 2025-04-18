@@ -158,11 +158,11 @@ func _input(event: InputEvent) -> void:
 			if carrying_object:
 				drop_grabbable_object()
 			else:
-				if object_to_grab and object_to_grab is GrabbableObject and \
-					object_to_grab.mass <= pickup_mass_limit:
-					grab_grabbable_object(object_to_grab)
-				elif object_to_grab is PocketableObject:
-					grab_pocket_item(object_to_grab)
+				if object_to_grab:
+					if object_to_grab is GrabbableObject and object_to_grab.mass <= pickup_mass_limit:
+						grab_grabbable_object(object_to_grab)
+					elif object_to_grab is PocketableObject:
+						grab_pocket_item(object_to_grab)
 		elif event.is_action_pressed("drop_pocket_item"):
 			drop_pocket_item()
 
