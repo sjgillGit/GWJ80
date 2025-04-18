@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/NPC 1.glb-b214e93585fee6ab854808e563da2816.sc
 
 [params]
 
-nodes/root_type="Node3D"
+nodes/root_type="RigidBody3D"
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.2

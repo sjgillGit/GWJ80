@@ -8,6 +8,7 @@ points = PackedVector3Array(-2.1562e-05, 0.110152, -2.1562e-05, -2.1562e-05, 0.1
 
 [node name="Baseball" instance=ExtResource("1_fis2u")]
 script = ExtResource("2_85v4r")
+damage_sound = "res://Assets/SFX/thump 2.wav"
 
 [node name="Cube" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

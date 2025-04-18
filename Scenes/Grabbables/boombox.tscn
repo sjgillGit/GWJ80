@@ -11,6 +11,7 @@ points = PackedVector3Array(-0.283602, 0.0930812, 0.0123407, 0.0119354, 0.093065
 
 [node name="Boombox" instance=ExtResource("1_bf448")]
 script = ExtResource("2_yt2lp")
+damage_sound = "res://Assets/SFX/plastic pipe 1.wav"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0395359, 0.0305914, 0.147568)

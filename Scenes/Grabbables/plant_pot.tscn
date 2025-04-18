@@ -14,6 +14,7 @@ points = PackedVector3Array(-0.0647852, 0.250529, -1.25095e-05, -0.0617032, 0.25
 
 [node name="plant pot" instance=ExtResource("1_rdcm5")]
 script = ExtResource("2_lrg4q")
+damage_sound = "res://Assets/SFX/plastic pipe 2.wav"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0108424, 0.0180029, -0.0151839)

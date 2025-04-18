@@ -7,18 +7,20 @@ radius = 0.25
 height = 1.8
 
 [node name="NPC 1" instance=ExtResource("1_1oey7")]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(0, 0, 0)
 bones/2/rotation = Quaternion(0.0674546, 1.18938e-07, 8.04121e-09, 0.997722)
 bones/3/rotation = Quaternion(0.0110168, -0.0109203, -0.0164169, 0.999745)
-bones/4/rotation = Quaternion(-0.00121684, 0.00398926, -0.710946, 0.703234)
-bones/5/rotation = Quaternion(-0.0312935, 0.0402418, -0.631522, 0.77368)
+bones/4/rotation = Quaternion(-0.00240428, 0.00788234, -0.692124, 0.721731)
+bones/5/rotation = Quaternion(-0.0252052, 0.0423284, -0.655754, 0.753366)
 bones/6/rotation = Quaternion(0.0890013, -0.0157649, -0.050853, 0.994608)
 bones/7/rotation = Quaternion(-7.78678e-10, -4.01863e-08, -0.0107277, 0.999942)
-bones/8/rotation = Quaternion(-0.00121684, -0.00398926, 0.710946, 0.703234)
+bones/8/rotation = Quaternion(-0.00240428, -0.00788234, 0.692124, 0.721731)
 bones/9/rotation = Quaternion(-0.290329, 0.087026, 0.434945, 0.847914)
-bones/10/rotation = Quaternion(0.348191, -0.565859, 0.349048, 0.660857)
+bones/10/rotation = Quaternion(0.347245, -0.564912, 0.382863, 0.643204)
 bones/11/rotation = Quaternion(-0.0132082, 0.446701, -0.119415, 0.88658)
 bones/12/position = Vector3(0, 0, 0)
 bones/12/rotation = Quaternion(-0.360953, -0.60804, -0.360953, 0.60804)

@@ -8,6 +8,7 @@ size = Vector3(0.605408, 0.414612, 0.613892)
 
 [node name="Cardboard box 2" instance=ExtResource("1_h5w7u")]
 script = ExtResource("2_5olsu")
+damage_sound = "res://Assets/SFX/thump 2.wav"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0106506, 0.193939, -0.0494995)
