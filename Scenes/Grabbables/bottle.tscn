@@ -8,6 +8,7 @@ points = PackedVector3Array(-0.0458626, 0.10046, -7.45058e-09, -0.0424148, 0.100
 
 [node name="Bottle" instance=ExtResource("1_8luuj")]
 script = ExtResource("2_g50yc")
+damage_sound = "res://Assets/SFX/shatter 1.wav"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00853203, 0)

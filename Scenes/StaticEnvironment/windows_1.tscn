@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhwtwsuoudulh"]
+
+[ext_resource type="PackedScene" uid="uid://4402o21nrwbe" path="res://Assets/3D Assets/HouseBuildingBlocks/Windows 1.glb" id="1_8e7m4"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_q0wqn"]
+points = PackedVector3Array(0.917833, 1.82015, 0.104615, 0.917833, -0.0156921, 0.104615, 0.917833, 1.82015, -0.104635, -0.918012, 1.82015, 0.104615, 0.917833, -0.0156921, -0.104635, -0.918012, -0.0156921, 0.104615, -0.918012, 1.82015, -0.104635, -0.918012, -0.0156921, -0.104635)
+
+[node name="Windows 1" instance=ExtResource("1_8e7m4")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.134437)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.134437)
+shape = SubResource("ConvexPolygonShape3D_q0wqn")

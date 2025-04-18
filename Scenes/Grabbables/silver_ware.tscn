@@ -8,6 +8,7 @@ points = PackedVector3Array(0.267378, 0.112114, 0.314244, -0.267378, 0.112114, 0
 
 [node name="Silver ware" instance=ExtResource("1_mcw5h")]
 script = ExtResource("2_gxx87")
+damage_sound = "res://Assets/SFX/clang 1.wav"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0186099, 0.0350707, -0.00626207)

@@ -17,6 +17,8 @@ size = Vector3(4.54001, 0.200531, 2.11252)
 
 [node name="Table" instance=ExtResource("1_4v8od")]
 script = ExtResource("2_70boy")
+drag_max_distance = 4.0
+stiffness = 100.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06289, 0.516497, 0.865952)

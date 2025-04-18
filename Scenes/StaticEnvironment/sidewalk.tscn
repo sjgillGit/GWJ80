@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckmnw2q3lrapg"]
+
+[ext_resource type="PackedScene" uid="uid://ot0rb1015ybw" path="res://Assets/3D Assets/Neighborhood/Sidewalk.glb" id="1_jsf0i"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_864rl"]
+points = PackedVector3Array(-5.44281, -0.0214608, -9.18131, -5.44281, 0.136372, -9.18131, 5.44281, -0.0214608, -9.18131, -5.44281, -0.0214608, 0.178591, -5.44281, 0.136372, 0.178591, 5.44281, 0.136372, -9.18131, 5.44281, -0.0214608, 0.178591, 5.44281, 0.136372, 0.178591)
+
+[node name="Sidewalk" instance=ExtResource("1_jsf0i")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.035315, 0.0444822)
+shape = SubResource("ConvexPolygonShape3D_864rl")

@@ -8,6 +8,7 @@ size = Vector3(0.801392, 0.0513306, 0.559631)
 
 [node name="Laptop" instance=ExtResource("1_uvxuk")]
 script = ExtResource("2_ilwax")
+damage_sound = "res://Assets/SFX/clang 2.wav"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10352e-05, 0.00643921, 0.185699)
