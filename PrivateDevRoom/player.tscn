@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bg1o7x344k0vj"]
 
 [ext_resource type="Script" uid="uid://bexpo3jm6yb56" path="res://Scripts/player.gd" id="1_1sht0"]
-[ext_resource type="Script" path="res://Scripts/interaction_ray_cast.gd" id="2_8iyu6"]
+[ext_resource type="Script" uid="uid://qrkm5vtum6yi" path="res://Scripts/interaction_ray_cast.gd" id="2_8iyu6"]
 [ext_resource type="PackedScene" uid="uid://m60ktnvxh2hq" path="res://Assets/3D Assets/Player/player_model.tscn" id="2_hac05"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dstt7"]
@@ -24,6 +24,7 @@ transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0.7
 
 [node name="Skeleton3D" parent="Player_model/Armature" index="0"]
 bones/0/position = Vector3(0, 0, 0)
+bones/0/rotation = Quaternion(-2.98023e-08, 0, 0, 1)
 bones/1/position = Vector3(0.188975, 0.328465, -0.0189862)
 bones/1/rotation = Quaternion(-2.66926e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/2/rotation = Quaternion(1.42526e-09, 2.13759e-07, -0.0103076, 0.999947)

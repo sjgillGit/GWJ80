@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://u3aeonjndy3o"]
+
+[ext_resource type="PackedScene" uid="uid://dpylyyhlhkw0w" path="res://Assets/3D Assets/NeighborhoodHouses/House 1.glb" id="1_bwodd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xo6ey"]
+size = Vector3(18.7011, 11.0408, 42.8485)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ebe22"]
+size = Vector3(21.3817, 11.0408, 41.5553)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kpxnk"]
+size = Vector3(12.5516, 11.0408, 15.818)
+
+[node name="House 1" instance=ExtResource("1_bwodd")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.138208, 5.02039, -12.1139)
+shape = SubResource("BoxShape3D_xo6ey")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.7849, 5.02039, -22.7736)
+shape = SubResource("BoxShape3D_ebe22")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16.8245, 5.02039, -10.6756)
+shape = SubResource("BoxShape3D_kpxnk")

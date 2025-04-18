@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bc4o3am5xt67h"
-path="res://.godot/imported/Pocket watch.glb-97e1b0e03519e8593d9ce704bd689913.scn"
+uid="uid://xfhcnrge3yll"
+path="res://.godot/imported/House 3.glb-04eaf0bb03b43f3d94330a3f5ee9d4f2.scn"
 
 [deps]
 
-source_file="res://Assets/3D Assets/Grabbables/Pocket watch.glb"
-dest_files=["res://.godot/imported/Pocket watch.glb-97e1b0e03519e8593d9ce704bd689913.scn"]
+source_file="res://Assets/3D Assets/NeighborhoodHouses/House 3.glb"
+dest_files=["res://.godot/imported/House 3.glb-04eaf0bb03b43f3d94330a3f5ee9d4f2.scn"]
 
 [params]
 
-nodes/root_type="RigidBody3D"
+nodes/root_type="StaticBody3D"
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=0.75
 nodes/import_as_skeleton_bones=false
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
