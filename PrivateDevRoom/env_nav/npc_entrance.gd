@@ -3,7 +3,8 @@ extends Marker3D
 
 
 @export var available_npcs : Array[PackedScene] = [
-    preload("res://PrivateDevRoom/env_nav/test_npc.tscn")
+    preload("res://PrivateDevRoom/env_nav/test_npc.tscn"),
+    preload("res://PrivateDevRoom/env_nav/burglar.tscn")
 ]
 @export var max_number_of_npcs : int = 5
 @export var max_spawn_wait_time : float = 3.0

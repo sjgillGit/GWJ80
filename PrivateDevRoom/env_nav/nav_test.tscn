@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://caib07rjonumi"]
+[gd_scene load_steps=14 format=3 uid="uid://caib07rjonumi"]
 
 [ext_resource type="PackedScene" uid="uid://35kgdu08kukq" path="res://PrivateDevRoom/env_nav/test_npc.tscn" id="1_iiwat"]
+[ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_14sbu"]
 [ext_resource type="PackedScene" uid="uid://dbccdbgxduanj" path="res://PrivateDevRoom/env_nav/npc_entrance.tscn" id="2_iiwat"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_02u15"]
@@ -69,7 +70,8 @@ shape = SubResource("BoxShape3D_iiwat")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00302792, 1.40019, 11.1912)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21574, -4.45618)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21574, 5.72161)
+script = ExtResource("2_14sbu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("BoxShape3D_14sbu")

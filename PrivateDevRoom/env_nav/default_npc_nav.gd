@@ -19,11 +19,14 @@ extends CharacterBody3D
 
 
 var destination: Vector3 = Vector3.ZERO
+var parent_entrance: Node3D
+var available_points: Array[Node]
 
 func _ready() -> void:
-	## TODO - Make it so that the random point cannot be the one we spawned at
-	var available_points = get_tree().get_nodes_in_group("NPC_Entrance")
-	destination = available_points[randi() % available_points.size()].global_position
+	parent_entrance = get_parent()
+	_set_exit()
+
+func _set_navigation_target() -> void:
 	nav.set_target_position(destination)
 
 func _physics_process(_delta: float) -> void:
@@ -41,3 +44,9 @@ func _fade_out() -> void:
 func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
 	velocity = safe_velocity
 	move_and_slide()
+
+func _set_exit():
+	available_points = get_tree().get_nodes_in_group("NPC_Entrance")
+	available_points.erase(parent_entrance)
+	destination = available_points[randi() % available_points.size()].global_position
+	_set_navigation_target()
