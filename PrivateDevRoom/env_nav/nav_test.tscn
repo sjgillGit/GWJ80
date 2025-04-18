@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://d2112k28t46qy" path="res://PrivateDevRoom/env_nav/npc_pathfinding.gd" id="1_02u15"]
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_6q3ud"]
-vertices = PackedVector3Array(-14.5, 0.75, 0, -5.5, 0.75, 0, -5.25, 0.75, -1, -3.25, 0.75, -14.5, -14.5, 0.75, -14.5, -3.25, 0.75, -1, 3.5, 0.75, -1, 3.5, 0.75, -14.5, 5.5, 0.75, -1, 5.75, 0.75, 0, 14.5, 0.75, 0, 14.5, 0.75, -14.5, -5.25, 0.75, 1.25, -14.5, 0.75, 14.5, -4, 0.75, 14.5, -3.75, 0.75, 1.25, 5.25, 0.75, 1.25, 4, 0.75, 14.5, 14.5, 0.75, 14.5, 3.75, 0.75, 1.25)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(3, 5, 2), PackedInt32Array(3, 7, 5), PackedInt32Array(5, 7, 6), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(11, 8, 7), PackedInt32Array(8, 6, 7), PackedInt32Array(1, 12, 0), PackedInt32Array(0, 12, 13), PackedInt32Array(13, 12, 14), PackedInt32Array(12, 15, 14), PackedInt32Array(9, 10, 16), PackedInt32Array(16, 10, 18), PackedInt32Array(16, 18, 17), PackedInt32Array(17, 19, 16), PackedInt32Array(15, 19, 14), PackedInt32Array(14, 19, 17)]
+[sub_resource type="NavigationMesh" id="NavigationMesh_02u15"]
+vertices = PackedVector3Array(-13, 0.75, 0, -7, 0.75, 0, -6.25, 0.75, -2, -5.25, 0.75, -2.5, -3.25, 0.75, -13, -13, 0.75, -13, -3.25, 0.75, -2.5, 3.5, 0.75, -2.5, 3.5, 0.75, -13, 6.5, 0.75, -2, 7.25, 0.75, 0, 13, 0.75, 0, 5.5, 0.75, -2.5, 13, 0.75, -13, -6.25, 0.75, 2.25, -13, 0.75, 13, -4, 0.75, 13, -3.75, 0.75, 2.75, 6.25, 0.75, 2.25, 4, 0.75, 13, 13, 0.75, 13, 3.75, 0.75, 2.75)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 5), PackedInt32Array(3, 5, 4), PackedInt32Array(4, 6, 3), PackedInt32Array(4, 8, 6), PackedInt32Array(6, 8, 7), PackedInt32Array(11, 10, 9), PackedInt32Array(9, 12, 11), PackedInt32Array(11, 12, 13), PackedInt32Array(13, 12, 8), PackedInt32Array(12, 7, 8), PackedInt32Array(1, 14, 0), PackedInt32Array(0, 14, 15), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 17), PackedInt32Array(10, 11, 18), PackedInt32Array(18, 11, 20), PackedInt32Array(18, 20, 19), PackedInt32Array(19, 21, 18), PackedInt32Array(17, 21, 16), PackedInt32Array(16, 21, 19)]
+agent_radius = 2.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_6q3ud"]
 
@@ -28,8 +29,8 @@ transform = Transform3D(0.994969, 0.0420146, 0.0909529, -0.0921105, 0.740726, 0.
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00302792, -4.76837e-07, 0.0377234)
-navigation_mesh = SubResource("NavigationMesh_6q3ud")
-navigation_layers = 3
+navigation_mesh = SubResource("NavigationMesh_02u15")
+navigation_layers = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
 transform = Transform3D(30, 0, 0, 0, 0.5, 0, 0, 0, 30, 0, 0, 0)
@@ -51,33 +52,26 @@ mesh = SubResource("BoxMesh_02u15")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("BoxShape3D_iiwat")
 
-[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="NavigationRegion3D/MeshInstance3D2"]
-vertices = PackedVector3Array(0.520945, 0, -0.196841, 0.507905, 0, 0.573609, -0.448522, 0, 0.649202, -0.476059, 0, -0.228885)
-affect_navigation_mesh = true
-avoidance_layers = 2
-use_3d_avoidance = true
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33444, 11.1535)
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00302792, 1.40019, 11.1912)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_02u15")
 speed = 15.0
 destination = Vector3(0, 0, -10)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/CharacterBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
 mesh = SubResource("CapsuleMesh_02u15")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_iiwat")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="NavigationRegion3D/CharacterBody3D"]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
 navigation_layers = 3
 avoidance_enabled = true
-height = 10.0
-radius = 10.0
-neighbor_distance = 10.0
 use_3d_avoidance = true
-avoidance_layers = 2
-avoidance_mask = 2
+avoidance_layers = 3
+avoidance_mask = 3
 debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(4.52429e-06, 0, 0.871864, 1)

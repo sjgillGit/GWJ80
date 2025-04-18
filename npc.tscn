@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6au2w5mnmlyi"]
+
+[ext_resource type="Script" uid="uid://d2112k28t46qy" path="res://PrivateDevRoom/env_nav/npc_pathfinding.gd" id="1_ideak"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v7lw1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ideak"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_ideak")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_v7lw1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_ideak")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
