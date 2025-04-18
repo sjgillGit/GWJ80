@@ -26,6 +26,8 @@ var camera_look_input: Vector2
 @export var pickup_mass_limit : float = 50.0
 @export var ray : RayCast3D
 
+signal on_pick_up_object
+
 var object_to_grab : InteractableObject :
 		set(new_object):
 			if !carrying_object:
@@ -173,11 +175,12 @@ func _input(event: InputEvent) -> void:
 		
 
 func drop_grabbable_object():
-	carrying_object.get_dropped()
-	carrying_object.self_drop.disconnect(drop_grabbable_object)
-	carrying_object.can_sleep = true
-	carrying_object = null
-
+	if carrying_object != null:
+		carrying_object.get_dropped()
+		carrying_object.self_drop.disconnect(drop_grabbable_object)
+		carrying_object.can_sleep = true
+		carrying_object = null
+		
 	# Resets holding distance
 	current_hold_distance = default_grab_distance
 
@@ -193,6 +196,8 @@ func grab_grabbable_object(to_grab : GrabbableObject):
 	current_hold_distance = -camera.global_position.distance_to(carrying_object.global_position)
 
 	player_animation.play("Pick_up")
+
+	on_pick_up_object.emit()
 
 func process_grabbed_object():
 	if carrying_object:

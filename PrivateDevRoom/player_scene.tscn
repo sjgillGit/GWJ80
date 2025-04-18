@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://knybav6ck11e"]
+[gd_scene load_steps=11 format=3 uid="uid://48umg052nfnw"]
 
 [ext_resource type="PackedScene" uid="uid://bg1o7x344k0vj" path="res://PrivateDevRoom/player.tscn" id="1_xvi5f"]
 [ext_resource type="PackedScene" uid="uid://cq3q5p80ycuco" path="res://Assets/3D Assets/Van/Van.tscn" id="3_6qvqt"]
@@ -23,7 +23,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_xvi5f")]
-transform = Transform3D(-0.930654, 0, -0.3659, 0, 1, 0, 0.3659, 0, -0.930654, -8.14257, 0.5, -5.89071)
+transform = Transform3D(-0.930654, 0, -0.3659, 0, 1, 0, 0.3659, 0, -0.930654, -12.0519, 0.5, -7.56838)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_nxqn7")
@@ -36,20 +36,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.311582, 0.719937, -0.13786
 mesh = SubResource("PlaneMesh_wlo5a")
 skeleton = NodePath("../..")
 
-[node name="Van" parent="." instance=ExtResource("3_6qvqt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0404, 0)
-
 [node name="Baseball" parent="." instance=ExtResource("3_nxqn7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68167, 0.870234, -3.12578)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1521, 0.870234, -3.12578)
 
 [node name="Baseball bat" parent="." instance=ExtResource("4_2vf5l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2186, 0.752659, -2.61074)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.689, 0.752659, -2.61074)
 
 [node name="Boombox" parent="." instance=ExtResource("5_wlo5a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.79328, 0.713708, -3.7472)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2637, 0.713708, -3.7472)
 
 [node name="Bottle" parent="." instance=ExtResource("6_r8xaa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19801, 0.718548, -2.82741)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6684, 0.718548, -2.82741)
 
 [node name="chair" parent="." instance=ExtResource("7_7h42e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27697, 1.24345, -2.44847)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7474, 1.24345, -2.44847)
+
+[node name="RootVan" parent="." instance=ExtResource("3_6qvqt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01031, 1.03587, -0.146681)
