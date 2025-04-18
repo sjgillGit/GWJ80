@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://x4n1u0yvhq6c"]
+
+[ext_resource type="Script" uid="uid://cfbvn3hmfllby" path="res://Scenes/DayNight/day_night_light.gd" id="1_1e40d"]
+
+[node name="DayNightController" type="DirectionalLight3D" node_paths=PackedStringArray("worldEnvironment", "nightLight")]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+light_energy = 0.0
+shadow_enabled = true
+script = ExtResource("1_1e40d")
+worldEnvironment = NodePath("")
+nightLight = NodePath("DirectionalLight3D")
+speedMultiplier = 25.0
+dayColor = Color(0.81272, 0.739029, 0.504405, 1)
+sunsetColor = Color(0.999997, 0.340697, 0.695914, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+light_color = Color(0.437799, 0.616361, 1, 1)

@@ -77,6 +77,21 @@ bones/50/rotation = Quaternion(-3.72529e-09, -2.13128e-14, 1.52656e-15, 1)
 bones/51/rotation = Quaternion(0.474726, 0.00417909, -0.00417945, 0.880114)
 bones/52/rotation = Quaternion(0.344746, -0.0350166, 0.1013, 0.932557)
 
+[node name="Cube" parent="Player_model/Armature/Skeleton3D" index="0"]
+cast_shadow = 0
+
+[node name="Cube_001" parent="Player_model/Armature/Skeleton3D" index="1"]
+cast_shadow = 0
+
+[node name="Cube_002" parent="Player_model/Armature/Skeleton3D" index="2"]
+cast_shadow = 0
+
+[node name="Cube_003" parent="Player_model/Armature/Skeleton3D" index="3"]
+cast_shadow = 0
+
+[node name="Cube_005" parent="Player_model/Armature/Skeleton3D" index="4"]
+cast_shadow = 0
+
 [node name="AnimationPlayer" parent="Player_model" index="1"]
 autoplay = "Idle"
 
