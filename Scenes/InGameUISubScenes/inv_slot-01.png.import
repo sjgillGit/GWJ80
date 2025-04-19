@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxuglxq83eqdr"
-path.s3tc="res://.godot/imported/Animal NPC 2_bear nose.png-ff93a6effac9e0bb66fb87b03a93df5f.s3tc.ctex"
+uid="uid://dpudppj61beaq"
+path="res://.godot/imported/inv_slot-01.png-5cdb883733bd72f730d36d6c66c35708.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/3D Assets/NPCs/Animal NPC 2_bear nose.png"
-dest_files=["res://.godot/imported/Animal NPC 2_bear nose.png-ff93a6effac9e0bb66fb87b03a93df5f.s3tc.ctex"]
+source_file="res://Scenes/InGameUISubScenes/inv_slot-01.png"
+dest_files=["res://.godot/imported/inv_slot-01.png-5cdb883733bd72f730d36d6c66c35708.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

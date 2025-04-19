@@ -6,6 +6,7 @@ extends DirectionalLight3D
 var sky: ProceduralSkyMaterial
 
 @export_group("Time")
+@export var cutoffHour: float = 22.0
 @export var currentTime: float = 480.0
 @export var speedMultiplier: float = 1.0
 @export var secondsPerMinute: float = 1.0
@@ -32,6 +33,8 @@ var colorToLerp: Color
 var daylightDuration: float
 var totalGameMinutes: float
 var myRotation: float
+
+signal nightTime
 
 ## Use these to determine in-game time
 var hours: int
@@ -98,4 +101,7 @@ func _physics_process(delta):
 		
 func update_clock():
 	hours = int(currentTime / 60)
+	if (hours > cutoffHour):
+		speedMultiplier = 0
+		nightTime.emit()
 	minutes = int(currentTime) % 60
