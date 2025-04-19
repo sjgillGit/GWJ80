@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dck81xfxqp0ph"]
+
+[ext_resource type="PackedScene" uid="uid://dorkyt62yfnnp" path="res://Scenes/Voxels/Busy.tscn" id="1_cop4n"]
+[ext_resource type="PackedScene" uid="uid://rv544tg80l7y" path="res://Scenes/Voxels/EmptyVoxel.tscn" id="2_vtejd"]
+[ext_resource type="PackedScene" uid="uid://bv855u2s2mlpj" path="res://Scenes/Voxels/Ghost_Doesnt_Fit.tscn" id="3_30gyo"]
+[ext_resource type="PackedScene" uid="uid://ccwxdi0iceo0d" path="res://Scenes/Voxels/Ghost_Fit.tscn" id="4_3k7i0"]
+[ext_resource type="PackedScene" uid="uid://bdsh63lvlxfn6" path="res://Scenes/Voxels/Ghost_Force_Doesnt_Fit.tscn" id="5_g7fb0"]
+
+[node name="MeshLibrary" type="Node3D"]
+
+[node name="EmptyVoxel" parent="." instance=ExtResource("2_vtejd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+
+[node name="BusyVoxel" parent="." instance=ExtResource("1_cop4n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+
+[node name="GhostFitVoxel" parent="." instance=ExtResource("4_3k7i0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
+
+[node name="GhostDoesntFitVoxel" parent="." instance=ExtResource("3_30gyo")]
+
+[node name="GhostForceDoesntFitVoxel" parent="." instance=ExtResource("5_g7fb0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0)

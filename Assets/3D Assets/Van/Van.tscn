@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://cq3q5p80ycuco"]
+
+[ext_resource type="Script" uid="uid://b7nlkgr67stbm" path="res://Scripts/objective_van.gd" id="1_sl4ce"]
+[ext_resource type="PackedScene" uid="uid://kppmuyxyw62b" path="res://Assets/3D Assets/Van/van.glb" id="1_vc0o8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vc0o8"]
+size = Vector3(0.9, 1, 1.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sl4ce"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sl4ce"]
+size = Vector3(0.9, 1, 1.4)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sl4ce"]
+radius = 7.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sl4ce"]
+size = Vector3(2.7672, 3.54987, 5.97728)
+
+[node name="RootVan" type="StaticBody3D" node_paths=PackedStringArray("collision_shape")]
+script = ExtResource("1_sl4ce")
+collision_shape = NodePath("van/PlacementArea/CollisionShape3D/MeshInstance3D")
+
+[node name="van" parent="." instance=ExtResource("1_vc0o8")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="PlacementArea" type="Area3D" parent="van"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696545, 2.12086)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="van/PlacementArea"]
+shape = SubResource("BoxShape3D_vc0o8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="van/PlacementArea/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00499141, 0.00486267, 0.000398755)
+material_override = SubResource("StandardMaterial3D_sl4ce")
+mesh = SubResource("BoxMesh_sl4ce")
+
+[node name="PlayerDetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionArea"]
+shape = SubResource("SphereShape3D_sl4ce")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.339, -0.302374)
+shape = SubResource("BoxShape3D_sl4ce")
+
+[connection signal="body_entered" from="van/PlacementArea" to="." method="_on_placement_area_body_entered"]
+[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_exited"]
+
+[editable path="van"]
