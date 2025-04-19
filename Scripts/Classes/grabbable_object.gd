@@ -9,6 +9,7 @@ extends InteractableObject
 
 var to_follow_global_position : Vector3
 var is_grabbed : bool = false
+var been_stolen : bool = false
 signal self_drop
 
 # temp var
