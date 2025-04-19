@@ -9,19 +9,19 @@ vertices = PackedVector3Array(-13, 0.75, 0, -7, 0.75, 0, -6.25, 0.75, -2, -5.25,
 polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 5), PackedInt32Array(3, 5, 4), PackedInt32Array(4, 6, 3), PackedInt32Array(4, 8, 6), PackedInt32Array(6, 8, 7), PackedInt32Array(11, 10, 9), PackedInt32Array(9, 12, 11), PackedInt32Array(11, 12, 13), PackedInt32Array(13, 12, 8), PackedInt32Array(12, 7, 8), PackedInt32Array(1, 14, 0), PackedInt32Array(0, 14, 15), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 17), PackedInt32Array(10, 11, 18), PackedInt32Array(18, 11, 20), PackedInt32Array(18, 20, 19), PackedInt32Array(19, 21, 18), PackedInt32Array(17, 21, 16), PackedInt32Array(16, 21, 19)]
 agent_radius = 2.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02u15"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14sbu"]
 albedo_color = Color(0.299547, 0.299547, 0.299547, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6q3ud"]
-material = SubResource("StandardMaterial3D_02u15")
+material = SubResource("StandardMaterial3D_14sbu")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_02u15"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iiwat"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ef4aq"]
 albedo_color = Color(0.662452, 0.662452, 0.662452, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_02u15"]
-material = SubResource("StandardMaterial3D_iiwat")
+material = SubResource("StandardMaterial3D_ef4aq")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iiwat"]
 

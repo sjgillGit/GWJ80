@@ -18,7 +18,7 @@ extends CharacterBody3D
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 
 
-var destination: Vector3 = Vector3.ZERO
+@export var destination: Vector3 = Vector3.ZERO
 var parent_entrance: Node3D
 var available_points: Array[Node]
 
@@ -50,3 +50,6 @@ func _set_exit():
 	available_points.erase(parent_entrance)
 	destination = available_points[randi() % available_points.size()].global_position
 	_set_navigation_target()
+	
+	if nav.is_navigation_finished():
+		_fade_out()
