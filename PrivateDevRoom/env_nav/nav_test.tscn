@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://35kgdu08kukq" path="res://PrivateDevRoom/env_nav/test_npc.tscn" id="1_iiwat"]
 [ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_14sbu"]
-[ext_resource type="PackedScene" uid="uid://dbccdbgxduanj" path="res://PrivateDevRoom/env_nav/npc_entrance.tscn" id="2_iiwat"]
+[ext_resource type="PackedScene" uid="uid://dbccdbgxduanj" path="res://PrivateDevRoom/env_nav/[old]npc_entrance.tscn" id="2_iiwat"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_02u15"]
 vertices = PackedVector3Array(-13, 0.75, 0, -7, 0.75, 0, -6.25, 0.75, -2, -5.25, 0.75, -2.5, -3.25, 0.75, -13, -13, 0.75, -13, -3.25, 0.75, -2.5, 3.5, 0.75, -2.5, 3.5, 0.75, -13, 6.5, 0.75, -2, 7.25, 0.75, 0, 13, 0.75, 0, 5.5, 0.75, -2.5, 13, 0.75, -13, -6.25, 0.75, 2.25, -13, 0.75, 13, -4, 0.75, 13, -3.75, 0.75, 2.75, 6.25, 0.75, 2.25, 4, 0.75, 13, 13, 0.75, 13, 3.75, 0.75, 2.75)

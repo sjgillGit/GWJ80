@@ -1,4 +1,4 @@
-class_name default_npc_nav
+class_name DefaultNPC
 extends CharacterBody3D
 
 
@@ -18,21 +18,26 @@ extends CharacterBody3D
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 
 
-@export var destination: Vector3 = Vector3.ZERO
-var parent_entrance: Node3D
-var available_points: Array[Node]
+@export var destination: Vector3:
+	set(new_value):
+		print(new_value)
+		nav.set_target_position(new_value)
+		destination = new_value
+		
+var exit_destination : Vector3
+
 
 func _ready() -> void:
-	parent_entrance = get_parent()
-	_set_exit()
-
-func _set_navigation_target() -> void:
-	nav.set_target_position(destination)
+	if self is not BurglarNPC:
+		_set_exit()
 
 func _physics_process(_delta: float) -> void:
+	move()
 	if nav.is_navigation_finished():
 		_fade_out()
 
+
+func move() -> void:
 	var next_path_position: Vector3 = nav.get_next_path_position()
 	var current_agent_position: Vector3 = global_position
 	var new_velocity: Vector3 = (next_path_position - current_agent_position).normalized() * speed
@@ -46,10 +51,4 @@ func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
 	move_and_slide()
 
 func _set_exit():
-	available_points = get_tree().get_nodes_in_group("NPC_Entrance")
-	available_points.erase(parent_entrance)
-	destination = available_points[randi() % available_points.size()].global_position
-	_set_navigation_target()
-	
-	if nav.is_navigation_finished():
-		_fade_out()
+	destination = exit_destination

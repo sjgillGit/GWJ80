@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3cghenjg52j7"]
+[gd_scene load_steps=17 format=3 uid="uid://c3cghenjg52j7"]
 
-[ext_resource type="PackedScene" uid="uid://dwfirg1ngviov" path="res://PrivateDevRoom/env_nav/burglar.tscn" id="1_738ei"]
 [ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_4k1cy"]
+[ext_resource type="PackedScene" uid="uid://dbccdbgxduanj" path="res://PrivateDevRoom/env_nav/npc_entrance.tscn" id="3_el3in"]
 [ext_resource type="PackedScene" uid="uid://35kgdu08kukq" path="res://PrivateDevRoom/env_nav/test_npc.tscn" id="3_fj1x1"]
-[ext_resource type="PackedScene" uid="uid://bd5etd7h84ao4" path="res://PrivateDevRoom/env_nav/npc_spawner.tscn" id="4_es1wt"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_h7iyq"]
 vertices = PackedVector3Array(-13.1511, 0.75, 0, -7.15105, 0.75, 0, -6.40105, 0.75, -2, -5.40105, 0.75, -2.5, -3.40105, 0.75, -13, -13.1511, 0.75, -13, -3.40105, 0.75, -2.5, 3.34895, 0.75, -2.5, 3.34895, 0.75, -13, 6.34895, 0.75, -2, 7.09895, 0.75, 0, 13.0989, 0.75, 0, 5.34895, 0.75, -2.5, 13.0989, 0.75, -13, -6.65105, 0.75, 2, -4.40105, 0.75, 2.75, -13.1511, 0.75, 13, -4.65105, 0.75, 13, 6.34895, 0.75, 2.25, 4.59895, 0.75, 13, 13.0989, 0.75, 13, 4.34895, 0.75, 2.75, -1.90105, 1, 14.75, -1.90105, 1.75, 18.75, 1.59895, 1.75, 18.75, 1.84895, 1, 14.75, -2.65105, 0.75, 13.5, 2.34895, 0.75, 13.75, -2.40105, 1.75, 20, 2.09895, 1.75, 20, -3.65105, 1.75, 20.75, -11.9011, 1.75, 20.75, -11.9011, 1.75, 43.75, 3.34895, 1.75, 20.75, 11.8489, 1.75, 43.75, 11.8489, 1.75, 20.75)
@@ -143,7 +142,7 @@ mesh = SubResource("BoxMesh_el3in")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D9/StaticBody3D"]
 shape = SubResource("BoxShape3D_fj1x1")
 
-[node name="TestObjectToGrab" type="RigidBody3D" parent="." groups=["GrabbableObject"]]
+[node name="TestObjectToGrab" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80815, 2.55589, 33.9768)
 collision_layer = 2
 collision_mask = 3
@@ -157,26 +156,15 @@ shape = SubResource("BoxShape3D_el3in")
 layers = 3
 mesh = SubResource("BoxMesh_fj1x1")
 
+[node name="NpcEntrance" parent="." instance=ExtResource("3_el3in")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0708, 0.25, -9.79132)
+max_number_of_npcs = 1
+
 [node name="HouseZone" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HouseZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.862885, 5.01752, 33.2678)
 shape = SubResource("BoxShape3D_es1wt")
 
-[node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.607172, 0, -10.438)
-
-[node name="Marker3D2" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.74562, 0, -9.55628)
-
-[node name="Marker3D3" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.067, 0, -7.37327)
-
-[node name="NPC_Spawner" parent="." node_paths=PackedStringArray("spawn_points") instance=ExtResource("4_es1wt")]
-spawn_points = [NodePath("../Marker3D"), NodePath("../Marker3D2"), NodePath("../Marker3D3")]
-max_NPC_day_count = 3
-max_NPC_night_count = 0
-max_burglar_day_count = 0
-max_burglar_night_count = 0
-daytime_NPCs = Array[PackedScene]([ExtResource("3_fj1x1")])
-daytime_burglars = Array[PackedScene]([ExtResource("1_738ei")])
+[node name="CharacterBody3D" parent="." instance=ExtResource("3_fj1x1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.43114, 3.50615, 22.6899)

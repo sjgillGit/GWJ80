@@ -1,2 +1,3 @@
 extends Node
-# TODO change to proper name
+# TODO fix name
+signal nighttime_starts

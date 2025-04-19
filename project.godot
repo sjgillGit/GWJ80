@@ -19,9 +19,14 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="res://Assets/default_bus_layout.tres"
 
+[autoload]
+
+GlobalIngame="*res://Scripts/Global/global_ingame.gd"
+
 [global_group]
 
 Player=""
+GrabbableObject=""
 
 [input]
 
