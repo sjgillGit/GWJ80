@@ -37,40 +37,43 @@ func check_for_new_spawn() -> void:
 		if spawned_Burglars_folder.get_child_count() < max_burglar_night_count:
 			var nightBurglar : BurglarNPC = nighttime_burglars.pick_random().instantiate()
 			
-			give_points_to_spawned(nightBurglar)
+			
 			spawned_Burglars_folder.add_child(nightBurglar)
+			give_points_to_spawned(nightBurglar)
 			
 			return
 		
 		if spawned_NPC_folder.get_child_count() < max_NPC_night_count:
 			var nightNPC : DefaultNPC = nighttime_NPCs.pick_random().instantiate()
 			
-			
-			give_points_to_spawned(nightNPC)
 			spawned_NPC_folder.add_child(nightNPC)
-			
+			give_points_to_spawned(nightNPC)
+			nightNPC.update_exit_position()
 			return
 		
 	else:
 		if spawned_Burglars_folder.get_child_count() < max_burglar_day_count:
 			var dayBurglar : BurglarNPC = daytime_burglars.pick_random().instantiate()
 			
-			give_points_to_spawned(dayBurglar)
-			spawned_Burglars_folder.add_child(dayBurglar)
 			
+			spawned_Burglars_folder.add_child(dayBurglar)
+			give_points_to_spawned(dayBurglar)
 			return
 		
 		if spawned_NPC_folder.get_child_count() < max_NPC_day_count:
 			var dayNPC : DefaultNPC = daytime_NPCs.pick_random().instantiate()
 			
-			give_points_to_spawned(dayNPC)
-			spawned_NPC_folder.add_child(dayNPC)
 			
+			spawned_NPC_folder.add_child(dayNPC)
+			give_points_to_spawned(dayNPC)
+			dayNPC.update_exit_position()
 			return
+	
 
 
 func _on_spawn_timer_timeout() -> void:
 	check_for_new_spawn()
+	spawn_timer.start(randf_range(min_spawn_cd, max_spawn_cd))
 
 
 func give_points_to_spawned(spawned : DefaultNPC) -> void:
@@ -79,4 +82,3 @@ func give_points_to_spawned(spawned : DefaultNPC) -> void:
 	if spawned.exit_destination == spawned.global_position and spawn_points.size():
 		while spawned.exit_destination == spawned.global_position:
 			spawned.exit_destination = spawn_points.pick_random().global_position
-	print( spawned.global_position , spawned.exit_destination )

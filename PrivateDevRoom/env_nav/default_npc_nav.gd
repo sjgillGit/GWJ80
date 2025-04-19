@@ -18,16 +18,15 @@ extends CharacterBody3D
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 
 
-@export var destination: Vector3:
+var destination: Vector3:
 	set(new_value):
-		print(new_value)
 		nav.set_target_position(new_value)
 		destination = new_value
 		
 var exit_destination : Vector3
 
 
-func _ready() -> void:
+func update_exit_position():
 	if self is not BurglarNPC:
 		_set_exit()
 

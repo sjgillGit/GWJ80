@@ -9,6 +9,7 @@ spawned_Burglars_folder = NodePath("SpawnedBurglars")
 spawn_timer = NodePath("SpawnTimer")
 
 [node name="SpawnTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="SpawnPoints" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
