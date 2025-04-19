@@ -7,11 +7,14 @@ extends CanvasLayer
 @export var pocket_inventory : PocketInventory
 @export var level_progress_bar : LevelProgressBar
 
+func _ready() -> void:
+	GlobalInGame.player_UI = self
+	GlobalInGame.nighttime_starts.connect(nighttime_triggered)
+
 #region TimerPanel
 func update_timer(new_time_seconds : int) -> void:
 	timer_panel.update_time(new_time_seconds)
 
-# TODO Connect to in-game-global signal of nighttime
 func nighttime_triggered() -> void:
 	timer_panel.trigger_nighttime()
 #endregion
@@ -31,11 +34,18 @@ func pockets_select_next_pocket_slot() -> void:
 func pockets_select_previous_pocket_slot() -> void:
 	pocket_inventory.select_previous_pocket()
 
-func pockets_add_item(item_to_collect) -> bool:
+func pockets_add_item(item_to_collect : PocketableObject) -> bool:
 	return pocket_inventory.collect_item(item_to_collect)
 
 func drop_item_in_selected_slot() : # -> pocket_item class
 	return pocket_inventory.drop_item_in_selected_slot()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.is_action_pressed("pockets_next_slot"):
+			pocket_inventory.select_next_pocket()
+		elif event.is_action_pressed("pockets_prev_slot"):
+			pocket_inventory.select_previous_pocket()
 #endregion
 
 #region LevelProgressBar

@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://camfscv550pgx"]
+
+[ext_resource type="PackedScene" uid="uid://dkx85c0wwm8e4" path="res://Assets/3D Assets/NPCs/Animal NPC 5.glb" id="1_ruy8n"]
+
+[node name="Animal NPC 5" instance=ExtResource("1_ruy8n")]
+
+[node name="Skeleton3D" parent="Armature_002" index="0"]
+bones/2/rotation = Quaternion(0.0674546, 1.18938e-07, 8.04121e-09, 0.997722)
+bones/3/rotation = Quaternion(-0.0583991, 0.00519078, 0.0459161, 0.997223)
+bones/4/rotation = Quaternion(0.311099, -0.0134246, -0.0419861, 0.949355)
+bones/6/rotation = Quaternion(-4.62904e-08, -4.33774e-08, -0.729693, 0.683775)
+bones/7/rotation = Quaternion(0.0778771, 0.0955707, -0.560121, 0.819186)
+bones/8/rotation = Quaternion(2.29748e-09, 3.49723e-08, 0.0107277, 0.999942)
+bones/9/rotation = Quaternion(7.22346e-13, -4.89264e-08, -0.0107277, 0.999942)
+bones/10/rotation = Quaternion(-4.62904e-08, 4.33774e-08, 0.729693, 0.683775)
+bones/11/rotation = Quaternion(-0.0428746, 0.00719004, 0.475984, 0.878379)
+bones/12/rotation = Quaternion(0.397985, -0.493064, 0.0770017, 0.769783)
+bones/13/rotation = Quaternion(-0.00187612, -0.0121596, 0.12845, 0.99164)
+bones/14/rotation = Quaternion(-0.360953, -0.60804, -0.360953, 0.60804)
+bones/15/rotation = Quaternion(-0.859895, -0.00241104, -0.00143122, 0.510463)
+bones/16/rotation = Quaternion(-1.25242e-08, 7.31614e-10, 0.0213173, 0.999773)
+bones/17/rotation = Quaternion(-5.43667e-08, -6.10583e-09, -0.461466, 0.887158)
+bones/18/rotation = Quaternion(-5.06668e-08, -3.25383e-08, -0.318613, 0.947885)
+bones/19/rotation = Quaternion(-0.360953, 0.60804, 0.360953, 0.60804)
+bones/20/rotation = Quaternion(-0.859895, 0.00241104, 0.00143122, 0.510463)
+bones/21/rotation = Quaternion(-1.25242e-08, -7.31614e-10, -0.0213173, 0.999773)
+bones/22/rotation = Quaternion(-5.43667e-08, 6.10583e-09, 0.461466, 0.887158)
+bones/23/rotation = Quaternion(-5.06668e-08, 3.25383e-08, 0.318613, 0.947885)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Idle2"

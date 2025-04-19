@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Pocket watch.glb-97e1b0e03519e8593d9ce704bd68
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="RigidBody3D"
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

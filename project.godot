@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GWJ80"
-run/main_scene="uid://48umg052nfnw"
+run/main_scene="uid://caib07rjonumi"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,9 +19,18 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="res://Assets/default_bus_layout.tres"
 
+[autoload]
+
+GlobalIngame="*res://Scripts/Global/global_ingame.gd"
+GlobalAudioPlayer="*res://Scenes/Global/global_audio_player.tscn"
+GlobalSceneTransition="*res://Scenes/Global/global_scene_transition.tscn"
+Global="*res://Scripts/Global/Global.gd"
+GlobalInGame="*res://Scripts/Global/global_ingame.gd"
+
 [global_group]
 
 Player=""
+GrabbableObject=""
 
 [input]
 
@@ -77,6 +86,15 @@ mouse_wheel_up={
 mouse_wheel_down={
 "deadzone": 0.2,
 "events": []
+pockets_next_slot={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":8,"position":Vector2(141, 17),"global_position":Vector2(150, 65),"factor":1.0,"button_index":4,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+pockets_prev_slot={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":16,"position":Vector2(230, 9),"global_position":Vector2(239, 57),"factor":1.0,"button_index":5,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
 }
 
 [layer_names]
