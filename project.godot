@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="GWJ80"
+run/main_scene="uid://caib07rjonumi"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,6 +21,7 @@ buses/default_bus_layout="res://Assets/default_bus_layout.tres"
 
 [autoload]
 
+GlobalIngame="*res://Scripts/Global/global_ingame.gd"
 GlobalAudioPlayer="*res://Scenes/Global/global_audio_player.tscn"
 GlobalSceneTransition="*res://Scenes/Global/global_scene_transition.tscn"
 Global="*res://Scripts/Global/Global.gd"
@@ -28,6 +30,7 @@ GlobalInGame="*res://Scripts/Global/global_ingame.gd"
 [global_group]
 
 Player=""
+GrabbableObject=""
 
 [input]
 
