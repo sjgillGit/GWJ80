@@ -6,7 +6,9 @@ extends PanelContainer
 @export var task_checkbox : CheckBox
 
 
-const self_scene : PackedScene = preload("res://PrivateDevRoom/Scenes/SubScenes/task_progress.tscn")
+const self_scene : PackedScene = preload(
+	"res://Scenes/InGameUISubScenes/task_progress.tscn"
+)
 
 var objective : String = "Test objective"
 var to_collect : int = 1
