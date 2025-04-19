@@ -43,6 +43,8 @@ var carrying_object: GrabbableObject
 # Assigned when node is initialized
 @onready var camera: Camera3D = get_node("Camera3D")
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity") * gravity_mod
+@onready var player_animation: AnimationPlayer = get_node("Player_model/AnimationPlayer")
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -51,6 +53,9 @@ func _ready():
 
 #Called every physics frame
 func _process(delta):
+	#Handle movement animations
+	handle_movement_animations()
+
 	#Movement relative to mouse direction
 	move_relative_to_mouse(delta)
 
@@ -67,6 +72,22 @@ func _process(delta):
 	process_grabbed_object()
 
 #region Player movement
+
+func handle_movement_animations():
+	# If the animation player isn't playing a non-movement animation
+	if carrying_object || player_animation.current_animation == "Drop_down":
+		return
+
+	if is_running:
+		player_animation.play("Run")
+		return
+	elif Input.get_vector("move_left", "move_right", "move_forward", "move_backwards").is_zero_approx():
+		player_animation.play("Idle")
+		return
+	else:
+		player_animation.play("Walk")
+		return
+
 
 func move_relative_to_mouse(delta: float):
 	var move_input: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backwards")
@@ -137,11 +158,11 @@ func _input(event: InputEvent) -> void:
 			if carrying_object:
 				drop_grabbable_object()
 			else:
-				if object_to_grab and object_to_grab is GrabbableObject and \
-					object_to_grab.mass <= pickup_mass_limit:
-					grab_grabbable_object(object_to_grab)
-				elif object_to_grab is PocketableObject:
-					grab_pocket_item(object_to_grab)
+				if object_to_grab:
+					if object_to_grab is GrabbableObject and object_to_grab.mass <= pickup_mass_limit:
+						grab_grabbable_object(object_to_grab)
+					elif object_to_grab is PocketableObject:
+						grab_pocket_item(object_to_grab)
 		elif event.is_action_pressed("drop_pocket_item"):
 			drop_pocket_item()
 
@@ -151,11 +172,15 @@ func drop_grabbable_object():
 	carrying_object.can_sleep = true
 	carrying_object = null
 
+	player_animation.play("Drop_down")
+
 func grab_grabbable_object(to_grab : GrabbableObject):
 	to_grab.get_grabbed()
 	carrying_object = to_grab
 	to_grab.can_sleep = false
 	to_grab.self_drop.connect(drop_grabbable_object)
+
+	player_animation.play("Pick_up")
 
 func process_grabbed_object():
 	if carrying_object:

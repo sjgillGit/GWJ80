@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhfb5ikomcd63"]
+
+[ext_resource type="PackedScene" uid="uid://dooq2jcq8igq7" path="res://Assets/3D Assets/Grabbables/Laptop.glb" id="1_uvxuk"]
+[ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_ilwax"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mje4o"]
+size = Vector3(0.801392, 0.0513306, 0.559631)
+
+[node name="Laptop" instance=ExtResource("1_uvxuk")]
+script = ExtResource("2_ilwax")
+damage_sound = "res://Assets/SFX/clang 2.wav"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10352e-05, 0.00643921, 0.185699)
+shape = SubResource("BoxShape3D_mje4o")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6.10352e-05, 0.285113, -0.0781602)
+shape = SubResource("BoxShape3D_mje4o")

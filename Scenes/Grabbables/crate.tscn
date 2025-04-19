@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1tfeu1gxwu6q"]
+
+[ext_resource type="PackedScene" uid="uid://b5gsltg08tr2w" path="res://Assets/3D Assets/Grabbables/Crate.glb" id="1_0pwhh"]
+[ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_qy2gf"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qy2gf"]
+points = PackedVector3Array(-0.597045, -0.00475918, -0.597045, -0.597045, 1.18933, -0.597045, 0.597045, -0.00475918, -0.597045, -0.597045, -0.00475918, 0.597045, -0.597045, 1.18933, 0.597045, 0.597045, 1.18933, -0.597045, 0.597045, -0.00475918, 0.597045, 0.597045, 1.18933, 0.597045)
+
+[node name="Crate" instance=ExtResource("1_0pwhh")]
+script = ExtResource("2_qy2gf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_qy2gf")

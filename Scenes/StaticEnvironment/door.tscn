@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb2ocp88xl7fw"]
+
+[ext_resource type="PackedScene" uid="uid://6nm7j745x5mp" path="res://Assets/3D Assets/HouseBuildingBlocks/Door.glb" id="1_q5bsl"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hg4tq"]
+points = PackedVector3Array(-0.846474, -0.013443, -0.0970946, 0.846474, -0.013443, -0.0970946, -0.846474, -0.013443, 0.0970946, -0.846474, 3.13318, -0.0970946, 0.846474, -0.013443, 0.0970946, 0.846474, 3.13318, -0.0970946, -0.846474, 3.13318, 0.0970946, 0.846474, 3.13318, 0.0970946)
+
+[node name="Door" instance=ExtResource("1_q5bsl")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0381468, 0.0420685, 0.0564213)
+shape = SubResource("ConvexPolygonShape3D_hg4tq")

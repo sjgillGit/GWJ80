@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://kxkha4ojhku6"]
+
+[ext_resource type="PackedScene" uid="uid://mcl68plv4rgy" path="res://Assets/3D Assets/Grabbables/Table.glb" id="1_4v8od"]
+[ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_70boy"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ruord"]
+points = PackedVector3Array(-0.005, -0.5, 0.135, -0.005, -0.5, -0.04, 0.245, -0.5, -0.04, 0.245, -0.5, 0.135, 0.065, 0.505, 0.075, -0.255, 0.505, 0.075, -0.255, 0.505, -0.15, 0.08, 0.505, -0.15)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fh54g"]
+points = PackedVector3Array(-0.005, -0.5, 0.135, -0.005, -0.5, -0.04, 0.245, -0.5, -0.04, 0.245, -0.5, 0.135, 0.065, 0.505, 0.25, -0.255, 0.505, 0.25, -0.255, 0.505, 0, 0.08, 0.505, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1bmny"]
+size = Vector3(0.229889, 0.188721, 1.51587)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4v8od"]
+size = Vector3(4.54001, 0.200531, 2.11252)
+
+[node name="Table" instance=ExtResource("1_4v8od")]
+script = ExtResource("2_70boy")
+drag_max_distance = 4.0
+stiffness = 100.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06289, 0.516497, 0.865952)
+shape = SubResource("ConvexPolygonShape3D_ruord")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.021, 0.516, -0.772)
+shape = SubResource("ConvexPolygonShape3D_ruord")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.99711, 0.516497, 0.960804)
+shape = SubResource("ConvexPolygonShape3D_fh54g")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 2.06703, 0.516497, -0.866981)
+shape = SubResource("ConvexPolygonShape3D_fh54g")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." index="5"]
+transform = Transform3D(0.983581, -0.180468, 0.00010472, 0.180468, 0.983581, 0, -0.000103, 1.88986e-05, 1, 2.11983, 0.32248, 0.0511475)
+shape = SubResource("BoxShape3D_1bmny")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="." index="6"]
+transform = Transform3D(-0.983581, 0.180468, -0.000104632, 0.180468, 0.983581, 0, 0.000102914, -1.88828e-05, -1, -2.06196, 0.32248, 0.0511475)
+shape = SubResource("BoxShape3D_1bmny")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000442505, 1.1169, -0.00114441)
+shape = SubResource("BoxShape3D_4v8od")
