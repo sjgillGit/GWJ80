@@ -12,9 +12,9 @@ var selected : bool = false :
 		selected_border.visible = selected
 
 # TODO adapt to items properties
-func take_item(new_item) -> void:
+func take_item(new_item : PocketableObject) -> void:
 	stored_item = new_item
-	#icon = new_item.pocket_icon
+	icon.texture = new_item.icon
 
 func give_item():
 	var item_to_return = stored_item
