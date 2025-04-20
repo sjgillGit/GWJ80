@@ -21,7 +21,6 @@ buses/default_bus_layout="res://Assets/default_bus_layout.tres"
 
 [autoload]
 
-GlobalIngame="*res://Scripts/Global/global_ingame.gd"
 GlobalAudioPlayer="*res://Scenes/Global/global_audio_player.tscn"
 GlobalSceneTransition="*res://Scenes/Global/global_scene_transition.tscn"
 Global="*res://Scripts/Global/Global.gd"
@@ -103,3 +102,9 @@ pockets_prev_slot={
 3d_physics/layer_1="Environment"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="NPC"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+jolt_physics_3d/queries/enable_ray_cast_face_index=true
+jolt_physics_3d/limits/max_angular_velocity=0.523599

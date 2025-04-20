@@ -1,8 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3cghenjg52j7"]
+[gd_scene load_steps=17 format=3 uid="uid://c3cghenjg52j7"]
 
-[ext_resource type="PackedScene" uid="uid://dwfirg1ngviov" path="res://PrivateDevRoom/env_nav/burglar.tscn" id="1_738ei"]
 [ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_4k1cy"]
-[ext_resource type="PackedScene" uid="uid://35kgdu08kukq" path="res://PrivateDevRoom/env_nav/test_npc.tscn" id="3_fj1x1"]
+[ext_resource type="PackedScene" uid="uid://cvatfx5j77oot" path="res://Scenes/test_npc.tscn" id="3_es1wt"]
 [ext_resource type="PackedScene" uid="uid://bd5etd7h84ao4" path="res://PrivateDevRoom/env_nav/npc_spawner.tscn" id="4_es1wt"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_h7iyq"]
@@ -45,15 +44,14 @@ size = Vector3(31.3565, 20.035, 32.4624)
 
 [node name="NPC_Spawner" parent="." node_paths=PackedStringArray("spawn_points") instance=ExtResource("4_es1wt")]
 spawn_points = [NodePath("../Marker3D"), NodePath("../Marker3D2"), NodePath("../Marker3D3")]
-max_NPC_day_count = 0
+max_NPC_day_count = 1
 max_NPC_night_count = 0
-max_burglar_day_count = 5
+max_burglar_day_count = 0
 max_burglar_night_count = 0
-daytime_NPCs = Array[PackedScene]([ExtResource("3_fj1x1")])
-daytime_burglars = Array[PackedScene]([ExtResource("1_738ei")])
+daytime_NPCs = Array[PackedScene]([ExtResource("3_es1wt")])
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.939693, 0.296198, -0.17101, 0, 0.5, 0.866025, 0.34202, 0.813798, -0.469846, 0, 43.5068, -12.4004)
+transform = Transform3D(-0.939693, 0.296198, -0.17101, 0, 0.5, 0.866026, 0.34202, 0.813798, -0.469846, 0, 16.5898, -14.8686)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.0127406, 0.999919, 0, -0.999919, 0.0127406, 0, 58.8919, 8.37803)

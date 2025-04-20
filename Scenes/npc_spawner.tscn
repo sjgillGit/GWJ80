@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2w2tbfcxgbei"]
 
-[ext_resource type="Script" uid="uid://bxhy4jgfnts8m" path="res://PrivateDevRoom/env_nav/npc_spawner.gd" id="1_0bpdr"]
+[ext_resource type="Script" uid="uid://bxhy4jgfnts8m" path="res://Scripts/npc_spawner.gd" id="1_0bpdr"]
 
 [node name="NPC_Spawner" type="Node3D" node_paths=PackedStringArray("spawned_NPC_folder", "spawned_Burglars_folder", "spawn_timer")]
 script = ExtResource("1_0bpdr")

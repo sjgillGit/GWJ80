@@ -8,8 +8,21 @@ extends InteractableObject
 @export var damping : float = 50.0
 
 var to_follow_global_position : Vector3
-var is_grabbed : bool = false
-var been_stolen : bool = false
+var is_grabbed : bool = false:
+	set(new_value):
+		print(self, " grabbed: ", new_value)
+		is_grabbed = new_value
+		
+var been_stolen : bool = false:
+	set(new_value):
+		lock_rotation = new_value
+		been_stolen = new_value
+		#sleeping = !new_value
+		for child in get_children():
+			if child is NavigationAgent3D:
+				child.avoidance_enabled = !new_value
+		
+			
 signal self_drop
 
 # temp var
@@ -30,7 +43,10 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		var displacement = to_follow_global_position - global_position
 		var discance_sq = displacement.length_squared()
 		
+		print("Distance over max:" , displacement.length(), " > " , drag_max_distance)
 		if discance_sq > drag_max_distance * drag_max_distance:
+			
+			
 			self_drop.emit()
 			return
 		

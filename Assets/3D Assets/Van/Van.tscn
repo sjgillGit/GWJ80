@@ -29,7 +29,7 @@ collision_shape = NodePath("van/PlacementArea/CollisionShape3D/MeshInstance3D")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="PlacementArea" type="Area3D" parent="van"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696545, 2.12086)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696545, 0.92086)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="van/PlacementArea"]
 shape = SubResource("BoxShape3D_vc0o8")

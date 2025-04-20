@@ -27,12 +27,13 @@ func _process(_delta):
 font_size = 24
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("ray") groups=["Player"]]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_v0iea")
 max_speed = 10.0
 acceleration = 20.0
 jump_velocity = 10.0
 look_sensitivity = 0.05
-grab_distance = -7.0
 ray = NodePath("Camera3D/InteractionRayCast")
 
 [node name="PlayerBodyExample" type="CollisionShape3D" parent="."]

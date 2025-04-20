@@ -13,3 +13,8 @@ damage_sound = "res://Assets/SFX/thump 2.wav"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0106506, 0.193939, -0.0494995)
 shape = SubResource("BoxShape3D_wbh5j")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="8"]
+avoidance_enabled = true
+height = 0.1
+radius = 0.6

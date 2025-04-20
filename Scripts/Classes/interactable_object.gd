@@ -48,9 +48,19 @@ func _ready() -> void:
 	if mesh and mesh is MeshInstance3D and mesh.material_overlay:
 		mesh.material_overlay = mesh.material_overlay.duplicate()
 	# Enable RigidBody collision tracking
+	set_up_inv_timer()
+	#sleeping = true
 	contact_monitor = true
 	max_contacts_reported = 5
-	set_up_inv_timer()
+	if self is GrabbableObject:
+		add_to_group("GrabbableObject")
+	add_outline_material()
+
+func add_outline_material():
+	var outline_material = load("res://Assets/Materials/outline.tres").duplicate()
+	for child in get_children():
+		if child is MeshInstance3D:
+			child.material_overlay = outline_material
 
 func set_up_inv_timer() -> void:
 	collision_spam_prevention_timer = Timer.new()
@@ -59,8 +69,9 @@ func set_up_inv_timer() -> void:
 	add_child(collision_spam_prevention_timer)
 
 func change_outline_color(new_color : Color = Color.BLACK) -> void:
-	if mesh and mesh is MeshInstance3D and mesh.material_overlay:
-		mesh.material_overlay.albedo_color = new_color
+	for child in get_children():
+		if child is MeshInstance3D:
+			child.material_overlay.albedo_color = new_color
 
 #TODO Connect value reporting to MVP
 func report_starting_value(amount : int) -> void:

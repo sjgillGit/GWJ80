@@ -1,9 +1,10 @@
 extends Node
 # TODO fix name
-signal nighttime_starts
+#signal nighttime_starts
 signal report_stolen_item(item : GrabbableObject)
 
 var player
+var level : Node3D
 
 #region in-game-UI 
 var player_UI : InGameUI
@@ -41,3 +42,10 @@ func pass_negative_progression(total_value_damaged : int) -> void:
 	player_UI.level_progress_update_negative_progress(total_value_damaged)
 
 #endregion
+
+var NPC_Array : Array = []
+
+func set_NPC_animation_speed(new_value):
+	for npc in NPC_Array:
+		if npc:
+			npc.speed = new_value

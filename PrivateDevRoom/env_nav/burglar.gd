@@ -95,7 +95,7 @@ func getting_out_with_item():
 	move()
 	if stolen_item and not stolen_item.is_grabbed:
 		if nav.is_navigation_finished():
-			GlobalIngame.report_stolen_item.emit(stolen_item)
+			GlobalInGame.report_stolen_item.emit(stolen_item)
 			stolen_item.queue_free()
 			stolen_item = null
 			_fade_out()

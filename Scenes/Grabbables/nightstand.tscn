@@ -1,14 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4x23v4eaolll"]
+[gd_scene load_steps=5 format=3 uid="uid://b4x23v4eaolll"]
 
 [ext_resource type="PackedScene" uid="uid://bemyvu33cbk3h" path="res://Assets/3D Assets/Grabbables/Nightstand.glb" id="1_pvhos"]
 [ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_w0uxj"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pvhos"]
-points = PackedVector3Array(-0.526969, 0.864159, -0.526969, -0.526969, 0.864159, 0.526969, -0.526969, 0.942633, -0.526969, 0.526969, 0.864159, -0.526969, -0.449698, -0.348335, -0.462078, 0.526969, 0.864159, 0.526969, -0.526969, 0.942633, 0.526969, -0.449698, -0.348335, 0.461975, -0.424629, 0.0120648, 0.487663, 0.526969, 0.942633, -0.526969, 0.460943, -0.348335, -0.462078, 0.526969, 0.942633, 0.526969, 0.424526, 0.0120648, 0.487663, 0.460943, -0.348335, 0.461975)
+[sub_resource type="BoxShape3D" id="BoxShape3D_w0uxj"]
+size = Vector3(1.06302, 0.115463, 1.05951)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wlak6"]
+size = Vector3(0.914307, 1.17767, 0.969238)
 
 [node name="Nightstand" instance=ExtResource("1_pvhos")]
 script = ExtResource("2_w0uxj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00262588, 0.36329, 0.785667)
-shape = SubResource("ConvexPolygonShape3D_pvhos")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00145095, 1.26982, 0.791923)
+shape = SubResource("BoxShape3D_w0uxj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00354004, 0.612213, 0.794678)
+shape = SubResource("BoxShape3D_wlak6")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="5"]
+avoidance_enabled = true
+height = 0.5
+radius = 1.0

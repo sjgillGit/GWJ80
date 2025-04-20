@@ -100,8 +100,13 @@ func _physics_process(delta):
 		nightLight.light_energy = lerp(nightLight.light_energy, nightLightEnergy, lerpSpeed)
 		
 func update_clock():
+	if GlobalInGame.player_UI:
+		GlobalInGame.pass_time_to_UI(currentTime)
+	else:
+		print("UI not ready")
 	hours = int(currentTime / 60)
 	if (hours > cutoffHour):
 		speedMultiplier = 0
 		nightTime.emit()
+		GlobalInGame.nighttime_starts.emit()
 	minutes = int(currentTime) % 60

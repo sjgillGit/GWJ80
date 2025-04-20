@@ -53,9 +53,14 @@ func prepare_timers() -> void:
 	patience_timer.timeout.connect(patience_time_up)
 
 func _physics_process(delta: float) -> void:
+	if global_position.y < 0:
+		global_position.y = 0
 	match state:
 		"GetToItem":
-			getting_to_item()
+			if gave_up:
+				state = "GiveUp"
+			else:
+				getting_to_item()
 		"Wait":
 			waiting_next_to_item()
 		"GetOutWithItem":
@@ -82,6 +87,7 @@ func waiting_next_to_item():
 		if item_is_ok_to_steal(item_planned_to_steal):
 			stolen_item = item_planned_to_steal
 			stolen_item.been_stolen = true
+			stolen_item.add_collision_exception_with(self)
 			destination = exit_destination
 			nav.avoidance_priority = 0.9
 			state = "GetOutWithItem"
@@ -95,17 +101,24 @@ func getting_out_with_item():
 	move()
 	if stolen_item and not stolen_item.is_grabbed:
 		if nav.is_navigation_finished():
-			GlobalIngame.report_stolen_item.emit(stolen_item)
+			GlobalInGame.report_stolen_item.emit(stolen_item)
 			stolen_item.queue_free()
 			stolen_item = null
 			_fade_out()
 		else:
-			stolen_item.global_position = grabbed_item_hold_position.global_position
+			move_stolen_item_to_new_global_position(grabbed_item_hold_position.global_position)
 	else:
 		if stolen_item:
 			stolen_item.been_stolen = false
+			stolen_item.remove_collision_exception_with(self)
+			stolen_item = null
 		nav.avoidance_priority = 0.5
 		state = "GetToItem"
+
+func move_stolen_item_to_new_global_position(new_global_postion : Vector3):
+	stolen_item.global_position = new_global_postion
+	stolen_item.linear_velocity = Vector3.ZERO
+	stolen_item.sleeping = false
 
 func get_out_of_level():
 	move()
@@ -124,7 +137,7 @@ func check_for_new_item() -> void:
 
 func _on_detection_area_body_entered(body: Node3D) -> void:
 	if body is GrabbableObject:
-		if !(body.been_stolen or body.is_grabbed):
+		if item_is_ok_to_steal(body):
 			evaluate_item_over_planned(body)
 
 func evaluate_item_over_planned(new_item : GrabbableObject) -> void:
@@ -147,3 +160,7 @@ func patience_time_up() -> void:
 	if state != "GetOutWithItem":
 		state = "GiveUp"
 		destination = exit_destination
+
+
+func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
+	trigger_navigation_agent_3d_velocity_computed(safe_velocity)

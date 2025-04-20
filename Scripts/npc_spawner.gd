@@ -26,7 +26,7 @@ var is_nighttime : bool = false
 
 func _ready() -> void:
 	spawn_timer.start(0.1)
-	GlobalIngame.nighttime_starts.connect(switch_to_nightmode)
+	GlobalInGame.nighttime_starts.connect(switch_to_nightmode)
 
 
 func switch_to_nightmode() -> void:
