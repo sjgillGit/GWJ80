@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cvatfx5j77oot"]
 
-[ext_resource type="Script" uid="uid://dmd73lcm1g6bp" path="res://PrivateDevRoom/env_nav/default_npc_nav.gd" id="1_ngruy"]
+[ext_resource type="Script" uid="uid://dmd73lcm1g6bp" path="res://Scripts/env_nav/default_npc_nav.gd" id="1_ngruy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_02u15"]
 

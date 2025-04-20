@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cbxaa8p88x6gw"]
 
 [ext_resource type="PackedScene" uid="uid://funqt52qtw2y" path="res://Assets/3D Assets/NPCs/Animal NPC 1.glb" id="1_fv637"]
-[ext_resource type="Script" uid="uid://bn0uq38w2s8dl" path="res://Scripts/burglar.gd" id="2_xytlp"]
+[ext_resource type="Script" uid="uid://bn0uq38w2s8dl" path="res://Scripts/env_nav/burglar.gd" id="2_xytlp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uxtb1"]
 radius = 0.25
@@ -11,13 +11,10 @@ height = 1.8
 height = 4.0
 radius = 10.0
 
-[node name="Animal NPC 1" node_paths=PackedStringArray("item_detection_area", "grabbed_item_hold_position") instance=ExtResource("1_fv637")]
+[node name="Animal NPC 1" instance=ExtResource("1_fv637")]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("2_xytlp")
-item_detection_area = NodePath("DetectionArea")
-grabbed_item_hold_position = NodePath("GrabbedItemHoldPosition")
-speed = 5.0
 
 [node name="Skeleton3D" parent="Armature_004" index="0"]
 bones/0/position = Vector3(0, 0, 0)

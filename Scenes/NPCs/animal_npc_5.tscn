@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://camfscv550pgx"]
+[gd_scene load_steps=3 format=3 uid="uid://camfscv550pgx"]
 
 [ext_resource type="PackedScene" uid="uid://dkx85c0wwm8e4" path="res://Assets/3D Assets/NPCs/Animal NPC 5.glb" id="1_ruy8n"]
+[ext_resource type="Script" uid="uid://bn0uq38w2s8dl" path="res://Scripts/env_nav/burglar.gd" id="2_w6tc1"]
 
 [node name="Animal NPC 5" instance=ExtResource("1_ruy8n")]
+script = ExtResource("2_w6tc1")
 
 [node name="Skeleton3D" parent="Armature_002" index="0"]
 bones/2/rotation = Quaternion(0.0674546, 1.18938e-07, 8.04121e-09, 0.997722)

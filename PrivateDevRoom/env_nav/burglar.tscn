@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwfirg1ngviov"]
+[gd_scene load_steps=6 format=3 uid="uid://kbvpuukivuwv"]
 
-[ext_resource type="Script" uid="uid://bn0uq38w2s8dl" path="res://PrivateDevRoom/env_nav/burglar.gd" id="1_5st1d"]
+[ext_resource type="Script" uid="uid://bn0uq38w2s8dl" path="res://Scripts/env_nav/burglar.gd" id="1_5st1d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5st1d"]
 albedo_color = Color(1, 0.0901961, 0.0823529, 1)

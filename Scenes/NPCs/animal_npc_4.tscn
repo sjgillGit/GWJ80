@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1aka13o8ovkc"]
+[gd_scene load_steps=3 format=3 uid="uid://c1aka13o8ovkc"]
 
 [ext_resource type="PackedScene" uid="uid://dd33y6uds6wp3" path="res://Assets/3D Assets/NPCs/Animal NPC 4.glb" id="1_s7p6g"]
+[ext_resource type="Script" uid="uid://bn0uq38w2s8dl" path="res://Scripts/env_nav/burglar.gd" id="2_hw2yy"]
 
 [node name="Animal NPC 4" instance=ExtResource("1_s7p6g")]
+script = ExtResource("2_hw2yy")
 
 [node name="Skeleton3D" parent="Armature_001" index="0"]
 bones/0/position = Vector3(0, 0, 0)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bikc1to5sd6d"]
 
 [ext_resource type="PackedScene" uid="uid://bc1d1183qy6ul" path="res://Assets/3D Assets/NPCs/NPC 1.glb" id="1_1oey7"]
-[ext_resource type="Script" uid="uid://dmd73lcm1g6bp" path="res://PrivateDevRoom/env_nav/default_npc_nav.gd" id="2_nnii4"]
+[ext_resource type="Script" uid="uid://dmd73lcm1g6bp" path="res://Scripts/env_nav/default_npc_nav.gd" id="2_nnii4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nnii4"]
 radius = 0.25

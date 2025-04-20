@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://63kncbda2pvp"]
+[gd_scene load_steps=5 format=3 uid="uid://63kncbda2pvp"]
 
 [ext_resource type="PackedScene" uid="uid://bpafefs4vcjsb" path="res://Assets/3D Assets/NPCs/Animal NPC 2.glb" id="1_8a4wi"]
+[ext_resource type="Script" uid="uid://bn0uq38w2s8dl" path="res://Scripts/env_nav/burglar.gd" id="2_46ofa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8a4wi"]
+radius = 0.25
+height = 1.8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_46ofa"]
+height = 4.0
+radius = 10.0
 
 [node name="Animal NPC 2" instance=ExtResource("1_8a4wi")]
+script = ExtResource("2_46ofa")
 
 [node name="Skeleton3D" parent="Armature_003" index="0"]
 bones/0/position = Vector3(0, 0, 0)
@@ -31,3 +41,28 @@ bones/25/rotation = Quaternion(-5.06668e-08, 3.25383e-08, 0.318613, 0.947885)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "Idle2"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.890154, 0.00313295)
+shape = SubResource("CapsuleShape3D_8a4wi")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="3"]
+target_desired_distance = 2.0
+path_max_distance = 50.01
+avoidance_enabled = true
+height = 2.0
+radius = 0.25
+use_3d_avoidance = true
+avoidance_layers = 3
+avoidance_mask = 3
+debug_use_custom = true
+debug_path_custom_color = Color(4.52429e-06, 0, 0.871864, 1)
+
+[node name="DetectionArea" type="Area3D" parent="." index="4"]
+monitorable = false
+
+[node name="DetectionShape" type="CollisionShape3D" parent="DetectionArea" index="0"]
+shape = SubResource("CylinderShape3D_46ofa")
+
+[node name="GrabbedItemHoldPosition" type="Marker3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0257611, 1.4552, 0.67071)

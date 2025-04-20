@@ -174,9 +174,9 @@ func _input(event: InputEvent) -> void:
 						grab_pocket_item(object_to_grab)
 		elif event.is_action_pressed("drop_pocket_item"):
 			drop_pocket_item()
-	elif event is InputEvent:
-		# Sets the distance of the grabbed object based on mouse wheel scroll
-		detect_scroll_to_set_distance(event)
+	#elif event is InputEvent:
+		## Sets the distance of the grabbed object based on mouse wheel scroll
+		#detect_scroll_to_set_distance(event)
 		
 
 func drop_grabbable_object():
@@ -219,22 +219,22 @@ func drop_pocket_item():
 		#If no slot selected - try dropping slot 1 (default slot)
 	if item:
 		item.enable_existance(self)
-
-func detect_scroll_to_set_distance(event: InputEvent) -> void:
-	var new_grab_distance: float
-	# TODO: check why mouse wheel scroll up always drops objects
-	if event.is_action_released("mouse_wheel_up"):
-		new_grab_distance = current_hold_distance - 0.5
-
-		if new_grab_distance >= max_grab_distance:
-			current_hold_distance = max_grab_distance
-		else:
-			current_hold_distance = new_grab_distance	
-	elif event.is_action_released("mouse_wheel_down"):
-		new_grab_distance = current_hold_distance + 0.5
-
-		if new_grab_distance <= min_grab_distance:
-			current_hold_distance = min_grab_distance
-		else:
-			current_hold_distance = new_grab_distance
+# disabled, bugged
+#func detect_scroll_to_set_distance(event: InputEvent) -> void:
+	#var new_grab_distance: float
+	## TODO: check why mouse wheel scroll up always drops objects
+	#if event.is_action_released("mouse_wheel_up"):
+		#new_grab_distance = current_hold_distance - 0.5
+#
+		#if new_grab_distance >= max_grab_distance:
+			#current_hold_distance = max_grab_distance
+		#else:
+			#current_hold_distance = new_grab_distance	
+	#elif event.is_action_released("mouse_wheel_down"):
+		#new_grab_distance = current_hold_distance + 0.5
+#
+		#if new_grab_distance <= min_grab_distance:
+			#current_hold_distance = min_grab_distance
+		#else:
+			#current_hold_distance = new_grab_distance
 #endregion
