@@ -3,11 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://b5gsltg08tr2w" path="res://Assets/3D Assets/Grabbables/Crate.glb" id="1_0pwhh"]
 [ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_qy2gf"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qy2gf"]
-points = PackedVector3Array(-0.597045, -0.00475918, -0.597045, -0.597045, 1.18933, -0.597045, 0.597045, -0.00475918, -0.597045, -0.597045, -0.00475918, 0.597045, -0.597045, 1.18933, 0.597045, 0.597045, 1.18933, -0.597045, 0.597045, -0.00475918, 0.597045, 0.597045, 1.18933, 0.597045)
+[sub_resource type="BoxShape3D" id="BoxShape3D_qy2gf"]
+size = Vector3(1.19702, 1.21741, 1.20801)
 
 [node name="Crate" instance=ExtResource("1_0pwhh")]
 script = ExtResource("2_qy2gf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-shape = SubResource("ConvexPolygonShape3D_qy2gf")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00354004, 0.599548, 0.0131836)
+shape = SubResource("BoxShape3D_qy2gf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="2"]
+avoidance_enabled = true
+radius = 1.2

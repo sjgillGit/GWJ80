@@ -1,0 +1,624 @@
+[gd_scene load_steps=42 format=3 uid="uid://jnuqtsqksi88"]
+
+[ext_resource type="PackedScene" uid="uid://bkqrssfnte0pj" path="res://Scenes/StaticEnvironment/floor_1.tscn" id="1_23nbm"]
+[ext_resource type="Script" uid="uid://cip7u5qxtcroh" path="res://Scripts/Levels/dutt_level.gd" id="1_qosmx"]
+[ext_resource type="PackedScene" uid="uid://d2rmnkn10p1km" path="res://Scenes/StaticEnvironment/wall_1.tscn" id="2_rhdcr"]
+[ext_resource type="PackedScene" uid="uid://bb2ocp88xl7fw" path="res://Scenes/StaticEnvironment/door.tscn" id="3_tbmip"]
+[ext_resource type="PackedScene" uid="uid://n7yx7bt2metu" path="res://Scenes/StaticEnvironment/shelf.tscn" id="4_inha5"]
+[ext_resource type="PackedScene" uid="uid://kxkha4ojhku6" path="res://Scenes/Grabbables/table.tscn" id="5_dk34l"]
+[ext_resource type="PackedScene" uid="uid://b014se6lvnnbs" path="res://Scenes/Grabbables/tv.tscn" id="6_vxu3o"]
+[ext_resource type="PackedScene" uid="uid://d1tfeu1gxwu6q" path="res://Scenes/Grabbables/crate.tscn" id="7_vyckp"]
+[ext_resource type="PackedScene" uid="uid://dnpxmkqdgkjhv" path="res://Scenes/Grabbables/plant_pot.tscn" id="8_5ewj5"]
+[ext_resource type="PackedScene" uid="uid://coog6ffu0clff" path="res://Scenes/Grabbables/chair.tscn" id="9_mvfof"]
+[ext_resource type="PackedScene" uid="uid://cevyc6kfghy7m" path="res://Scenes/Grabbables/bottle.tscn" id="10_1brc1"]
+[ext_resource type="PackedScene" uid="uid://bdpb46do8ukk" path="res://Scenes/Grabbables/baseball.tscn" id="11_31lle"]
+[ext_resource type="PackedScene" uid="uid://jqooah7vpmk1" path="res://Scenes/Grabbables/baseball_bat.tscn" id="12_5u2ta"]
+[ext_resource type="PackedScene" uid="uid://biljlu5wpcth7" path="res://Scenes/Grabbables/cardboard_box_1.tscn" id="13_0sb2a"]
+[ext_resource type="PackedScene" uid="uid://crtcotj30cg6i" path="res://Scenes/Grabbables/cardboard_box_2.tscn" id="14_l47vq"]
+[ext_resource type="PackedScene" uid="uid://bhfb5ikomcd63" path="res://Scenes/Grabbables/laptop.tscn" id="15_qosmx"]
+[ext_resource type="PackedScene" uid="uid://ddhkh5tf6nbv2" path="res://Scenes/Grabbables/painting_2.tscn" id="16_6b100"]
+[ext_resource type="PackedScene" uid="uid://dpr0vmklxdatk" path="res://Scenes/Grabbables/painting_3.tscn" id="17_7qruc"]
+[ext_resource type="PackedScene" uid="uid://cv8cuqfjj51em" path="res://Scenes/StaticEnvironment/celling.tscn" id="18_ma6sy"]
+[ext_resource type="PackedScene" uid="uid://ctfdxqams0thq" path="res://Scenes/StaticEnvironment/road.tscn" id="19_iahj2"]
+[ext_resource type="PackedScene" uid="uid://doyf3yr2657id" path="res://Scenes/Grabbables/boombox.tscn" id="19_vxu3o"]
+[ext_resource type="PackedScene" uid="uid://ckmnw2q3lrapg" path="res://Scenes/StaticEnvironment/sidewalk.tscn" id="20_hqmeu"]
+[ext_resource type="PackedScene" uid="uid://b4x23v4eaolll" path="res://Scenes/Grabbables/nightstand.tscn" id="20_vyckp"]
+[ext_resource type="PackedScene" uid="uid://dmnpa4b3yljwh" path="res://Scenes/Grabbables/silver_ware.tscn" id="21_xnho0"]
+[ext_resource type="PackedScene" uid="uid://bg1o7x344k0vj" path="res://PrivateDevRoom/player.tscn" id="22_rhdcr"]
+[ext_resource type="PackedScene" uid="uid://x4n1u0yvhq6c" path="res://Scenes/DayNight/day_night_controller.tscn" id="23_tbmip"]
+[ext_resource type="PackedScene" uid="uid://1hgkm1lo5llm" path="res://Scenes/Grabbables/pocket_watch.tscn" id="26_5ewj5"]
+[ext_resource type="PackedScene" uid="uid://u3aeonjndy3o" path="res://Scenes/StaticEnvironment/house_1.tscn" id="27_0sb2a"]
+[ext_resource type="PackedScene" uid="uid://dr16rjaflpcg5" path="res://Scenes/StaticEnvironment/house_2.tscn" id="28_l47vq"]
+[ext_resource type="PackedScene" uid="uid://djqawc4m3y7ld" path="res://Scenes/StaticEnvironment/house_4.tscn" id="29_qosmx"]
+[ext_resource type="PackedScene" uid="uid://c6mo1sa5f7ke2" path="res://Scenes/StaticEnvironment/stop_sign.tscn" id="30_6b100"]
+[ext_resource type="PackedScene" uid="uid://b5kfr5k8cov30" path="res://Scenes/StaticEnvironment/lamp.tscn" id="31_7qruc"]
+[ext_resource type="PackedScene" uid="uid://dhwtwsuoudulh" path="res://Scenes/StaticEnvironment/windows_1.tscn" id="32_ma6sy"]
+[ext_resource type="PackedScene" uid="uid://cqe227xldt4bp" path="res://Scenes/StaticEnvironment/windows_2.tscn" id="33_iahj2"]
+[ext_resource type="PackedScene" uid="uid://0u12ygea35q" path="res://Scenes/in_game_ui.tscn" id="34_l47vq"]
+[ext_resource type="PackedScene" uid="uid://2w2tbfcxgbei" path="res://Scenes/npc_spawner.tscn" id="36_6b100"]
+[ext_resource type="PackedScene" uid="uid://bikc1to5sd6d" path="res://Scenes/NPCs/npc_1.tscn" id="37_xnho0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_inha5"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_dk34l"]
+sky_material = SubResource("ProceduralSkyMaterial_inha5")
+
+[sub_resource type="Environment" id="Environment_vxu3o"]
+background_mode = 2
+sky = SubResource("Sky_dk34l")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_7qruc"]
+vertices = PackedVector3Array(-44.0948, 10.9645, -54.0855, -44.0948, 10.9645, -27.5855, -39.0948, 10.9645, -27.5855, -39.0948, 10.9645, -54.0855, -8.09485, 4.46453, -14.8355, 9.65515, 4.46453, -14.5855, 9.65515, 4.46453, -31.3355, -8.09485, 4.46453, -31.3355, -6.09485, 0.46453, -27.3355, -6.84485, 0.46453, -26.0855, -5.34485, 0.46453, -26.0855, -5.09485, 0.46453, -27.0855, -1.34485, 0.46453, -28.0855, -1.59485, 0.46453, -26.0855, 6.15515, 0.46453, -26.0855, 6.90515, 0.46453, -25.3355, 6.90515, 0.46453, -24.5855, 8.15515, 0.46453, -24.5855, 8.15515, 0.46453, -30.3355, -3.59485, 0.46453, -28.8355, -6.09485, 0.46453, -30.3355, -6.34485, 0.46453, -29.8355, -2.09485, 0.46453, -28.8355, -79.8448, 14.9645, -18.8355, -74.8448, 14.9645, -18.8355, -74.8448, 14.9645, -25.5855, -79.8448, 14.9645, -25.5855, -36.5948, 10.9645, -20.8355, -36.5948, 10.9645, -24.8355, -38.3448, 10.9645, -24.8355, -38.5948, 10.9645, -25.3355, -44.8448, 10.9645, -24.8355, -51.0948, 10.9645, -20.8355, -44.5948, 10.9645, -25.3355, -51.0948, 10.9645, -24.8355, -34.3448, 10.9645, -24.8355, -34.3448, 10.9645, -20.8355, -10.3448, 10.9645, -20.8355, -10.3448, 10.9645, -24.8355, 6.15515, 0.46453, -23.3355, 4.40515, 0.46453, -23.0855, 4.15515, 0.46453, -22.5855, 4.90515, 0.46453, -17.5855, 7.65515, 0.46453, -17.3355, 8.15515, 0.46453, -16.8355, -0.0948486, 0.46453, -17.3355, -0.344849, 0.46453, -15.8355, 2.65515, 0.46453, -15.3355, -0.844849, 0.46453, -18.0855, 2.90515, 0.46453, -22.8355, 2.65515, 0.46453, -23.3355, -2.09485, 0.46453, -23.3355, -2.34485, 0.46453, -18.0855, -7.84485, 0.46453, -23.3355, -7.84485, 0.46453, -18.0855, -79.8448, 14.9645, -7.08549, -74.8448, 14.9645, -7.08549, -74.8448, 14.9645, -9.08549, -74.8448, 14.9645, -16.8355, -74.0948, 14.9645, -9.83549, -74.0948, 14.9645, -16.0855, -72.3448, 14.9645, -9.83549, -72.3448, 14.9645, -16.0855, -29.5948, 0.46453, -15.0855, -10.3448, 0.46453, -14.8355, -10.3448, 0.46453, -17.0855, -29.5948, 0.46453, -17.0855, -62.0948, 14.9645, -13.5855, -60.0948, 14.9645, -13.5855, -60.0948, 14.9645, -16.0855, -62.8448, 14.9645, -12.8355, -62.8448, 14.9645, -9.83549, -43.8448, 14.9645, -13.5855, -43.8448, 14.9645, -16.0855, -41.8448, 14.9645, -13.5855, -41.0948, 14.9645, -12.8355, -36.5948, 14.9645, -9.83549, -36.5948, 14.9645, -16.0855, -41.0948, 14.9645, -9.83549, -6.34485, 0.46453, -13.0855, -7.34485, 0.46453, -12.0855, -6.59485, 0.46453, -11.5855, -6.59485, 0.46453, -9.33549, -5.59485, 0.46453, -8.58549, 1.40515, 0.46453, -12.3355, 2.65515, 0.46453, -13.8355, -0.844849, 0.46453, -15.3355, -6.34485, 0.46453, -15.3355, 0.905151, 0.46453, -8.33549, -5.59485, 0.46453, -7.58549, -8.09485, 4.46453, -13.3355, -9.09485, 4.46453, -12.5855, -9.09485, 4.46453, -0.335491, -2.09485, 4.46453, -0.0854912, 9.65515, 4.46453, -0.335491, 70.9052, 14.9645, -8.83549, 71.1552, 14.9645, -14.0855, 35.4052, 14.9645, -14.0855, 35.4052, 14.9645, -8.83549, 80.1552, 14.9645, -8.83549, 81.6552, 14.9645, -8.83549, 81.4052, 14.9645, -14.0855, 72.4052, 14.9645, -8.83549, 73.1552, 14.9645, -8.08549, 79.4052, 14.9645, -8.08549, 73.1552, 14.9645, -6.33549, 79.4052, 14.9645, -6.33549, 88.9052, 14.9645, -9.08549, 88.9052, 14.9645, -14.0855, -29.8448, 0.46453, 0.164509, -30.3448, 0.46453, 0.414509, -24.0948, 0.46453, 0.664509, -24.0948, 0.46453, -12.5855, -29.8448, 0.46453, -12.5855, -21.8448, 0.46453, -1.58549, -10.3448, 0.46453, -1.58549, -10.3448, 0.46453, -12.5855, -21.8448, 0.46453, -12.5855, -60.0948, 26.9645, -9.58549, -60.0948, 26.9645, -11.5855, -60.8448, 26.9645, -11.5855, -60.8448, 26.9645, -0.0854912, -60.3448, 26.9645, -1.58549, -53.3448, 26.9645, -4.58549, -53.3448, 26.9645, -0.0854912, -50.3448, 26.9645, -0.0854912, -50.5948, 26.9645, -11.5855, -53.0948, 26.9645, -11.5855, -43.5948, 26.9645, -11.5855, -43.0948, 26.9645, -0.0854912, -43.0948, 26.9645, -11.5855, -60.5948, 14.9645, -11.3355, -60.5948, 14.9645, -9.83549, -43.3448, 14.9645, -9.83549, -43.3448, 14.9645, -11.3355, -0.844849, 0.46453, -1.33549, -0.0948486, 0.46453, -0.0854912, 0.405151, 0.46453, -0.0854912, 1.15515, 0.46453, -1.33549, 1.40515, 0.46453, -3.83549, 1.40515, 0.46453, -7.83549, -5.59485, 0.46453, -3.33549, -6.59485, 0.46453, -2.58549, -6.59485, 0.46453, -1.58549, 2.65515, 0.46453, -1.33549, 2.65515, 0.46453, -3.08549, 3.90515, 0.46453, -3.83549, 8.15515, 0.46453, -1.33549, 8.15515, 0.46453, -7.33549, 3.90515, 0.46453, -7.33549, -79.8448, 14.9645, 27.9145, -74.8448, 14.9645, 27.9145, 76.9052, 14.9645, 3.91451, 76.9052, 14.9645, 5.91451, 79.4052, 14.9645, 5.91451, 76.1552, 14.9645, 3.16451, 73.1552, 14.9645, 3.16451, -22.5948, 0.46453, 2.91451, -24.0948, 0.46453, 2.91451, -23.8448, 0.46453, 8.16451, -21.8448, 0.46453, 2.16451, -7.59485, 0.46453, 8.16451, -9.59485, 0.46453, 1.16451, -10.3448, 0.46453, 0.414509, -7.34485, 0.46453, 1.16451, -66.0948, 14.9645, -0.0854912, -66.0948, 14.9645, 28.1645, -65.8448, 14.9645, 1.16451, -65.0948, 14.9645, 0.414509, -62.8448, 14.9645, 0.414509, -62.8448, 14.9645, -0.0854912, -41.0948, 14.9645, -0.0854912, -41.0948, 14.9645, 0.414509, -36.3448, 14.9645, 0.414509, -36.3448, 14.9645, -0.0854912, -0.0948486, 0.46453, 0.664509, 0.905151, 0.46453, 1.66451, 2.40515, 0.46453, 8.16451, 2.40515, 0.46453, 2.41451, 1.65515, 0.46453, 2.41451, -1.84485, 0.46453, 2.41451, -2.84485, 0.46453, 6.91451, -1.84485, 0.46453, 8.16451, -2.59485, 0.46453, 2.41451, 63.4052, 14.9645, -0.0854912, 35.1552, 14.9645, -0.0854912, 62.1552, 14.9645, 0.164509, 62.9052, 14.9645, 0.914509, 62.9052, 14.9645, 3.16451, 63.4052, 14.9645, 3.16451, -4.34485, 0.46453, 8.16451, -3.59485, 0.46453, 6.91451, -3.59485, 0.46453, 1.16451, 2.90515, 0.46453, 2.41451, 12.6552, 0.46453, 7.66451, 13.9052, 0.46453, 6.91451, 13.9052, 0.46453, 1.16451, 3.65515, 0.46453, 1.16451, 12.6552, 0.46453, 8.16451, 14.4052, 0.46453, 6.91451, 28.6552, 0.46453, 7.66451, 29.9052, 0.46453, 6.91451, 29.9052, 0.46453, 1.16451, 15.1552, 0.46453, 8.16451, 28.6552, 0.46453, 8.16451, 33.9052, 0.46453, 2.16451, 33.1552, 0.46453, 1.16451, 30.4052, 0.46453, 6.91451, 31.1552, 0.46453, 8.16451, 35.9052, 0.46453, 8.16451, 35.9052, 0.46453, 2.16451, 51.6552, 0.46453, 8.16451, 51.6552, 0.46453, 2.16451, 53.6552, 0.46453, 8.16451, 54.4052, 0.46453, 8.91451, 54.4052, 0.46453, 10.9145, 60.9052, 0.46453, 10.9145, 60.9052, 0.46453, 2.16451, 63.1552, 0.46453, 2.16451, 63.1552, 0.46453, 8.41451, 76.4052, 0.46453, 8.41451, 76.4052, 0.46453, 2.16451, -63.8448, 0.46453, 8.16451, -59.3448, 0.46453, 8.16451, -59.3448, 0.46453, 7.66451, -58.0948, 0.46453, 6.91451, -58.0948, 0.46453, 2.41451, -63.8448, 0.46453, 2.41451, -36.5948, 0.46453, 6.91451, -35.8448, 0.46453, 6.91451, -35.5948, 0.46453, 2.91451, -36.0948, 0.46453, 2.41451, -56.8448, 0.46453, 8.16451, -37.3448, 0.46453, 8.16451, -57.5948, 0.46453, 6.91451, -34.8448, 0.46453, 8.16451, 66.6552, 26.9645, 5.66451, 74.9052, 26.9645, 5.66451, 74.9052, 26.9645, 5.16451, 63.4052, 26.9645, 5.16451, 73.1552, 14.9645, 5.41451, 73.1552, 14.9645, 22.6645, 74.6552, 14.9645, 22.6645, 74.6552, 14.9645, 5.41451, 76.9052, 14.9645, 22.1645, 79.4052, 14.9645, 22.1645, -63.8448, 0.71453, 10.1645, -63.8448, 0.71453, 19.4145, 52.4052, 0.71453, 19.4145, 52.4052, 0.71453, 10.1645, 54.4052, 0.46453, 18.6645, 60.9052, 0.46453, 18.6645, 63.4052, 26.9645, 15.4145, 74.9052, 26.9645, 15.4145, 74.9052, 26.9645, 12.9145, 63.4052, 26.9645, 12.6645, 53.6552, 0.46453, 21.4145, 49.9052, 0.46453, 21.4145, 50.6552, 0.46453, 22.1645, 50.6552, 0.46453, 22.9145, 49.6552, 0.46453, 23.6645, 49.6552, 0.46453, 27.9145, 54.4052, 0.46453, 20.6645, 60.9052, 0.46453, 27.9145, 63.1552, 0.46453, 20.9145, 63.1552, 0.46453, 28.6645, 76.4052, 0.46453, 28.6645, 76.4052, 0.46453, 20.9145, -49.0948, 0.46453, 27.4145, -49.0948, 0.46453, 22.6645, -50.3448, 0.46453, 21.9145, -63.8448, 0.46453, 21.4145, -63.8448, 0.46453, 27.4145, -50.3448, 0.46453, 21.4145, -25.5948, 0.46453, 27.4145, -25.3448, 0.46453, 22.6645, -26.5948, 0.46453, 21.4145, -47.8448, 0.46453, 21.4145, -24.5948, 0.46453, 39.4145, -21.0948, 0.46453, 40.1645, -21.0948, 0.46453, 35.4145, -24.5948, 0.46453, 28.1645, -23.8448, 0.46453, 21.4145, -20.3448, 0.46453, 34.6645, 1.90515, 0.46453, 27.9145, 3.90515, 0.46453, 27.9145, 3.90515, 0.46453, 21.4145, -1.84485, 0.46453, 21.4145, -2.84485, 0.46453, 22.6645, -7.34485, 0.46453, 34.6645, -6.59485, 0.46453, 35.4145, 1.15515, 0.46453, 36.6645, 1.15515, 0.46453, 28.6645, -3.59485, 0.46453, 22.6645, -4.59485, 0.46453, 21.4145, -6.59485, 0.46453, 36.9145, 23.9052, 0.46453, 27.9145, 23.9052, 0.46453, 22.6645, 22.6552, 0.46453, 21.9145, 22.6552, 0.46453, 21.4145, 24.4052, 0.46453, 22.6645, 43.9052, 0.46453, 27.9145, 44.1552, 0.46453, 22.4145, 43.6552, 0.46453, 21.4145, 25.1552, 0.46453, 21.4145, 48.4052, 0.46453, 22.1645, 49.1552, 0.46453, 21.4145, 46.1552, 0.46453, 21.4145, 48.4052, 0.46453, 22.9145, 45.1552, 0.46453, 22.6645, 76.9052, 14.9645, 24.1645, 76.1552, 14.9645, 24.9145, 73.1552, 14.9645, 29.4145, 79.4052, 14.9645, 29.4145, 73.1552, 14.9645, 24.9145, 63.4052, 26.9645, 22.6645, 74.9052, 26.9645, 22.9145, 74.9052, 26.9645, 22.4145, 62.9052, 14.9645, 24.9145, 62.9052, 14.9645, 29.6645, 63.4052, 14.9645, 29.6645, 63.4052, 14.9645, 24.9145, -60.5948, 10.9645, 43.4145, -56.3448, 10.9645, 43.6645, -56.3448, 10.9645, 42.1645, -55.5948, 10.9645, 41.4145, -56.3448, 10.9645, 35.6645, -60.5948, 10.9645, 29.4145, -53.5948, 10.9645, 41.4145, -53.5948, 10.9645, 36.4145, -55.5948, 10.9645, 36.4145, -56.5948, 10.9645, 29.4145, 10.6552, 11.2145, 56.6645, 12.9052, 11.2145, 57.1645, 12.9052, 11.2145, 30.1645, 10.6552, 11.2145, 30.1645, -27.3448, 10.9645, 41.4145, -27.3448, 10.9645, 36.4145, -19.0948, 10.9645, 36.6645, -19.0948, 10.9645, 48.9145, -8.59485, 10.9645, 48.9145, -8.59485, 10.9645, 36.6645, -6.59485, 0.46453, 48.9145, 1.15515, 0.46453, 48.9145, -18.3448, 0.71453, 37.9145, -18.3448, 0.71453, 43.6645, -17.0948, 0.71453, 44.4145, -9.09485, 0.71453, 48.9145, -9.09485, 0.71453, 37.9145, -17.0948, 0.71453, 48.9145, -24.5948, 0.46453, 43.6645, -21.0948, 0.46453, 43.6645, -21.3448, 0.46453, 42.9145, -24.5948, 0.46453, 42.1645, 20.4052, 11.4645, 43.1645, 20.4052, 11.4645, 46.1645, 26.1552, 11.4645, 46.1645, 26.1552, 11.4645, 43.1645, 28.4052, 11.4645, 43.1645, 28.4052, 11.4645, 46.1645, 33.4052, 11.4645, 46.1645, 33.4052, 11.4645, 43.1645, -60.5948, 10.9645, 70.1645, -56.3448, 10.9645, 70.1645, 19.6552, 11.7145, 48.9145, 26.4052, 11.7145, 48.9145, 26.1552, 11.7145, 48.1645, 19.6552, 11.7145, 48.1645, 20.4052, 11.4645, 50.9145, 20.4052, 11.4645, 53.9145, 34.9052, 11.4645, 53.9145, 34.9052, 11.4645, 50.9145, 1.15515, 0.46453, 51.1645, -6.59485, 0.46453, 51.1645, -6.59485, 0.46453, 51.9145, 1.15515, 0.46453, 52.6645, -7.34485, 0.46453, 52.4145, 10.6552, 11.2145, 58.4145, 7.90515, 11.2145, 59.1645, 7.90515, 11.2145, 62.1645, 9.90515, 11.2145, 62.1645, 9.90515, 11.2145, 59.1645, 10.6552, 11.2145, 62.9145, 10.6552, 11.2145, 70.1645, 12.9052, 11.2145, 70.1645, -18.8448, 11.2145, 59.1645, -18.8448, 11.2145, 62.1645)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9), PackedInt32Array(14, 13, 12), PackedInt32Array(17, 16, 15), PackedInt32Array(15, 14, 17), PackedInt32Array(17, 14, 18), PackedInt32Array(21, 20, 8), PackedInt32Array(8, 20, 11), PackedInt32Array(11, 20, 19), PackedInt32Array(14, 12, 22), PackedInt32Array(14, 22, 18), PackedInt32Array(18, 22, 20), PackedInt32Array(22, 19, 20), PackedInt32Array(26, 25, 23), PackedInt32Array(23, 25, 24), PackedInt32Array(29, 28, 27), PackedInt32Array(29, 27, 30), PackedInt32Array(30, 27, 31), PackedInt32Array(31, 27, 32), PackedInt32Array(31, 33, 30), PackedInt32Array(32, 34, 31), PackedInt32Array(38, 37, 35), PackedInt32Array(35, 37, 36), PackedInt32Array(40, 39, 41), PackedInt32Array(41, 39, 42), PackedInt32Array(42, 39, 43), PackedInt32Array(16, 17, 39), PackedInt32Array(39, 17, 43), PackedInt32Array(43, 17, 44), PackedInt32Array(47, 46, 45), PackedInt32Array(47, 45, 48), PackedInt32Array(51, 50, 49), PackedInt32Array(48, 52, 51), PackedInt32Array(41, 42, 49), PackedInt32Array(49, 42, 47), PackedInt32Array(49, 47, 48), PackedInt32Array(49, 48, 51), PackedInt32Array(54, 53, 52), PackedInt32Array(52, 53, 51), PackedInt32Array(57, 56, 55), PackedInt32Array(23, 24, 58), PackedInt32Array(58, 60, 23), PackedInt32Array(23, 60, 59), PackedInt32Array(23, 59, 57), PackedInt32Array(23, 57, 55), PackedInt32Array(60, 62, 59), PackedInt32Array(59, 62, 61), PackedInt32Array(66, 65, 63), PackedInt32Array(63, 65, 64), PackedInt32Array(69, 68, 67), PackedInt32Array(67, 70, 69), PackedInt32Array(69, 70, 62), PackedInt32Array(62, 70, 61), PackedInt32Array(70, 71, 61), PackedInt32Array(69, 73, 68), PackedInt32Array(68, 73, 72), PackedInt32Array(74, 72, 73), PackedInt32Array(74, 73, 75), PackedInt32Array(75, 73, 77), PackedInt32Array(75, 77, 76), PackedInt32Array(76, 78, 75), PackedInt32Array(79, 81, 80), PackedInt32Array(82, 81, 83), PackedInt32Array(83, 81, 79), PackedInt32Array(85, 84, 47), PackedInt32Array(47, 84, 46), PackedInt32Array(46, 84, 86), PackedInt32Array(79, 87, 83), PackedInt32Array(83, 87, 86), PackedInt32Array(83, 86, 84), PackedInt32Array(83, 84, 88), PackedInt32Array(88, 89, 83), PackedInt32Array(91, 90, 92), PackedInt32Array(92, 90, 93), PackedInt32Array(90, 4, 93), PackedInt32Array(93, 4, 94), PackedInt32Array(94, 4, 5), PackedInt32Array(98, 97, 95), PackedInt32Array(95, 97, 96), PackedInt32Array(101, 100, 99), PackedInt32Array(102, 95, 96), PackedInt32Array(102, 96, 103), PackedInt32Array(103, 96, 104), PackedInt32Array(104, 96, 99), PackedInt32Array(99, 96, 101), PackedInt32Array(104, 106, 103), PackedInt32Array(103, 106, 105), PackedInt32Array(107, 100, 108), PackedInt32Array(108, 100, 101), PackedInt32Array(111, 110, 109), PackedInt32Array(113, 112, 109), PackedInt32Array(109, 112, 111), PackedInt32Array(117, 116, 114), PackedInt32Array(114, 116, 115), PackedInt32Array(119, 118, 120), PackedInt32Array(120, 118, 122), PackedInt32Array(120, 122, 121), PackedInt32Array(124, 123, 125), PackedInt32Array(125, 123, 127), PackedInt32Array(125, 127, 126), PackedInt32Array(130, 129, 128), PackedInt32Array(134, 133, 131), PackedInt32Array(131, 133, 132), PackedInt32Array(136, 135, 137), PackedInt32Array(137, 135, 138), PackedInt32Array(140, 139, 88), PackedInt32Array(88, 139, 135), PackedInt32Array(88, 135, 141), PackedInt32Array(88, 141, 89), PackedInt32Array(142, 141, 143), PackedInt32Array(143, 141, 135), PackedInt32Array(145, 144, 138), PackedInt32Array(145, 138, 139), PackedInt32Array(139, 138, 135), PackedInt32Array(145, 146, 144), PackedInt32Array(144, 146, 147), PackedInt32Array(149, 148, 146), PackedInt32Array(146, 148, 147), PackedInt32Array(151, 150, 56), PackedInt32Array(56, 150, 55), PackedInt32Array(154, 153, 152), PackedInt32Array(152, 155, 154), PackedInt32Array(154, 155, 106), PackedInt32Array(106, 155, 105), PackedInt32Array(155, 156, 105), PackedInt32Array(159, 158, 157), PackedInt32Array(157, 160, 159), PackedInt32Array(159, 160, 163), PackedInt32Array(159, 163, 162), PackedInt32Array(159, 162, 161), PackedInt32Array(162, 164, 161), PackedInt32Array(115, 163, 114), PackedInt32Array(114, 163, 160), PackedInt32Array(167, 166, 165), PackedInt32Array(167, 165, 168), PackedInt32Array(169, 168, 170), PackedInt32Array(170, 168, 165), PackedInt32Array(174, 173, 171), PackedInt32Array(171, 173, 172), PackedInt32Array(136, 137, 175), PackedInt32Array(175, 137, 176), PackedInt32Array(179, 178, 177), PackedInt32Array(176, 180, 175), PackedInt32Array(176, 179, 180), PackedInt32Array(180, 179, 181), PackedInt32Array(181, 179, 182), PackedInt32Array(182, 179, 177), PackedInt32Array(181, 183, 180), PackedInt32Array(186, 185, 184), PackedInt32Array(186, 184, 187), PackedInt32Array(188, 187, 189), PackedInt32Array(189, 187, 184), PackedInt32Array(190, 161, 191), PackedInt32Array(191, 161, 183), PackedInt32Array(183, 161, 192), PackedInt32Array(192, 161, 164), PackedInt32Array(183, 181, 191), PackedInt32Array(177, 178, 193), PackedInt32Array(195, 194, 196), PackedInt32Array(196, 194, 197), PackedInt32Array(197, 194, 193), PackedInt32Array(193, 194, 177), PackedInt32Array(194, 198, 177), PackedInt32Array(199, 195, 196), PackedInt32Array(201, 200, 202), PackedInt32Array(202, 200, 203), PackedInt32Array(202, 203, 199), PackedInt32Array(202, 199, 196), PackedInt32Array(200, 204, 203), PackedInt32Array(206, 205, 202), PackedInt32Array(202, 205, 207), PackedInt32Array(202, 207, 201), PackedInt32Array(208, 207, 209), PackedInt32Array(209, 207, 205), PackedInt32Array(209, 205, 210), PackedInt32Array(210, 212, 209), PackedInt32Array(209, 212, 211), PackedInt32Array(213, 211, 212), PackedInt32Array(216, 215, 214), PackedInt32Array(213, 212, 214), PackedInt32Array(214, 212, 217), PackedInt32Array(214, 217, 216), PackedInt32Array(221, 220, 218), PackedInt32Array(218, 220, 219), PackedInt32Array(224, 223, 222), PackedInt32Array(225, 224, 226), PackedInt32Array(226, 224, 222), PackedInt32Array(226, 222, 227), PackedInt32Array(229, 228, 230), PackedInt32Array(230, 228, 231), PackedInt32Array(234, 226, 232), PackedInt32Array(232, 226, 233), PackedInt32Array(233, 226, 228), PackedInt32Array(228, 226, 231), PackedInt32Array(234, 225, 226), PackedInt32Array(229, 230, 235), PackedInt32Array(235, 230, 158), PackedInt32Array(235, 158, 159), PackedInt32Array(237, 236, 238), PackedInt32Array(238, 236, 239), PackedInt32Array(243, 242, 240), PackedInt32Array(240, 242, 241), PackedInt32Array(153, 154, 244), PackedInt32Array(244, 154, 245), PackedInt32Array(249, 248, 246), PackedInt32Array(246, 248, 247), PackedInt32Array(215, 216, 250), PackedInt32Array(250, 216, 251), PackedInt32Array(253, 252, 254), PackedInt32Array(254, 252, 255), PackedInt32Array(258, 257, 256), PackedInt32Array(259, 258, 256), PackedInt32Array(259, 256, 260), PackedInt32Array(260, 256, 261), PackedInt32Array(262, 250, 251), PackedInt32Array(262, 251, 256), PackedInt32Array(256, 251, 263), PackedInt32Array(256, 263, 261), PackedInt32Array(267, 266, 264), PackedInt32Array(264, 266, 265), PackedInt32Array(269, 268, 270), PackedInt32Array(270, 268, 272), PackedInt32Array(270, 272, 271), PackedInt32Array(271, 273, 270), PackedInt32Array(275, 274, 276), PackedInt32Array(276, 274, 277), PackedInt32Array(277, 274, 269), PackedInt32Array(269, 274, 268), PackedInt32Array(279, 278, 280), PackedInt32Array(280, 278, 281), PackedInt32Array(274, 275, 281), PackedInt32Array(281, 275, 282), PackedInt32Array(283, 280, 281), PackedInt32Array(287, 286, 288), PackedInt32Array(288, 286, 284), PackedInt32Array(284, 286, 285), PackedInt32Array(290, 289, 291), PackedInt32Array(291, 289, 292), PackedInt32Array(294, 293, 292), PackedInt32Array(284, 292, 288), PackedInt32Array(288, 292, 293), PackedInt32Array(281, 282, 283), PackedInt32Array(283, 282, 289), PackedInt32Array(289, 282, 294), PackedInt32Array(289, 294, 292), PackedInt32Array(291, 295, 290), PackedInt32Array(297, 296, 298), PackedInt32Array(298, 296, 285), PackedInt32Array(298, 285, 286), PackedInt32Array(286, 299, 298), PackedInt32Array(296, 297, 300), PackedInt32Array(302, 301, 303), PackedInt32Array(303, 301, 304), PackedInt32Array(304, 301, 300), PackedInt32Array(300, 301, 296), PackedInt32Array(307, 306, 305), PackedInt32Array(305, 308, 307), PackedInt32Array(307, 308, 309), PackedInt32Array(301, 302, 309), PackedInt32Array(308, 260, 309), PackedInt32Array(309, 260, 261), PackedInt32Array(309, 261, 301), PackedInt32Array(310, 244, 245), PackedInt32Array(310, 245, 311), PackedInt32Array(311, 245, 313), PackedInt32Array(311, 313, 312), PackedInt32Array(312, 314, 311), PackedInt32Array(317, 316, 315), PackedInt32Array(321, 320, 318), PackedInt32Array(318, 320, 319), PackedInt32Array(324, 323, 322), PackedInt32Array(324, 322, 325), PackedInt32Array(325, 322, 326), PackedInt32Array(326, 322, 327), PackedInt32Array(330, 329, 325), PackedInt32Array(325, 329, 328), PackedInt32Array(327, 331, 326), PackedInt32Array(326, 330, 325), PackedInt32Array(335, 334, 332), PackedInt32Array(332, 334, 333), PackedInt32Array(329, 337, 328), PackedInt32Array(328, 337, 336), PackedInt32Array(341, 340, 338), PackedInt32Array(338, 340, 339), PackedInt32Array(342, 295, 343), PackedInt32Array(343, 295, 291), PackedInt32Array(345, 344, 346), PackedInt32Array(346, 344, 348), PackedInt32Array(346, 348, 347), PackedInt32Array(347, 349, 346), PackedInt32Array(351, 350, 352), PackedInt32Array(352, 350, 353), PackedInt32Array(357, 356, 354), PackedInt32Array(354, 356, 355), PackedInt32Array(361, 360, 358), PackedInt32Array(358, 360, 359), PackedInt32Array(363, 362, 323), PackedInt32Array(323, 362, 322), PackedInt32Array(367, 366, 364), PackedInt32Array(364, 366, 365), PackedInt32Array(371, 370, 368), PackedInt32Array(368, 370, 369), PackedInt32Array(373, 372, 374), PackedInt32Array(374, 372, 375), PackedInt32Array(374, 375, 376), PackedInt32Array(377, 332, 333), PackedInt32Array(381, 380, 378), PackedInt32Array(378, 380, 379), PackedInt32Array(383, 382, 384), PackedInt32Array(384, 382, 333), PackedInt32Array(377, 333, 381), PackedInt32Array(381, 333, 380), PackedInt32Array(380, 333, 382), PackedInt32Array(386, 385, 379), PackedInt32Array(379, 385, 378)]
+agent_radius = 1.0
+agent_max_climb = 0.05
+
+[node name="DuttLevel" type="Node3D"]
+script = ExtResource("1_qosmx")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vxu3o")
+
+[node name="DuttLevelNavMesh" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_7qruc")
+navigation_layers = 3
+
+[node name="HouseBlocks" type="Node3D" parent="DuttLevelNavMesh"]
+
+[node name="Floor 1" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31166, 1.19209e-07, -2.11148)
+
+[node name="Floor 2" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13403, 1.19209e-07, -2.11148)
+
+[node name="Floor 3" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31166, 1.19209e-07, -6.30191)
+
+[node name="Floor 9" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1, 5.98413, 1.19209e-07, -2.11148)
+
+[node name="Floor 10" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1, 5.98413, 1.19209e-07, -6.30191)
+
+[node name="Floor 4" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13403, 1.19209e-07, -6.30191)
+
+[node name="Floor 5" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31166, 1.19209e-07, -10.4585)
+
+[node name="Floor 6" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13403, 1.19209e-07, -10.4585)
+
+[node name="Floor 7" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31166, 1.19209e-07, -14.649)
+
+[node name="Floor 11" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1, 5.98413, 1.19209e-07, -10.4585)
+
+[node name="Floor 12" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1, 5.98413, 1.19209e-07, -14.649)
+
+[node name="Floor 8" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13403, 1.19209e-07, -14.649)
+
+[node name="Floor 13" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31166, 1.19209e-07, -18.7867)
+
+[node name="Floor 14" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13403, 1.19209e-07, -18.7867)
+
+[node name="Floor 15" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31166, 1.19209e-07, -22.9772)
+
+[node name="Floor 16" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1, 5.98413, 1.19209e-07, -18.7867)
+
+[node name="Floor 17" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1, 5.98413, 1.19209e-07, -22.9772)
+
+[node name="Floor 18" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13403, 1.19209e-07, -22.9772)
+
+[node name="Floor 19" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31166, 1.19209e-07, -27.1575)
+
+[node name="Floor 20" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13403, 1.19209e-07, -27.1575)
+
+[node name="Floor 21" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31166, 1.19209e-07, -31.3479)
+
+[node name="Floor 22" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1, 5.98413, 1.19209e-07, -27.1575)
+
+[node name="Floor 23" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1, 5.98413, 1.19209e-07, -31.3479)
+
+[node name="Floor 24" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("1_23nbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13403, 1.19209e-07, -31.3479)
+
+[node name="Wall 1" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(-1.2, 0, 1.04907e-07, 0, 1.2, 0, -1.04907e-07, 0, -1.2, -5.29107, 0.0359451, -0.0637851)
+
+[node name="Wall 3" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(1.57361e-07, 0, 1.2, 0, 1.2, 0, -1.2, 0, 1.57361e-07, -9.14546, 0.0359451, -3.87278)
+
+[node name="Wall 18" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(1.15911, 0, -0.310583, 0, 1.2, 0, 0.310583, 0, 1.15911, -23.1455, 0.0359451, 41.1272)
+
+[node name="Wall 4" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(1.57361e-07, 0, 1.2, 0, 1.2, 0, -1.2, 0, 1.57361e-07, -9.14546, 0.0359451, -11.8039)
+
+[node name="Wall 8" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(1.57361e-07, 0, 1.2, 0, 1.2, 0, -1.2, 0, 1.57361e-07, -9.14546, 0.0359451, -19.7113)
+
+[node name="Wall 15" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(1.2, 0, -2.09815e-07, 0, 1.2, 0, 2.09815e-07, 0, 1.2, -5.14546, 0.0359451, -24.7113)
+
+[node name="Wall 17" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(1.2, 0, -2.09815e-07, 0, 1.2, 0, 2.09815e-07, 0, 1.2, 1.85454, 0.0359451, -24.7113)
+
+[node name="Wall 16" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(-1.2, 0, 3.14722e-07, 0, 1.2, 0, -3.14722e-07, 0, -1.2, -5.14546, 0.0359451, -16.7113)
+
+[node name="Wall 9" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(1.57361e-07, 0, 1.2, 0, 1.2, 0, -1.2, 0, 1.57361e-07, -9.14546, 0.0359451, -27.6047)
+
+[node name="Wall 10" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(1.2, 0, -2.09815e-07, 0, 1.2, 0, 2.09815e-07, 0, 1.2, -5.31007, 0.0359451, -31.6047)
+
+[node name="Wall 11" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(1.73124, 0, -2.09815e-07, 0, 1.2, 0, 3.02699e-07, 0, 1.2, 3.94264, 0.0359451, -31.6047)
+
+[node name="Wall 12" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(-2.62268e-07, 0, -1.2, 0, 1.2, 0, 1.2, 0, -2.62268e-07, 9.51899, 0.0359451, -12.6047)
+
+[node name="Wall 13" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(-2.62268e-07, 0, -1.2, 0, 1.2, 0, 1.2, 0, -2.62268e-07, 9.51899, 0.0359451, -19.982)
+
+[node name="Wall 14" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(-2.62268e-07, 0, -1.2, 0, 1.2, 0, 1.2, 0, -2.62268e-07, 9.51899, 0.0359451, -27.5928)
+
+[node name="Wall 2" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(-5.08989, 0, 1.04907e-07, 0, 1.2, 0, -4.44972e-07, 0, -1.2, 18.612, 0.0359451, -0.0637851)
+
+[node name="Wall 6" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(-5.79833e-08, 0, -1.2, 0, 1.2, 0, 1.3265, 0, -5.24537e-08, 9.51113, 0.0359451, -4.449)
+
+[node name="Wall 7" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(1.09372, 0, 1.42109e-14, 0, 1.2, 0, -5.85854e-15, 0, 1.2, 6.05621, 0.0359451, -8.74515)
+
+[node name="Wall 5" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, 2.5932, 0.0359451, -8.06379)
+
+[node name="Door" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("3_tbmip")]
+transform = Transform3D(0.708848, 0, 0.708848, 0, 1.21404, 0, -0.708848, 0, 0.708848, -1.94183, 0.171671, 0.638556)
+
+[node name="Door2" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("3_tbmip")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1.16443, 0, -0.866025, 0, -0.5, 2.02242, 0.171671, 0.638556)
+
+[node name="Door3" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("3_tbmip")]
+transform = Transform3D(1.46704, 0, 0.294797, 0, 1.21307, 0, -0.393091, 0, 1.1002, 4.53558, 0.110041, -24.3765)
+
+[node name="Shelf" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("4_inha5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.39176, 0.0858004, -2.1408)
+
+[node name="Shelf2" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("4_inha5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.39176, 0.0858004, -10.1408)
+
+[node name="Table" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("5_dk34l")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.78265, 0.0359451, -6.00179)
+
+[node name="TV" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("6_vxu3o")]
+transform = Transform3D(0.0619196, 0, 0.998081, 0, 1, 0, -0.998081, 0, 0.0619196, -8.2072, 1.28589, -5.84245)
+
+[node name="Crate" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("7_vyckp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.02971, 0.0407047, -15.5466)
+
+[node name="Crate2" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("7_vyckp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01263, 0.0407045, -13.9351)
+
+[node name="Crate3" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("7_vyckp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.00912, 1.23479, -14.7162)
+
+[node name="plant pot" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("8_5ewj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.03088, 1.25311, -7.83992)
+
+[node name="Table2" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("5_dk34l")]
+transform = Transform3D(-0.156797, 0, -0.987631, 0, 1, 0, 0.987631, 0, -0.156797, 5.9833, 0.0359451, -14.023)
+
+[node name="chair" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("9_mvfof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77673, 0.567292, -12.8945)
+
+[node name="chair2" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("9_mvfof")]
+transform = Transform3D(0.906514, 0, -0.422175, 0, 1, 0, 0.422175, 0, 0.906514, 4.13534, 0.567292, -14.7448)
+
+[node name="chair3" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("9_mvfof")]
+transform = Transform3D(-0.771935, 0, 0.635701, 0, 1, 0, -0.635701, 0, -0.771935, 8.17678, 0.567292, -12.5557)
+
+[node name="chair4" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("9_mvfof")]
+transform = Transform3D(-0.830839, 0, -0.556513, 0, 1, 0, 0.556513, 0, -0.830839, 8.52899, 0.567292, -14.6406)
+
+[node name="Bottle" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("10_1brc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.29946, 1.25993, -12.6111)
+
+[node name="Bottle2" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("10_1brc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1751, 1.25993, -12.9917)
+
+[node name="Bottle3" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("10_1brc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.775, 1.25993, -15.0916)
+
+[node name="Bottle4" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("10_1brc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82833, 1.25993, -15.3714)
+
+[node name="Baseball" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("11_31lle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.84548, 1.36326, -13.2348)
+
+[node name="Baseball2" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("11_31lle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.42208, 1.36326, -14.9926)
+
+[node name="Baseball bat" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("12_5u2ta")]
+transform = Transform3D(1.62888, -1.1605, -5.07269e-08, 0, -8.74228e-08, 2, -1.1605, -1.62888, -7.12006e-08, 5.98835, 1.48573, -14.56)
+
+[node name="Cardboard box 1" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("13_0sb2a")]
+transform = Transform3D(0.907176, 0, -0.420751, 0, 1, 0, 0.420751, 0, 0.907176, 8.59832, 0.0384054, -9.66576)
+
+[node name="Cardboard box 2" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("14_l47vq")]
+transform = Transform3D(0.963635, 0, -0.267222, 0, 1, 0, 0.267222, 0, 0.963635, 7.41021, 0.0457912, -9.41037)
+
+[node name="Cardboard box 3" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("13_0sb2a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.65374, 0.0384049, -10.5017)
+
+[node name="Crate4" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("7_vyckp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.70123, 0.0407047, -9.89843)
+
+[node name="Laptop" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("15_qosmx")]
+transform = Transform3D(-0.629483, 0, 0.777014, 0, 1, 0, -0.777014, 0, -0.629483, 3.57864, 1.24877, -9.7936)
+
+[node name="Laptop2" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("15_qosmx")]
+transform = Transform3D(0.960639, 0, -0.277801, 0, 1, 0, 0.277801, 0, 0.960639, 5.67467, 1.27184, -12.3985)
+
+[node name="Painting 2" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("16_6b100")]
+transform = Transform3D(0.0169469, 0.246678, -0.968949, -0.00431373, 0.969098, 0.24664, 0.999847, 0, 0.0174873, 8.9062, 0.324185, -15.7066)
+
+[node name="Painting 3" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("17_7qruc")]
+transform = Transform3D(0.0905282, 0.229625, -0.96906, -0.0213582, 0.973279, 0.22863, 0.995665, 0, 0.0930136, 1.95601, 0.0453985, -9.03696)
+
+[node name="Celling" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("18_ma6sy")]
+transform = Transform3D(1.79741, 0, 0, 0, 1, 0, 0, 0, 2.89271, 0.201595, 4.10196, -15.8444)
+
+[node name="Boombox" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("19_vxu3o")]
+transform = Transform3D(0.673374, 0, 0.739302, 0, 1, 0, -0.739302, 0, 0.673374, -7.81745, 1.34187, -30.6783)
+
+[node name="Bottle5" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("10_1brc1")]
+transform = Transform3D(0.751667, 0, 0.659543, 0, 1, 0, -0.659543, 0, 0.751667, -3.78304, 1.34869, -26.192)
+
+[node name="Bottle6" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("10_1brc1")]
+transform = Transform3D(0.751667, 0, 0.659543, 0, 1, 0, -0.659543, 0, 0.751667, -3.2202, 1.34869, -25.9642)
+
+[node name="Bottle7" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("10_1brc1")]
+transform = Transform3D(0.751667, 0, 0.659543, 0, 1, 0, -0.659543, 0, 0.751667, -3.47115, 1.34869, -26.0666)
+
+[node name="Bottle8" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("10_1brc1")]
+transform = Transform3D(0.751667, 0, 0.659543, 0, 1, 0, -0.659543, 0, 0.751667, -3.57472, 1.34869, -26.2471)
+
+[node name="Bottle9" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("10_1brc1")]
+transform = Transform3D(0.751667, 0, 0.659543, 0, 1, 0, -0.659543, 0, 0.751667, -2.93038, 1.34869, -26.3703)
+
+[node name="Bottle10" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("10_1brc1")]
+transform = Transform3D(0.751667, 0.659543, -2.88295e-08, 0, -4.37114e-08, -1, -0.659543, 0.751667, -3.28564e-08, -3.33287, 1.4189, -26.3377)
+
+[node name="Bottle11" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("10_1brc1")]
+transform = Transform3D(0.265994, 0.96347, 0.0311872, 0, 0.0323527, -0.999476, -0.963975, 0.265854, 0.00860561, -3.63566, 1.45167, -26.5226)
+
+[node name="plant pot2" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("8_5ewj5")]
+transform = Transform3D(0.596603, 0, -0.802536, 0, 1, 0, 0.802536, 0, 0.596603, -7.77232, 0.0359451, -27.1054)
+
+[node name="TV2" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("6_vxu3o")]
+transform = Transform3D(-0.0688337, 0, 0.997628, 0, 1, 0, -0.997628, 0, -0.0688337, -7.99638, 1.30619, -28.3181)
+
+[node name="Crate5" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("7_vyckp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.83693, 0.0407042, -28.2877)
+
+[node name="Nightstand" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("20_vyckp")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -8.56944, 0.0359453, -30.7917)
+
+[node name="Nightstand2" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("20_vyckp")]
+transform = Transform3D(-0.926397, 0, 0.376548, 0, 1, 0, -0.376548, 0, -0.926397, -3.76638, 0.0359453, -25.4118)
+
+[node name="chair5" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("9_mvfof")]
+transform = Transform3D(-0.272633, 0, 0.962118, 0, 1, 0, -0.962118, 0, -0.272633, 5.55362, 0.567291, -10.7218)
+
+[node name="Silver ware" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("21_xnho0")]
+transform = Transform3D(0.946644, 0, 0.322282, 0, 1, 0, -0.322282, 0, 0.946644, 6.69394, 1.25311, -15.739)
+
+[node name="chair6" parent="DuttLevelNavMesh/HouseBlocks" instance=ExtResource("9_mvfof")]
+transform = Transform3D(-0.990622, 0, 0.136632, 0, 1, 0, -0.136632, 0, -0.990622, -2.97991, 0.567292, -27.3004)
+
+[node name="House 1" parent="DuttLevelNavMesh" instance=ExtResource("27_0sb2a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.393, 0, 62.042)
+
+[node name="House 3" parent="DuttLevelNavMesh" instance=ExtResource("27_0sb2a")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18.5385, 0, -22.958)
+
+[node name="House 2" parent="DuttLevelNavMesh" instance=ExtResource("28_l47vq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 11.5831, 0.21321, 38.1236)
+
+[node name="House 4" parent="DuttLevelNavMesh" instance=ExtResource("29_qosmx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 46.3276, 0.226644, -11.3311)
+
+[node name="House 5" parent="DuttLevelNavMesh" instance=ExtResource("29_qosmx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.2777, 0.226644, 16.9568)
+
+[node name="Stop sign" parent="DuttLevelNavMesh" instance=ExtResource("30_6b100")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 49.6139, 0.286505, 22.5136)
+
+[node name="Lamp" parent="DuttLevelNavMesh" instance=ExtResource("31_7qruc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.831, 0.164734, 8.27418)
+
+[node name="Lamp4" parent="DuttLevelNavMesh" instance=ExtResource("31_7qruc")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -3.16895, 0.164734, 8.27418)
+
+[node name="Lamp9" parent="DuttLevelNavMesh" instance=ExtResource("31_7qruc")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -36.169, 0.164734, 8.27418)
+
+[node name="Lamp10" parent="DuttLevelNavMesh" instance=ExtResource("31_7qruc")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -58.169, 0.164734, 8.27418)
+
+[node name="Lamp5" parent="DuttLevelNavMesh" instance=ExtResource("31_7qruc")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -3.16895, 0.164734, 21.2742)
+
+[node name="Lamp7" parent="DuttLevelNavMesh" instance=ExtResource("31_7qruc")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -25.169, 0.164734, 21.2742)
+
+[node name="Lamp8" parent="DuttLevelNavMesh" instance=ExtResource("31_7qruc")]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, -49.169, 0.164734, 21.2742)
+
+[node name="Lamp2" parent="DuttLevelNavMesh" instance=ExtResource("31_7qruc")]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 23.831, 0.164734, 21.2742)
+
+[node name="Lamp6" parent="DuttLevelNavMesh" instance=ExtResource("31_7qruc")]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 44.831, 0.164734, 21.2742)
+
+[node name="Lamp3" parent="DuttLevelNavMesh" instance=ExtResource("31_7qruc")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 29.831, 0.164734, 8.27418)
+
+[node name="Windows 1" parent="DuttLevelNavMesh" instance=ExtResource("32_ma6sy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.83557, 1.46749, 0.343305)
+
+[node name="Windows 2" parent="DuttLevelNavMesh" instance=ExtResource("32_ma6sy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.83557, 1.46749, -0.102942)
+
+[node name="Windows 3" parent="DuttLevelNavMesh" instance=ExtResource("33_iahj2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.98097, 0.976842, -18.931)
+
+[node name="Windows 4" parent="DuttLevelNavMesh" instance=ExtResource("33_iahj2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.98097, 0.976842, -22.931)
+
+[node name="Wall 1" parent="DuttLevelNavMesh" instance=ExtResource("2_rhdcr")]
+transform = Transform3D(6.35611, 0, 0, 0, 1.80719, 0, 0, 0, 1.2, 41.1613, 0.171671, 29.2322)
+
+[node name="RoadBlocks" type="Node3D" parent="DuttLevelNavMesh"]
+
+[node name="Road" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("19_iahj2")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.34838, 0, 14.8292)
+
+[node name="Road2" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("19_iahj2")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 16.6516, 0, 14.8292)
+
+[node name="Sidewalk" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.58779, 0, 9.14569)
+
+[node name="Sidewalk3" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5878, 0, 9.14569)
+
+[node name="Sidewalk2" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.27833, 0, 9.14569)
+
+[node name="Sidewalk4" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2783, 0, 9.14569)
+
+[node name="Sidewalk5" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.58779, 0, 29.2793)
+
+[node name="Sidewalk6" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5878, 0, 29.2793)
+
+[node name="Sidewalk39" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0271, 0, 37.2793)
+
+[node name="Sidewalk40" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0575, 0, 44.2793)
+
+[node name="Sidewalk33" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.58779, 0, 38.2793)
+
+[node name="Sidewalk34" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5878, 0, 38.2793)
+
+[node name="Sidewalk35" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.58779, 0, 46.2793)
+
+[node name="Sidewalk36" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5878, 0, 46.2793)
+
+[node name="Sidewalk37" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.58779, 0, 53.2793)
+
+[node name="Sidewalk38" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5878, 0, 53.2793)
+
+[node name="Sidewalk7" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.27833, 0, 29.2793)
+
+[node name="Sidewalk8" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2783, 0, 29.2793)
+
+[node name="Sidewalk9" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7534, 0, 9.14569)
+
+[node name="Sidewalk10" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7534, 0, 29.2793)
+
+[node name="Road3" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("19_iahj2")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 40.6516, 0, 14.8292)
+
+[node name="Sidewalk11" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.4122, 0, 9.14569)
+
+[node name="Sidewalk12" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4122, 0, 9.14569)
+
+[node name="Sidewalk13" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.2783, 0, 9.14569)
+
+[node name="Sidewalk14" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.2783, 0, 9.14569)
+
+[node name="Sidewalk15" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.4122, 0, 29.2793)
+
+[node name="Sidewalk16" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4122, 0, 29.2793)
+
+[node name="Sidewalk17" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.2783, 0, 29.2793)
+
+[node name="Sidewalk18" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.2783, 0, 29.2793)
+
+[node name="Sidewalk31" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 53.2783, 0, 10.2793)
+
+[node name="Sidewalk32" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 53.2783, 0, 20.2793)
+
+[node name="Sidewalk19" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.7534, 0, 9.14569)
+
+[node name="Sidewalk20" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.7534, 0, 29.2793)
+
+[node name="Road5" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("19_iahj2")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -55.3484, 0, 14.8292)
+
+[node name="Road6" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("19_iahj2")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -31.3484, 0, 14.8292)
+
+[node name="Sidewalk21" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.5878, 0, 9.14569)
+
+[node name="Sidewalk22" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.5878, 0, 9.14569)
+
+[node name="Sidewalk23" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.7217, 0, 9.14569)
+
+[node name="Sidewalk24" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7217, 0, 9.14569)
+
+[node name="Sidewalk25" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.5878, 0, 29.2793)
+
+[node name="Sidewalk26" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.5878, 0, 29.2793)
+
+[node name="Sidewalk27" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.7217, 0, 29.2793)
+
+[node name="Sidewalk28" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7217, 0, 29.2793)
+
+[node name="Sidewalk29" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.2466, 0, 9.14569)
+
+[node name="Sidewalk41" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5878, 0, 0.145691)
+
+[node name="Sidewalk42" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2466, 0, 0.145691)
+
+[node name="Sidewalk43" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5878, 0, -8.85431)
+
+[node name="Sidewalk44" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2466, 0, -8.85431)
+
+[node name="Sidewalk30" parent="DuttLevelNavMesh/RoadBlocks" instance=ExtResource("20_hqmeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.2466, 0, 29.2793)
+
+[node name="Player" parent="." instance=ExtResource("22_rhdcr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.194, 5.38174, -2.12613)
+jump_velocity = 6.0
+
+[node name="DayNightController" parent="." node_paths=PackedStringArray("worldEnvironment") instance=ExtResource("23_tbmip")]
+worldEnvironment = NodePath("../WorldEnvironment")
+speedMultiplier = 1.0
+
+[node name="Pocket watch" parent="." instance=ExtResource("26_5ewj5")]
+transform = Transform3D(0.264142, 0, 0.964484, 0, 1, 0, -0.964484, 0, 0.264142, -7.79174, 1.23636, -15.8234)
+
+[node name="Silver ware" parent="." instance=ExtResource("21_xnho0")]
+transform = Transform3D(1, 0, 0, 0, 0.0530157, 0.998594, 0, -0.998594, 0.0530157, -7.84526, 0.507012, -14.6665)
+
+[node name="Table" parent="." instance=ExtResource("5_dk34l")]
+transform = Transform3D(-0.198975, 0, 0.980005, 0, 1, 0, -0.980005, 0, -0.198975, 4.485, 0.0359453, -5.68866)
+
+[node name="chair" parent="." instance=ExtResource("9_mvfof")]
+transform = Transform3D(-0.883578, 0, -0.468284, 0, 1, 0, 0.468284, 0, -0.883578, 6.30904, 0.567292, -6.11048)
+
+[node name="Boombox" parent="." instance=ExtResource("19_vxu3o")]
+transform = Transform3D(0.552082, 0, 0.833789, 0, 1, 0, -0.833789, 0, 0.552082, 4.57868, 1.25311, -7.36915)
+
+[node name="Laptop" parent="." instance=ExtResource("15_qosmx")]
+transform = Transform3D(-0.109457, 0, 0.993992, 0, 1, 0, -0.993992, 0, -0.109457, 4.78845, 1.27184, -5.64017)
+
+[node name="Pocket watch2" parent="." instance=ExtResource("26_5ewj5")]
+transform = Transform3D(-0.99403, 0, 0.10911, 0, 1, 0, -0.10911, 0, -0.99403, 5.08375, 1.25944, -4.28995)
+
+[node name="Bottle" parent="." instance=ExtResource("10_1brc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47807, 1.25993, -6.58629)
+
+[node name="Baseball" parent="." instance=ExtResource("11_31lle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.35406, 1.91415, -9.50433)
+
+[node name="Boombox2" parent="." instance=ExtResource("19_vxu3o")]
+transform = Transform3D(0.278522, 0, 0.96043, 0, 1, 0, -0.96043, 0, 0.278522, -8.5033, 2.47015, -10.6562)
+
+[node name="InGameUI" parent="." instance=ExtResource("34_l47vq")]
+
+[node name="NPC_Spawner" parent="." node_paths=PackedStringArray("spawn_points") instance=ExtResource("36_6b100")]
+spawn_points = [NodePath("Marker3D"), NodePath("Marker3D2"), NodePath("Marker3D3"), NodePath("Marker3D4")]
+max_NPC_day_count = 5
+max_NPC_night_count = 0
+max_burglar_day_count = 0
+max_burglar_night_count = 0
+daytime_NPCs = Array[PackedScene]([ExtResource("37_xnho0")])
+
+[node name="Marker3D" type="Marker3D" parent="NPC_Spawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.7884, 0, 5.52621)
+
+[node name="Marker3D2" type="Marker3D" parent="NPC_Spawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.1128, 0, 5.2275)
+
+[node name="Marker3D3" type="Marker3D" parent="NPC_Spawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.3077, 0, 24.0465)
+
+[node name="Marker3D4" type="Marker3D" parent="NPC_Spawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.4897, 0, 24.9426)
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = 7.0
+offset_top = 376.0
+offset_right = 412.0
+offset_bottom = 472.0
+min_value = 0.5
+max_value = 5.0
+step = 0.01
+value = 0.5
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]

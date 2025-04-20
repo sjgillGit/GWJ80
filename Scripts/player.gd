@@ -24,7 +24,7 @@ var camera_look_input: Vector2
 @export var default_grab_distance: float = -4.0
 @export var current_hold_distance: float = default_grab_distance
 @export var pickup_mass_limit : float = 50.0
-@export var ray : RayCast3D
+@export var ray : ShapeCast3D
 
 signal on_pick_up_object
 
@@ -56,7 +56,7 @@ func _ready():
 		ray.player = self
 
 #Called every physics frame
-func _process(delta):
+func _physics_process(delta: float) -> void:
 	#Handle movement animations
 	handle_movement_animations()
 
@@ -112,6 +112,11 @@ func move_relative_to_mouse(delta: float):
 	velocity.z = lerp(velocity.z, target_velocity.z, current_smoothing * delta)
 
 	move_and_slide()
+	oob_check()
+
+func oob_check() -> void:
+	if global_position.y < -5:
+		global_position = GlobalInGame.level.player_default_spawn_position
 
 func move_or_run(y_pos: float) -> float:
 	var speed: float = max_speed
@@ -191,12 +196,12 @@ func grab_grabbable_object(to_grab : GrabbableObject):
 	carrying_object = to_grab
 	to_grab.can_sleep = false
 	to_grab.self_drop.connect(drop_grabbable_object)
-
+	
 	# Resets holding distance
 	current_hold_distance = -camera.global_position.distance_to(carrying_object.global_position)
 
 	player_animation.play("Pick_up")
-
+	process_grabbed_object()
 	on_pick_up_object.emit()
 
 func process_grabbed_object():

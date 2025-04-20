@@ -3,13 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://cxyrihc2lfr7b" path="res://Assets/3D Assets/Grabbables/Silver ware.glb" id="1_mcw5h"]
 [ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_gxx87"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_eydjv"]
-points = PackedVector3Array(0.267378, 0.112114, 0.314244, -0.267378, 0.112114, 0.314244, 0.267378, -0.00127507, 0.314244, 0.267378, 0.112114, -0.314243, 0.245655, 0.112125, 0.249463, -0.267378, -0.00127507, 0.314244, -0.245708, 0.112125, 0.249463, -0.267378, 0.112114, -0.314243, 0.267378, -0.00127507, -0.314243, 0.245655, 0.112125, -0.284591, -0.267378, -0.00127507, -0.314243, -0.245708, 0.112125, -0.284591)
+[sub_resource type="BoxShape3D" id="BoxShape3D_mcw5h"]
+size = Vector3(0.537308, 0.114258, 0.629639)
 
 [node name="Silver ware" instance=ExtResource("1_mcw5h")]
 script = ExtResource("2_gxx87")
 damage_sound = "res://Assets/SFX/clang 1.wav"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0186099, 0.0350707, -0.00626207)
-shape = SubResource("ConvexPolygonShape3D_eydjv")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0159778, 0.0853637, -0.00540758)
+shape = SubResource("BoxShape3D_mcw5h")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="11"]
+avoidance_enabled = true
+height = 0.1
+radius = 1.0

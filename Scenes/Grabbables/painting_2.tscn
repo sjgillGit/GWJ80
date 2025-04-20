@@ -3,12 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://csi5leltmt7iy" path="res://Assets/3D Assets/Grabbables/Painting 2.glb" id="1_stix7"]
 [ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_by50h"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8db7n"]
-points = PackedVector3Array(0.546516, 0.0348368, 0.731183, -0.546516, 0.0348368, 0.731183, 0.546516, -0.0348368, 0.731183, 0.546516, 0.0348368, -0.731183, -0.546516, -0.0348368, 0.731183, -0.546516, 0.0348368, -0.731183, 0.546516, -0.0348368, -0.731183, -0.546516, -0.0348368, -0.731183)
+[sub_resource type="BoxShape3D" id="BoxShape3D_stix7"]
+size = Vector3(1.09546, 0.0711975, 1.461)
 
 [node name="Painting 2" instance=ExtResource("1_stix7")]
 script = ExtResource("2_by50h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.72173, 0)
-shape = SubResource("ConvexPolygonShape3D_8db7n")
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.00134277, 0.723592, -0.00804138)
+shape = SubResource("BoxShape3D_stix7")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="2"]
+avoidance_enabled = true
+radius = 1.0

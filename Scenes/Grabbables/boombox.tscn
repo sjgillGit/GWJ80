@@ -3,20 +3,24 @@
 [ext_resource type="PackedScene" uid="uid://c0lyud7c2f658" path="res://Assets/3D Assets/Grabbables/Boombox.glb" id="1_bf448"]
 [ext_resource type="Script" uid="uid://bmfxel2asr1k0" path="res://Scripts/Classes/grabbable_object.gd" id="2_yt2lp"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yt2lp"]
-points = PackedVector3Array(-0.370208, -0.00454579, -0.171575, -0.370208, -0.00454579, 0.171542, -0.370208, 0.32073, -0.171575, 0.370208, -0.00454579, -0.171575, -0.360859, 0.00032571, 0.194128, -0.370208, 0.32073, 0.171542, 0.370208, -0.00454579, 0.171542, -0.0998721, -0.00228516, 0.187305, 0.370208, 0.32073, -0.171575, -0.0998721, 0.170223, 0.201169, -0.360859, 0.270328, 0.194128, 0.355568, 0.00032571, 0.194128, 0.370208, 0.32073, 0.171542, 0.0997996, -0.00228516, 0.187305, 0.0997996, 0.170223, 0.201169, 0.355568, 0.270328, 0.194128)
+[sub_resource type="BoxShape3D" id="BoxShape3D_yt2lp"]
+size = Vector3(0.742065, 0.33876, 0.39856)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t46n0"]
-points = PackedVector3Array(-0.283602, 0.0930812, 0.0123407, 0.0119354, 0.0930657, 0.0123407, -0.283602, 0.0930812, -0.0123407, -0.579198, 0.0930657, 0.0123407, 0.0119354, -0.0656485, 0.0123407, 0.0119354, 0.0930657, -0.0123407, -0.579198, 0.0930657, -0.0123407, -0.579198, -0.0656485, 0.0123407, 0.0119354, -0.0656485, -0.0123407, -0.579198, -0.0656485, -0.0123407)
+[sub_resource type="BoxShape3D" id="BoxShape3D_t46n0"]
+size = Vector3(0.592255, 0.137451, 0.0366211)
 
 [node name="Boombox" instance=ExtResource("1_bf448")]
 script = ExtResource("2_yt2lp")
 damage_sound = "res://Assets/SFX/plastic pipe 1.wav"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0395359, 0.0305914, 0.147568)
-shape = SubResource("ConvexPolygonShape3D_yt2lp")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0355686, 0.189443, 0.172531)
+shape = SubResource("BoxShape3D_yt2lp")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.323138, 0.394208, 0.149365)
-shape = SubResource("ConvexPolygonShape3D_t46n0")
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0401005, 0.42101, 0.145432)
+shape = SubResource("BoxShape3D_t46n0")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="9"]
+avoidance_enabled = true
+height = 0.1

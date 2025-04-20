@@ -17,3 +17,8 @@ shape = SubResource("BoxShape3D_mje4o")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6.10352e-05, 0.285113, -0.0781602)
 shape = SubResource("BoxShape3D_mje4o")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="3"]
+avoidance_enabled = true
+height = 0.1
+radius = 0.8
