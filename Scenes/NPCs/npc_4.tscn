@@ -8,7 +8,12 @@ radius = 0.25
 height = 1.8
 
 [node name="NPC 4" instance=ExtResource("1_fn1dc")]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("2_42wb8")
+
+[node name="Armature_001" parent="." index="0"]
+transform = Transform3D(0.16171, 0, 0, 0, 0.16171, 0, 0, 0, 0.16171, -0.0205153, 0.812165, 0.0428251)
 
 [node name="Skeleton3D" parent="Armature_001" index="0"]
 bones/0/position = Vector3(0, 0, 0)
@@ -53,3 +58,5 @@ avoidance_mask = 3
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(4.52429e-06, 0, 0.871864, 1)
+
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]

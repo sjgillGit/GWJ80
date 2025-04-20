@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1aka13o8ovkc"]
+[gd_scene load_steps=4 format=3 uid="uid://c1aka13o8ovkc"]
 
 [ext_resource type="PackedScene" uid="uid://dd33y6uds6wp3" path="res://Assets/3D Assets/NPCs/Animal NPC 4.glb" id="1_s7p6g"]
-[ext_resource type="Script" uid="uid://bn0uq38w2s8dl" path="res://Scripts/env_nav/burglar.gd" id="2_hw2yy"]
+[ext_resource type="Script" uid="uid://dmd73lcm1g6bp" path="res://Scripts/env_nav/default_npc_nav.gd" id="2_hw2yy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5842i"]
+radius = 0.25
+height = 1.8
 
 [node name="Animal NPC 4" instance=ExtResource("1_s7p6g")]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("2_hw2yy")
 
 [node name="Skeleton3D" parent="Armature_001" index="0"]
@@ -34,3 +40,19 @@ bones/22/rotation = Quaternion(-5.06668e-08, 3.25383e-08, 0.318613, 0.947885)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "Idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.890154, 0.0354011)
+shape = SubResource("CapsuleShape3D_5842i")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="3"]
+target_desired_distance = 2.0
+navigation_layers = 3
+avoidance_enabled = true
+height = 1.5
+avoidance_layers = 3
+avoidance_mask = 3
+debug_use_custom = true
+debug_path_custom_color = Color(4.52429e-06, 0, 0.871864, 1)
+
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]

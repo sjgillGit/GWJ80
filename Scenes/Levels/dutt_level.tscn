@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://jnuqtsqksi88"]
+[gd_scene load_steps=52 format=3 uid="uid://jnuqtsqksi88"]
 
 [ext_resource type="PackedScene" uid="uid://bkqrssfnte0pj" path="res://Scenes/StaticEnvironment/floor_1.tscn" id="1_23nbm"]
 [ext_resource type="Script" uid="uid://cip7u5qxtcroh" path="res://Scripts/Levels/dutt_level.gd" id="1_qosmx"]
@@ -28,16 +28,24 @@
 [ext_resource type="PackedScene" uid="uid://x4n1u0yvhq6c" path="res://Scenes/DayNight/day_night_controller.tscn" id="23_tbmip"]
 [ext_resource type="PackedScene" uid="uid://1hgkm1lo5llm" path="res://Scenes/Grabbables/pocket_watch.tscn" id="26_5ewj5"]
 [ext_resource type="PackedScene" uid="uid://u3aeonjndy3o" path="res://Scenes/StaticEnvironment/house_1.tscn" id="27_0sb2a"]
+[ext_resource type="PackedScene" uid="uid://7k1s13vxi1am" path="res://Scenes/NPCs/npc_2.tscn" id="28_akttx"]
 [ext_resource type="PackedScene" uid="uid://dr16rjaflpcg5" path="res://Scenes/StaticEnvironment/house_2.tscn" id="28_l47vq"]
+[ext_resource type="PackedScene" uid="uid://dlfca474bu2eg" path="res://Scenes/NPCs/npc_4.tscn" id="29_onytm"]
 [ext_resource type="PackedScene" uid="uid://djqawc4m3y7ld" path="res://Scenes/StaticEnvironment/house_4.tscn" id="29_qosmx"]
 [ext_resource type="PackedScene" uid="uid://c6mo1sa5f7ke2" path="res://Scenes/StaticEnvironment/stop_sign.tscn" id="30_6b100"]
+[ext_resource type="PackedScene" uid="uid://duhhtgtyh0mmn" path="res://Scenes/NPCs/npc_5.tscn" id="30_6vca2"]
 [ext_resource type="PackedScene" uid="uid://b5kfr5k8cov30" path="res://Scenes/StaticEnvironment/lamp.tscn" id="31_7qruc"]
+[ext_resource type="PackedScene" uid="uid://dsgsnehc47btv" path="res://Scenes/NPCs/human_burglar_1.tscn" id="31_rgluk"]
+[ext_resource type="PackedScene" uid="uid://63kncbda2pvp" path="res://Scenes/NPCs/animal_npc_2.tscn" id="32_ew78q"]
 [ext_resource type="PackedScene" uid="uid://dhwtwsuoudulh" path="res://Scenes/StaticEnvironment/windows_1.tscn" id="32_ma6sy"]
 [ext_resource type="PackedScene" uid="uid://cqe227xldt4bp" path="res://Scenes/StaticEnvironment/windows_2.tscn" id="33_iahj2"]
+[ext_resource type="PackedScene" uid="uid://bhypttj0hfr5k" path="res://Scenes/NPCs/animal_npc_3.tscn" id="33_tqnjw"]
 [ext_resource type="PackedScene" uid="uid://0u12ygea35q" path="res://Scenes/in_game_ui.tscn" id="34_l47vq"]
+[ext_resource type="PackedScene" uid="uid://c1aka13o8ovkc" path="res://Scenes/NPCs/animal_npc_4.tscn" id="34_lerkg"]
+[ext_resource type="PackedScene" uid="uid://camfscv550pgx" path="res://Scenes/NPCs/animal_npc_5.tscn" id="35_ywsic"]
 [ext_resource type="PackedScene" uid="uid://2w2tbfcxgbei" path="res://Scenes/npc_spawner.tscn" id="36_6b100"]
+[ext_resource type="PackedScene" uid="uid://cbxaa8p88x6gw" path="res://Scenes/NPCs/animal_burglar_1.tscn" id="36_i7thd"]
 [ext_resource type="PackedScene" uid="uid://bikc1to5sd6d" path="res://Scenes/NPCs/npc_1.tscn" id="37_xnho0"]
-[ext_resource type="PackedScene" uid="uid://cbxaa8p88x6gw" path="res://Scenes/NPCs/animal_npc_1.tscn" id="38_ma6sy"]
 [ext_resource type="PackedScene" uid="uid://cq3q5p80ycuco" path="res://Assets/3D Assets/Van/Van.tscn" id="39_iahj2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_inha5"]
@@ -467,11 +475,11 @@ transform = Transform3D(0.278522, 0, 0.96043, 0, 1, 0, -0.96043, 0, 0.278522, -8
 
 [node name="NPC_Spawner" parent="." node_paths=PackedStringArray("spawn_points") instance=ExtResource("36_6b100")]
 spawn_points = [NodePath("Marker3D"), NodePath("Marker3D2"), NodePath("Marker3D3"), NodePath("Marker3D4")]
-max_NPC_day_count = 5
-max_NPC_night_count = 0
-max_burglar_night_count = 0
-daytime_NPCs = Array[PackedScene]([ExtResource("37_xnho0")])
-daytime_burglars = Array[PackedScene]([ExtResource("38_ma6sy")])
+max_NPC_day_count = 19
+daytime_NPCs = Array[PackedScene]([ExtResource("37_xnho0"), ExtResource("28_akttx"), ExtResource("29_onytm"), ExtResource("30_6vca2")])
+daytime_burglars = Array[PackedScene]([ExtResource("31_rgluk")])
+nighttime_NPCs = Array[PackedScene]([ExtResource("32_ew78q"), ExtResource("33_tqnjw"), ExtResource("34_lerkg"), ExtResource("35_ywsic")])
+nighttime_burglars = Array[PackedScene]([ExtResource("36_i7thd")])
 
 [node name="Marker3D" type="Marker3D" parent="NPC_Spawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.7884, 0, 5.52621)

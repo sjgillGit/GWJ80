@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c6mo1sa5f7ke2" path="res://Scenes/StaticEnvironment/stop_sign.tscn" id="15_dx1ba"]
 [ext_resource type="PackedScene" uid="uid://bikc1to5sd6d" path="res://Scenes/NPCs/npc_1.tscn" id="16_dx1ba"]
 [ext_resource type="PackedScene" uid="uid://7k1s13vxi1am" path="res://Scenes/NPCs/npc_2.tscn" id="17_cvxhd"]
-[ext_resource type="PackedScene" uid="uid://dsgsnehc47btv" path="res://Scenes/NPCs/npc_3.tscn" id="18_j6p1u"]
+[ext_resource type="PackedScene" uid="uid://dsgsnehc47btv" path="res://Scenes/NPCs/human_burglar_1.tscn" id="18_j6p1u"]
 [ext_resource type="PackedScene" uid="uid://dlfca474bu2eg" path="res://Scenes/NPCs/npc_4.tscn" id="19_dubux"]
 [ext_resource type="PackedScene" uid="uid://duhhtgtyh0mmn" path="res://Scenes/NPCs/npc_5.tscn" id="20_7bvcc"]
 [ext_resource type="PackedScene" uid="uid://dhwtwsuoudulh" path="res://Scenes/StaticEnvironment/windows_1.tscn" id="21_j6p1u"]

@@ -8,6 +8,8 @@ radius = 0.25
 height = 1.58
 
 [node name="NPC 5" instance=ExtResource("1_fi1gj")]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("2_kqf1n")
 
 [node name="Skeleton3D" parent="Armature_002" index="0"]
@@ -50,3 +52,5 @@ avoidance_mask = 3
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(4.52429e-06, 0, 0.871864, 1)
+
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
