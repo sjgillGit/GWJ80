@@ -2,10 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://cq1y1wjtpxn0k" path="res://Assets/3D Assets/HouseBuildingBlocks/Floor 1.glb" id="1_1wcxv"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rwsei"]
-points = PackedVector3Array(-2.91051, -0.0359449, -2.09693, -2.91051, 0.0359449, -2.09693, 2.91051, -0.0359449, -2.09693, -2.91051, -0.0359449, 2.09693, -2.91051, 0.0359449, 2.09693, 2.91051, 0.0359449, -2.09693, 2.91051, -0.0359449, 2.09693, 2.91051, 0.0359449, 2.09693)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ospm8"]
+size = Vector3(5.82739, 0.0777588, 4.19969)
 
 [node name="Floor 1" instance=ExtResource("1_1wcxv")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-shape = SubResource("ConvexPolygonShape3D_rwsei")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00134277, -0.000793457, -0.000297546)
+shape = SubResource("BoxShape3D_ospm8")

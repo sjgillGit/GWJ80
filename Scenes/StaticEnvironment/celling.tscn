@@ -2,10 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://drsx7db8xekd0" path="res://Assets/3D Assets/HouseBuildingBlocks/Celling.glb" id="1_btdq0"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_61sfg"]
-points = PackedVector3Array(-5.69248, -0.0791092, -5.69248, -5.69248, 0.0791092, -5.69248, 5.69248, -0.0791092, -5.69248, -5.69248, -0.0791092, 5.69248, -5.69248, 0.0791092, 5.69248, 5.69248, 0.0791092, -5.69248, 5.69248, -0.0791092, 5.69248, 5.69248, 0.0791092, 5.69248)
+[sub_resource type="BoxShape3D" id="BoxShape3D_cnwwj"]
+size = Vector3(11.4165, 0.168091, 11.395)
 
 [node name="Celling" instance=ExtResource("1_btdq0")]
 
+[node name="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+shape = null
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-shape = SubResource("ConvexPolygonShape3D_61sfg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00120544, -0.00213623, -0.000244141)
+shape = SubResource("BoxShape3D_cnwwj")

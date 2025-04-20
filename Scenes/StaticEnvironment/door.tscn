@@ -2,11 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://6nm7j745x5mp" path="res://Assets/3D Assets/HouseBuildingBlocks/Door.glb" id="1_q5bsl"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hg4tq"]
-points = PackedVector3Array(-0.846474, -0.013443, -0.0970946, 0.846474, -0.013443, -0.0970946, -0.846474, -0.013443, 0.0970946, -0.846474, 3.13318, -0.0970946, 0.846474, -0.013443, 0.0970946, 0.846474, 3.13318, -0.0970946, -0.846474, 3.13318, 0.0970946, 0.846474, 3.13318, 0.0970946)
+[sub_resource type="BoxShape3D" id="BoxShape3D_wtkmn"]
+size = Vector3(1.69788, 3.14856, 0.199219)
 
 [node name="Door" instance=ExtResource("1_q5bsl")]
 
+[node name="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000564571, 1.55739, -0.00012207)
+shape = null
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0381468, 0.0420685, 0.0564213)
-shape = SubResource("ConvexPolygonShape3D_hg4tq")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0400389, 1.60146, 0.0544682)
+shape = SubResource("BoxShape3D_wtkmn")
