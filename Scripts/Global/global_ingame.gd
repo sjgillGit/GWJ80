@@ -5,10 +5,15 @@ signal report_stolen_item(item : GrabbableObject)
 
 var player
 var level : Node3D
+signal level_ready
 
 #region in-game-UI 
 var player_UI : InGameUI
 signal nighttime_starts
+signal item_was_damaged(by_amount : float)
+signal item_was_stolen(item : GrabbableObject)
+signal item_was_secured(item : GrabbableObject)
+signal game_over
 
 func pass_starting_data_to_UI(current_level_tasks : Dictionary ,
 	level_total_objects_value : int ,
@@ -24,11 +29,11 @@ func pass_time_to_UI(current_time_sec : int):
 	player_UI.update_timer(current_time_sec)
 
 
-func store_item_in_pockets(item_to_store : PocketableObject) -> bool:
-	return player_UI.pockets_add_item(item_to_store)
-
-func drop_item_from_pocket() -> PocketableObject:
-	return player_UI.drop_item_in_selected_slot()
+#func store_item_in_pockets(item_to_store : PocketableObject) -> bool:
+	#return player_UI.pockets_add_item(item_to_store)
+#
+#func drop_item_from_pocket() -> PocketableObject:
+	#return player_UI.drop_item_in_selected_slot()
 
 
 func pass_collected_items_data_to_UI(items_collected : Dictionary) -> void:

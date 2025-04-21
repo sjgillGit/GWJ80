@@ -13,10 +13,11 @@ size = Vector3(0.264072, 0.188431, 0.225754)
 size = Vector3(1.86537, 0.74884, 0.0685425)
 
 [node name="TV" instance=ExtResource("1_5pnvd")]
-mass = 20.0
+collision_mask = 9
+mass = 15.0
 script = ExtResource("2_nh51d")
-stiffness = 73.333
-damping = 70.0
+damping = 10.0
+listed_name = "TV"
 value = 2000
 damage_sound = "res://Assets/SFX/plastic pipe 2.wav"
 
@@ -35,3 +36,9 @@ shape = SubResource("BoxShape3D_1pyiv")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="4"]
 avoidance_enabled = true
 radius = 2.5
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17419, 0)
+radius = 1.4
+avoidance_layers = 4
+use_3d_avoidance = true

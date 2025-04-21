@@ -1,14 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://7k1s13vxi1am"]
 
 [ext_resource type="PackedScene" uid="uid://bl1fxwxdefol3" path="res://Assets/3D Assets/NPCs/NPC 2.glb" id="1_84xki"]
-[ext_resource type="Script" uid="uid://dmd73lcm1g6bp" path="res://PrivateDevRoom/env_nav/default_npc_nav.gd" id="2_lgtfk"]
+[ext_resource type="Script" uid="uid://dmd73lcm1g6bp" path="res://Scripts/env_nav/default_npc_nav.gd" id="2_lgtfk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lgtfk"]
 radius = 0.25
 height = 1.8
 
 [node name="NPC 2" instance=ExtResource("1_84xki")]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("2_lgtfk")
+
+[node name="Armature_003" parent="." index="0"]
+transform = Transform3D(0.16171, 0, 0, 0, 0.16171, 0, 0, 0, 0.16171, 0, 0.801625, 0)
 
 [node name="Skeleton3D" parent="Armature_003" index="0"]
 bones/0/position = Vector3(0, 0, 0)
@@ -39,7 +44,7 @@ bones/21/rotation = Quaternion(-5.06668e-08, 3.25383e-08, 0.318613, 0.947885)
 autoplay = "Idle"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19435, 0.890154, -0.0794171)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89, 0)
 shape = SubResource("CapsuleShape3D_lgtfk")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="3"]
@@ -48,8 +53,10 @@ navigation_layers = 3
 avoidance_enabled = true
 height = 2.0
 use_3d_avoidance = true
-avoidance_layers = 3
-avoidance_mask = 3
-debug_enabled = true
+avoidance_layers = 2
+avoidance_mask = 7
+avoidance_priority = 0.1
 debug_use_custom = true
 debug_path_custom_color = Color(4.52429e-06, 0, 0.871864, 1)
+
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]

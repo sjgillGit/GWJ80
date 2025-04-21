@@ -15,6 +15,7 @@ mass = 5.0
 script = ExtResource("2_yuqos")
 stiffness = 143.0
 damping = 60.0
+listed_name = "Chair"
 value = 50
 damage_sound = "res://Assets/SFX/thump 2.wav"
 
@@ -29,7 +30,8 @@ shape = SubResource("BoxShape3D_yuqos")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.365578, 0.44017, 0.0686035)
 shape = SubResource("BoxShape3D_4bdxw")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="3"]
-avoidance_enabled = true
-height = 1.3
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.117475, 0)
+radius = 0.8
+avoidance_layers = 4
 use_3d_avoidance = true

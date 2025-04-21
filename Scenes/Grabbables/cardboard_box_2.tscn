@@ -10,6 +10,7 @@ size = Vector3(0.605408, 0.414612, 0.613892)
 mass = 10.0
 script = ExtResource("2_5olsu")
 damping = 100.0
+listed_name = "Box of books"
 value = 100
 damage_sound = "res://Assets/SFX/thump 2.wav"
 
@@ -17,7 +18,8 @@ damage_sound = "res://Assets/SFX/thump 2.wav"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0106506, 0.193939, -0.0494995)
 shape = SubResource("BoxShape3D_wbh5j")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="8"]
-avoidance_enabled = true
-height = 0.1
-radius = 0.6
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.174189, 0)
+radius = 0.4
+avoidance_layers = 4
+use_3d_avoidance = true

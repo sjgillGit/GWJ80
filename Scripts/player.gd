@@ -43,7 +43,14 @@ var object_to_grab : InteractableObject :
 						new_object.change_outline_color(Color.DARK_CYAN)
 				object_to_grab = new_object
 
-var carrying_object: GrabbableObject
+var carrying_object: GrabbableObject : 
+	set(new_object):
+		if new_object:
+			new_object.change_outline_color(Color.DARK_BLUE)
+			carrying_object = new_object
+		else:
+			carrying_object.change_outline_color(Color.BLACK)
+			carrying_object = new_object
 
 # Assigned when node is initialized
 @onready var camera: Camera3D = get_node("Camera3D")
@@ -69,8 +76,8 @@ func _physics_process(delta: float) -> void:
 	#Implements Jump and apply gravity
 	define_jumping(delta)
 	
-	#Apply bind to show mouse cursor
-	esc_to_show_mouse()
+	##Apply bind to show mouse cursor
+	#esc_to_show_mouse()
 	
 	#Apply grabbing items mechanic
 	process_grabbed_object()
@@ -147,12 +154,12 @@ func define_jumping(delta: float):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-func esc_to_show_mouse():
-	if Input.is_action_just_pressed("ui_cancel"):
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+#func esc_to_show_mouse():
+	#if Input.is_action_just_pressed("ui_cancel"):
+		#if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		#else:
+			#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func _unhandled_input(event):
@@ -170,13 +177,13 @@ func _input(event: InputEvent) -> void:
 				if object_to_grab:
 					if object_to_grab is GrabbableObject and object_to_grab.mass <= pickup_mass_limit:
 						grab_grabbable_object(object_to_grab)
-					elif object_to_grab is PocketableObject:
-						grab_pocket_item(object_to_grab)
-		elif event.is_action_pressed("drop_pocket_item"):
-			drop_pocket_item()
-	elif event is InputEvent:
-		# Sets the distance of the grabbed object based on mouse wheel scroll
-		detect_scroll_to_set_distance(event)
+					#elif object_to_grab is PocketableObject:
+						#grab_pocket_item(object_to_grab)
+		#elif event.is_action_pressed("drop_pocket_item"):
+			#drop_pocket_item()
+	#elif event is InputEvent:
+		## Sets the distance of the grabbed object based on mouse wheel scroll
+		#detect_scroll_to_set_distance(event)
 		
 
 func drop_grabbable_object():
@@ -211,30 +218,30 @@ func process_grabbed_object():
 			camera.global_transform.basis.z * current_hold_distance
 			)
 
-func grab_pocket_item(item : PocketableObject):
-	item.grab_in_pocket()
-
-func drop_pocket_item():
-	var item : PocketableObject # get from UI from selected slot.
-		#If no slot selected - try dropping slot 1 (default slot)
-	if item:
-		item.enable_existance(self)
-
-func detect_scroll_to_set_distance(event: InputEvent) -> void:
-	var new_grab_distance: float
-	# TODO: check why mouse wheel scroll up always drops objects
-	if event.is_action_released("mouse_wheel_up"):
-		new_grab_distance = current_hold_distance - 0.5
-
-		if new_grab_distance >= max_grab_distance:
-			current_hold_distance = max_grab_distance
-		else:
-			current_hold_distance = new_grab_distance	
-	elif event.is_action_released("mouse_wheel_down"):
-		new_grab_distance = current_hold_distance + 0.5
-
-		if new_grab_distance <= min_grab_distance:
-			current_hold_distance = min_grab_distance
-		else:
-			current_hold_distance = new_grab_distance
+#func grab_pocket_item(item : PocketableObject):
+	#item.grab_in_pocket()
+#
+#func drop_pocket_item():
+	#var item : PocketableObject # get from UI from selected slot.
+		##If no slot selected - try dropping slot 1 (default slot)
+	#if item:
+		#item.enable_existance(self)
+# disabled, bugged
+#func detect_scroll_to_set_distance(event: InputEvent) -> void:
+	#var new_grab_distance: float
+	## TODO: check why mouse wheel scroll up always drops objects
+	#if event.is_action_released("mouse_wheel_up"):
+		#new_grab_distance = current_hold_distance - 0.5
+#
+		#if new_grab_distance >= max_grab_distance:
+			#current_hold_distance = max_grab_distance
+		#else:
+			#current_hold_distance = new_grab_distance	
+	#elif event.is_action_released("mouse_wheel_down"):
+		#new_grab_distance = current_hold_distance + 0.5
+#
+		#if new_grab_distance <= min_grab_distance:
+			#current_hold_distance = min_grab_distance
+		#else:
+			#current_hold_distance = new_grab_distance
 #endregion

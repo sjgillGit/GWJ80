@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsgsnehc47btv"]
+
+[ext_resource type="PackedScene" uid="uid://bf276ehqcb0r" path="res://Assets/3D Assets/NPCs/NPC 3.glb" id="1_gtasx"]
+[ext_resource type="Script" uid="uid://bn0uq38w2s8dl" path="res://Scripts/env_nav/burglar.gd" id="2_gtasx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gtasx"]
+radius = 0.25
+height = 1.8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nbpcf"]
+height = 4.0
+radius = 10.0
+
+[node name="HumanBurglar" node_paths=PackedStringArray("item_detection_area", "grabbed_item_hold_position") instance=ExtResource("1_gtasx")]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("2_gtasx")
+item_detection_area = NodePath("DetectionArea")
+grabbed_item_hold_position = NodePath("GrabbedItemHoldPosition")
+
+[node name="Armature_004" parent="." index="0"]
+transform = Transform3D(0.16171, 0, 0, 0, 0.16171, 0, 0, 0, 0.16171, 0.000582792, 0.815697, -0.00383671)
+
+[node name="Skeleton3D" parent="Armature_004" index="0"]
+bones/0/position = Vector3(0, 0, 0)
+bones/2/rotation = Quaternion(0.0482504, 1.1907e-07, 5.75189e-09, 0.998835)
+bones/3/rotation = Quaternion(-0.0158842, -3.9293e-14, -3.78709e-09, 0.999874)
+bones/4/rotation = Quaternion(3.95089e-08, 3.70227e-08, -0.729693, 0.683775)
+bones/5/rotation = Quaternion(-5.32347e-10, -9.18451e-08, 0.0324688, 0.999473)
+bones/6/rotation = Quaternion(-9.14186e-10, 1.60706e-07, 0.0107277, 0.999942)
+bones/7/rotation = Quaternion(9.14186e-10, -1.60706e-07, -0.0107277, 0.999942)
+bones/8/rotation = Quaternion(3.95089e-08, -3.70227e-08, 0.729693, 0.683775)
+bones/9/rotation = Quaternion(-5.32347e-10, 9.18451e-08, -0.0324688, 0.999473)
+bones/10/rotation = Quaternion(-9.14186e-10, -1.60706e-07, -0.0107277, 0.999942)
+bones/11/rotation = Quaternion(9.14186e-10, 1.60706e-07, 0.0107277, 0.999942)
+bones/12/position = Vector3(0, 0, 0)
+bones/12/rotation = Quaternion(-0.360953, -0.60804, -0.360953, 0.60804)
+bones/13/rotation = Quaternion(-0.859895, -0.00241104, -0.00143122, 0.510463)
+bones/14/rotation = Quaternion(-1.25242e-08, 7.31614e-10, 0.0213173, 0.999773)
+bones/15/rotation = Quaternion(-5.43667e-08, -6.10583e-09, -0.461466, 0.887158)
+bones/16/rotation = Quaternion(-5.06668e-08, -3.25383e-08, -0.318613, 0.947885)
+bones/17/position = Vector3(0, 0, 0)
+bones/17/rotation = Quaternion(-0.360953, 0.60804, 0.360953, 0.60804)
+bones/18/rotation = Quaternion(-0.859895, 0.00241104, 0.00143122, 0.510463)
+bones/19/rotation = Quaternion(-1.25242e-08, -7.31614e-10, -0.0213173, 0.999773)
+bones/20/rotation = Quaternion(-5.43667e-08, 6.10583e-09, 0.461466, 0.887158)
+bones/21/rotation = Quaternion(-5.06668e-08, 3.25383e-08, 0.318613, 0.947885)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Idle2"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.890154, 0.00313295)
+shape = SubResource("CapsuleShape3D_gtasx")
+
+[node name="DetectionArea" type="Area3D" parent="." index="3"]
+collision_layer = 0
+monitorable = false
+
+[node name="DetectionShape" type="CollisionShape3D" parent="DetectionArea" index="0"]
+shape = SubResource("CylinderShape3D_nbpcf")
+
+[node name="GrabbedItemHoldPosition" type="Marker3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0257611, 1.4552, 0.67071)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="5"]
+path_desired_distance = 0.5
+target_desired_distance = 3.5
+path_max_distance = 5.01
+avoidance_enabled = true
+height = 2.0
+radius = 0.25
+neighbor_distance = 10.0
+time_horizon_agents = 1.5
+avoidance_layers = 2
+avoidance_mask = 7
+avoidance_priority = 0.9
+debug_use_custom = true
+debug_path_custom_color = Color(0.133333, 1, 1, 1)
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]

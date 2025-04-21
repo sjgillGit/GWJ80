@@ -1,22 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://v121yj4qv31i"]
+[gd_scene load_steps=5 format=3 uid="uid://v121yj4qv31i"]
 
 [ext_resource type="Script" uid="uid://dmj17kabj6b15" path="res://Scripts/InGameUISubScenes/level_progress_bar.gd" id="1_jhwsm"]
+[ext_resource type="Texture2D" uid="uid://gth1gtipo0iu" path="res://Assets/2D_Assets/game_progress_bar_border.png" id="2_mrwhi"]
 [ext_resource type="Texture2D" uid="uid://cb1gutswmyptu" path="res://Assets/2D_Assets/game_progress_bar_middle.png" id="2_wl3lx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vmd0"]
-bg_color = Color(0, 0.666667, 0, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m00a7"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86nw1"]
-bg_color = Color(0.54902, 0.117647, 0.117647, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gewly"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mrwhi"]
 
 [node name="LevelProgressBar" type="PanelContainer" node_paths=PackedStringArray("positive_progress_bar", "negative_progress_bar", "extra_progress_bar")]
 offset_right = 500.0
 offset_bottom = 32.0
 size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mrwhi")
 script = ExtResource("1_jhwsm")
 positive_progress_bar = NodePath("MarginContainer/PositiveProgress")
 negative_progress_bar = NodePath("MarginContainer/NegativeProgress")
@@ -29,17 +23,18 @@ layout_mode = 2
 theme_override_constants/margin_top = 1
 
 [node name="PositiveProgress" type="ProgressBar" parent="MarginContainer"]
+texture_filter = 1
 custom_minimum_size = Vector2(500, 30)
 layout_mode = 2
-theme_override_styles/fill = SubResource("StyleBoxFlat_6vmd0")
+theme_type_variation = &"PositiveProgressBar"
 value = 50.0
 show_percentage = false
 
 [node name="NegativeProgress" type="ProgressBar" parent="MarginContainer"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxEmpty_m00a7")
-theme_override_styles/fill = SubResource("StyleBoxFlat_86nw1")
+theme_type_variation = &"NegativeProgressBar"
 value = 30.0
 fill_mode = 1
 show_percentage = false
@@ -48,7 +43,9 @@ show_percentage = false
 layout_mode = 2
 
 [node name="ExtraProgress" type="ProgressBar" parent="MarginContainer/Control"]
+visible = false
 z_index = 1
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -56,11 +53,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_vertical = 2
 size_flags_horizontal = 8
-theme_override_styles/background = SubResource("StyleBoxEmpty_gewly")
-theme_override_styles/fill = SubResource("StyleBoxFlat_6vmd0")
+theme_type_variation = &"PositiveProgressBar"
 show_percentage = false
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ProgressBorder" type="NinePatchRect" parent="MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_mrwhi")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MiddleTexture" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4

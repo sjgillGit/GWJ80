@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://0u12ygea35q"]
+[gd_scene load_steps=9 format=3 uid="uid://crrsf8y1bslk2"]
 
 [ext_resource type="Script" uid="uid://5dipfswld5ci" path="res://Scripts/in_game_ui.gd" id="1_d072m"]
 [ext_resource type="PackedScene" uid="uid://pxstp0eubbcl" path="res://Scenes/InGameUISubScenes/timer_panel.tscn" id="2_6vmd0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://v121yj4qv31i" path="res://Scenes/InGameUISubScenes/level_progress_bar.tscn" id="2_m00a7"]
 [ext_resource type="PackedScene" uid="uid://b5sqb848jv55a" path="res://Scenes/InGameUISubScenes/pocket_inventory.tscn" id="3_rrm0x"]
 [ext_resource type="Texture2D" uid="uid://dg6nxgbmbblrn" path="res://Assets/2D_Assets/crosshair.png" id="6_2ovgp"]
+[ext_resource type="PackedScene" uid="uid://edlg2yk5ngfl" path="res://Scenes/InGameUISubScenes/pause_panel.tscn" id="7_dfbn1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86nw1"]
 
@@ -16,6 +17,27 @@ task_bar = NodePath("MarginContainer/ScreenSplit/RestOfScreen/TaskBar")
 pocket_inventory = NodePath("MarginContainer/ScreenSplit/RestOfScreen/PocketInventory")
 level_progress_bar = NodePath("MarginContainer/ScreenSplit/ProgressSpace/LevelProgressBar")
 metadata/_custom_type_script = "uid://5dipfswld5ci"
+
+[node name="PausePanel" parent="." instance=ExtResource("7_dfbn1")]
+process_mode = 3
+visible = false
+z_index = 1
+
+[node name="Control" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Crosshair" type="TextureRect" parent="Control"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("6_2ovgp")
+stretch_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -66,8 +88,3 @@ visible = false
 layout_mode = 2
 mouse_filter = 2
 pockets_amount = 5
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
-layout_mode = 2
-texture = ExtResource("6_2ovgp")
-stretch_mode = 3

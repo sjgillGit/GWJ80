@@ -2,12 +2,13 @@ class_name InteractableObject
 extends RigidBody3D
 
 @export_group("Object settings")
+@export var listed_name : String = ""
 @export var value : int = 10000
 @export_range(0, 100, 0.1) var durability : float = 100:
 	set(new_value):
 		new_value = clampf(new_value, 0.0 , 100.0)
 		report_value_loss(roundi(
-			value * (durability - new_value)
+			value * (durability - new_value) / 100
 		))
 		durability = new_value
 		
@@ -55,6 +56,7 @@ func _ready() -> void:
 	if self is GrabbableObject:
 		add_to_group("GrabbableObject")
 	add_outline_material()
+	set_collision_mask_value(4, true)
 
 func add_outline_material():
 	var outline_material = load("res://Assets/Materials/outline.tres").duplicate()
@@ -73,12 +75,8 @@ func change_outline_color(new_color : Color = Color.BLACK) -> void:
 		if child is MeshInstance3D:
 			child.material_overlay.albedo_color = new_color
 
-#TODO Connect value reporting to MVP
-func report_starting_value(amount : int) -> void:
-	pass
-
 func report_value_loss(amount : int) -> void:
-	pass
+	GlobalInGame.item_was_damaged.emit(amount)
 
 func _physics_process(delta: float) -> void:
 	real_velocity = (global_position - _last_position) / delta
@@ -99,9 +97,9 @@ func count_damage_from_collision(impact : float, other_body):
 		return
 	var napkin_damage : float
 	if other_body:
-		napkin_damage = mass * impact / other_body.mass * fragility
+		napkin_damage = other_body.mass * impact / (mass * fragility)
 	else:
-		napkin_damage = mass * impact / fragility
+		napkin_damage =  impact / (mass * fragility)
 	if napkin_damage > 3:
 		durability -= napkin_damage
 		collision_spam_prevention_timer.start()

@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://camfscv550pgx"]
+[gd_scene load_steps=5 format=3 uid="uid://camfscv550pgx"]
 
 [ext_resource type="PackedScene" uid="uid://dkx85c0wwm8e4" path="res://Assets/3D Assets/NPCs/Animal NPC 5.glb" id="1_ruy8n"]
+[ext_resource type="Script" uid="uid://dmd73lcm1g6bp" path="res://Scripts/env_nav/default_npc_nav.gd" id="2_w6tc1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k1bi5"]
+radius = 0.25
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w6tc1"]
+radius = 0.146457
+height = 0.516696
 
 [node name="Animal NPC 5" instance=ExtResource("1_ruy8n")]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("2_w6tc1")
 
 [node name="Skeleton3D" parent="Armature_002" index="0"]
 bones/2/rotation = Quaternion(0.0674546, 1.18938e-07, 8.04121e-09, 0.997722)
@@ -29,3 +41,26 @@ bones/23/rotation = Quaternion(-5.06668e-08, 3.25383e-08, 0.318613, 0.947885)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "Idle2"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.890154, 0.00669665)
+shape = SubResource("CapsuleShape3D_k1bi5")
+
+[node name="npc_5_head" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00854862, 1.58206, 0.233489)
+shape = SubResource("CapsuleShape3D_w6tc1")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="4"]
+path_desired_distance = 2.0
+target_desired_distance = 3.5
+path_max_distance = 5.01
+avoidance_enabled = true
+height = 2.0
+radius = 0.25
+neighbor_distance = 10.0
+time_horizon_agents = 1.5
+avoidance_layers = 2
+avoidance_mask = 7
+avoidance_priority = 0.1
+
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]

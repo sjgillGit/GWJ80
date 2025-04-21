@@ -1,7 +1,5 @@
 extends ShapeCast3D
 
-@onready var prompt_label: Label = get_node("InteractionPromptLabel")
-
 var player: PlayerController
 
 func _physics_process(delta: float) -> void:

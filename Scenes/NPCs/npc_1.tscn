@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bikc1to5sd6d"]
 
 [ext_resource type="PackedScene" uid="uid://bc1d1183qy6ul" path="res://Assets/3D Assets/NPCs/NPC 1.glb" id="1_1oey7"]
-[ext_resource type="Script" uid="uid://dmd73lcm1g6bp" path="res://PrivateDevRoom/env_nav/default_npc_nav.gd" id="2_nnii4"]
+[ext_resource type="Script" uid="uid://dmd73lcm1g6bp" path="res://Scripts/env_nav/default_npc_nav.gd" id="2_nnii4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nnii4"]
 radius = 0.25
@@ -50,11 +50,11 @@ shape = SubResource("CapsuleShape3D_nnii4")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="3"]
 target_desired_distance = 2.0
-navigation_layers = 3
 avoidance_enabled = true
 height = 1.5
-avoidance_layers = 3
-avoidance_mask = 3
+avoidance_layers = 2
+avoidance_mask = 7
+avoidance_priority = 0.1
 debug_use_custom = true
 debug_path_custom_color = Color(4.52429e-06, 0, 0.871864, 1)
 

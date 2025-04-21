@@ -23,7 +23,7 @@ func _on_placement_area_body_entered(body: Node3D) -> void:
 
 		var ref: GrabbableObject = generate_furniture_array_object(body.carrying_object)
 		van_objects.append(ref)
-		
+		GlobalInGame.item_was_secured.emit(body.carrying_object)
 		body.carrying_object.queue_free()
 		body.drop_grabbable_object()
 		
@@ -34,7 +34,7 @@ func _on_placement_area_body_entered(body: Node3D) -> void:
 		
 		if body.is_grabbed:
 			player_ref.drop_grabbable_object()
-
+		GlobalInGame.item_was_secured.emit(body)
 		body.queue_free()
 
 

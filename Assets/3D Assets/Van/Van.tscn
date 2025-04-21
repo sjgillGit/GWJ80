@@ -30,6 +30,9 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="PlacementArea" type="Area3D" parent="van"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696545, 0.92086)
+collision_layer = 0
+collision_mask = 9
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="van/PlacementArea"]
 shape = SubResource("BoxShape3D_vc0o8")

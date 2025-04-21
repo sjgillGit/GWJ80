@@ -1,14 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://duhhtgtyh0mmn"]
 
 [ext_resource type="PackedScene" uid="uid://povc06uvoedn" path="res://Assets/3D Assets/NPCs/NPC 5.glb" id="1_fi1gj"]
-[ext_resource type="Script" uid="uid://dmd73lcm1g6bp" path="res://PrivateDevRoom/env_nav/default_npc_nav.gd" id="2_kqf1n"]
+[ext_resource type="Script" uid="uid://dmd73lcm1g6bp" path="res://Scripts/env_nav/default_npc_nav.gd" id="2_kqf1n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqf1n"]
 radius = 0.25
 height = 1.58
 
 [node name="NPC 5" instance=ExtResource("1_fi1gj")]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("2_kqf1n")
+speed = 3.0
 
 [node name="Skeleton3D" parent="Armature_002" index="0"]
 bones/2/rotation = Quaternion(0.0674546, 1.18938e-07, 8.04121e-09, 0.997722)
@@ -45,8 +48,10 @@ navigation_layers = 3
 avoidance_enabled = true
 height = 2.0
 use_3d_avoidance = true
-avoidance_layers = 3
-avoidance_mask = 3
-debug_enabled = true
+avoidance_layers = 2
+avoidance_mask = 7
+avoidance_priority = 0.1
 debug_use_custom = true
 debug_path_custom_color = Color(4.52429e-06, 0, 0.871864, 1)
+
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
