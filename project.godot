@@ -102,6 +102,7 @@ pockets_prev_slot={
 3d_physics/layer_1="Environment"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="NPC"
+3d_physics/layer_4="CarriedObject"
 
 [navigation]
 

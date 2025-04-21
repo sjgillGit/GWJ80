@@ -55,7 +55,6 @@ height = 2.0
 use_3d_avoidance = true
 avoidance_layers = 3
 avoidance_mask = 3
-debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(4.52429e-06, 0, 0.871864, 1)
 

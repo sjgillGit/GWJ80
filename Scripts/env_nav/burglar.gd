@@ -87,7 +87,7 @@ func waiting_next_to_item():
 		if item_is_ok_to_steal(item_planned_to_steal):
 			stolen_item = item_planned_to_steal
 			stolen_item.been_stolen = true
-			stolen_item.add_collision_exception_with(self)
+			#stolen_item.add_collision_exception_with(self)
 			destination = exit_destination
 			nav.avoidance_priority = 0.9
 			state = "GetOutWithItem"
@@ -110,7 +110,7 @@ func getting_out_with_item():
 	else:
 		if stolen_item:
 			stolen_item.been_stolen = false
-			stolen_item.remove_collision_exception_with(self)
+			#stolen_item.remove_collision_exception_with(self)
 			stolen_item = null
 		nav.avoidance_priority = 0.5
 		state = "GetToItem"
@@ -136,16 +136,21 @@ func check_for_new_item() -> void:
 		item_planned_to_steal = null
 
 func _on_detection_area_body_entered(body: Node3D) -> void:
-	if body is GrabbableObject:
-		if item_is_ok_to_steal(body):
-			evaluate_item_over_planned(body)
+	if state == "GetToItem":
+		if body is GrabbableObject:
+			if item_is_ok_to_steal(body):
+				evaluate_item_over_planned(body)
+
 
 func evaluate_item_over_planned(new_item : GrabbableObject) -> void:
+	print("Evaluating: " ,  new_item)
 	if !item_is_ok_to_steal(new_item):
 		return
 	if item_planned_to_steal:
 		if new_item.value > item_planned_to_steal.value:
+			print("Changed mind from stealing ", item_planned_to_steal, ". Now stealing: ", new_item)
 			item_planned_to_steal = new_item
+			
 	else:
 		item_planned_to_steal = new_item
 

@@ -66,6 +66,7 @@ debug_use_custom = true
 debug_path_custom_color = Color(4.52429e-06, 0, 0.871864, 1)
 
 [node name="DetectionArea" type="Area3D" parent="." index="4"]
+collision_layer = 0
 monitorable = false
 
 [node name="DetectionShape" type="CollisionShape3D" parent="DetectionArea" index="0"]
@@ -75,3 +76,4 @@ shape = SubResource("CylinderShape3D_nbpcf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0257611, 1.4552, 0.67071)
 
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

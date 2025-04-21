@@ -43,7 +43,14 @@ var object_to_grab : InteractableObject :
 						new_object.change_outline_color(Color.DARK_CYAN)
 				object_to_grab = new_object
 
-var carrying_object: GrabbableObject
+var carrying_object: GrabbableObject : 
+	set(new_object):
+		if new_object:
+			new_object.change_outline_color(Color.DARK_BLUE)
+			carrying_object = new_object
+		else:
+			carrying_object.change_outline_color(Color.BLACK)
+			carrying_object = new_object
 
 # Assigned when node is initialized
 @onready var camera: Camera3D = get_node("Camera3D")

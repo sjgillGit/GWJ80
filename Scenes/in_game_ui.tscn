@@ -17,6 +17,22 @@ pocket_inventory = NodePath("MarginContainer/ScreenSplit/RestOfScreen/PocketInve
 level_progress_bar = NodePath("MarginContainer/ScreenSplit/ProgressSpace/LevelProgressBar")
 metadata/_custom_type_script = "uid://5dipfswld5ci"
 
+[node name="Control" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Crosshair" type="TextureRect" parent="Control"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("6_2ovgp")
+stretch_mode = 3
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,8 +82,3 @@ visible = false
 layout_mode = 2
 mouse_filter = 2
 pockets_amount = 5
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
-layout_mode = 2
-texture = ExtResource("6_2ovgp")
-stretch_mode = 3

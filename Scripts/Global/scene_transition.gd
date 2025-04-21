@@ -5,8 +5,6 @@ extends CanvasLayer
 @export_group("Internal connections")
 @export var fading_texture : ColorRect
 
-func _process(delta: float) -> void:
-	print(fading_texture.self_modulate)
 
 func change_scene(new_scene_path : String):
 	await fade_in()
