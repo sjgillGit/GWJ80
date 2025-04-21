@@ -35,12 +35,14 @@ var totalGameMinutes: float
 var myRotation: float
 
 signal nightTime
+var night : bool
 
 ## Use these to determine in-game time
 var hours: int
 var minutes: int
 
 func _ready():
+	print(cutoffHour)
 	# References
 	sky = worldEnvironment.environment.sky.sky_material
 	
@@ -103,8 +105,9 @@ func update_clock():
 	if GlobalInGame.player_UI:
 		GlobalInGame.pass_time_to_UI(currentTime)
 	hours = int(currentTime / 60)
-	if (hours > cutoffHour):
+	if (hours >= cutoffHour) and not night:
 		speedMultiplier = 0
 		nightTime.emit()
 		GlobalInGame.nighttime_starts.emit()
+		night = true
 	minutes = int(currentTime) % 60

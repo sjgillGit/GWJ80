@@ -76,8 +76,8 @@ func _physics_process(delta: float) -> void:
 	#Implements Jump and apply gravity
 	define_jumping(delta)
 	
-	#Apply bind to show mouse cursor
-	esc_to_show_mouse()
+	##Apply bind to show mouse cursor
+	#esc_to_show_mouse()
 	
 	#Apply grabbing items mechanic
 	process_grabbed_object()
@@ -154,12 +154,12 @@ func define_jumping(delta: float):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-func esc_to_show_mouse():
-	if Input.is_action_just_pressed("ui_cancel"):
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+#func esc_to_show_mouse():
+	#if Input.is_action_just_pressed("ui_cancel"):
+		#if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		#else:
+			#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func _unhandled_input(event):

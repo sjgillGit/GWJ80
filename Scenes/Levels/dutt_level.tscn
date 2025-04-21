@@ -40,7 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://dhwtwsuoudulh" path="res://Scenes/StaticEnvironment/windows_1.tscn" id="32_ma6sy"]
 [ext_resource type="PackedScene" uid="uid://cqe227xldt4bp" path="res://Scenes/StaticEnvironment/windows_2.tscn" id="33_iahj2"]
 [ext_resource type="PackedScene" uid="uid://bhypttj0hfr5k" path="res://Scenes/NPCs/animal_npc_3.tscn" id="33_tqnjw"]
-[ext_resource type="PackedScene" uid="uid://0u12ygea35q" path="res://Scenes/in_game_ui.tscn" id="34_l47vq"]
+[ext_resource type="PackedScene" uid="uid://crrsf8y1bslk2" path="res://Scenes/in_game_ui.tscn" id="34_l47vq"]
 [ext_resource type="PackedScene" uid="uid://c1aka13o8ovkc" path="res://Scenes/NPCs/animal_npc_4.tscn" id="34_lerkg"]
 [ext_resource type="PackedScene" uid="uid://camfscv550pgx" path="res://Scenes/NPCs/animal_npc_5.tscn" id="35_ywsic"]
 [ext_resource type="PackedScene" uid="uid://2w2tbfcxgbei" path="res://Scenes/npc_spawner.tscn" id="36_6b100"]
@@ -440,7 +440,8 @@ jump_velocity = 6.0
 [node name="DayNightController" parent="." node_paths=PackedStringArray("worldEnvironment") instance=ExtResource("23_tbmip")]
 worldEnvironment = NodePath("../WorldEnvironment")
 cutoffHour = 21.0
-speedMultiplier = 1.0
+currentTime = 600.0
+speedMultiplier = 8.0
 
 [node name="Pocket watch" parent="." instance=ExtResource("26_5ewj5")]
 transform = Transform3D(0.264142, 0, 0.964484, 0, 1, 0, -0.964484, 0, 0.264142, -7.79174, 1.23636, -15.8234)

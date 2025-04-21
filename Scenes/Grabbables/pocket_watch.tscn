@@ -12,7 +12,6 @@ height = 0.00784302
 radius = 0.0830078
 
 [node name="Pocket watch" instance=ExtResource("1_j3ujb")]
-mass = 0.5
 script = ExtResource("2_ldj6l")
 stiffness = 220.0
 damping = 100.0

@@ -17,8 +17,10 @@ var items_value_secured : float
 var items_counter : Dictionary = {
 	# name : [total_amount, tasked_amount, stolen_amount, secured_amount]
 }
+var game_is_over : bool = false
 
 func _ready() -> void:
+	
 	GlobalInGame.level = self
 	GlobalInGame.level_ready.emit()
 	GlobalAudioPlayer.play_music("DayTime")
@@ -31,9 +33,10 @@ func connect_signals():
 	GlobalInGame.item_was_damaged.connect(count_item_damaged)
 	GlobalInGame.item_was_stolen.connect(count_item_secured)
 	GlobalInGame.item_was_secured.connect(count_item_secured)
+	GlobalInGame.nighttime_starts.connect(change_music_to_night)
 
-func pause_game():
-	pass
+func change_music_to_night():
+	GlobalAudioPlayer.swap_music("NightTime")
 
 func define_level_goals():
 	total_value_of_items_on_level = 0.0
@@ -47,7 +50,6 @@ func define_level_goals():
 				items_counter[item.listed_name] = [1,0,0,0]
 	# define goal
 	items_value_goal = total_value_of_items_on_level * part_value_saved_to_win
-	print(items_counter)
 	# define key items
 	for i in amount_of_key_items:
 		var key_item : GrabbableObject = get_tree().get_nodes_in_group("GrabbableObject").pick_random()
@@ -70,16 +72,35 @@ func count_item_damaged(amount : float):
 	items_value_broken += amount
 	GlobalInGame.pass_negative_progression(
 		roundi(items_value_stolen + items_value_broken))
+	check_for_lose()
+
+func check_for_lose():
+	if game_is_over: return
+	if items_value_broken + items_value_stolen > total_value_of_items_on_level * (1 - part_value_saved_to_win):
+		game_is_over = true
+		game_over()
+
+func check_for_win() -> bool:
+	if game_is_over: return false
+	for item in items_counter:
+		if item[1] > item[3]:
+			return false
+	if items_value_secured < total_value_of_items_on_level * part_value_saved_to_win:
+		return false
+	
+	return true
 
 func count_item_stolen(item : GrabbableObject):
-	print(item)
 	var item_stolen = item
 	items_value_stolen += item.value * item.durability / 100
 	GlobalInGame.pass_negative_progression(
 		roundi(items_value_stolen + items_value_broken))
 	items_counter[item_stolen.listed_name][2] += 1
-	if items_counter[item_stolen.listed_name][1] < items_counter[item_stolen.listed_name][0] - items_counter[item_stolen.listed_name][2]:
-		GlobalInGame.game_over.emit()
+	# name : [total_amount, tasked_amount, stolen_amount, secured_amount]
+	check_for_lose()
+	if items_counter[item_stolen.listed_name][1] > items_counter[item_stolen.listed_name][0] - items_counter[item_stolen.listed_name][2]:
+		if game_is_over: return
+		game_over()
 
 func count_item_secured(item : GrabbableObject):
 	var item_secured = item
@@ -89,3 +110,13 @@ func count_item_secured(item : GrabbableObject):
 	GlobalInGame.pass_collected_items_data_to_UI(
 		{item_secured.listed_name : 1}
 	)
+	if check_for_win():
+		game_won()
+
+func game_over():
+	game_is_over = true
+	GlobalSceneTransition.change_scene(Global.SCENES_DICTIONARY["LoseScene"])
+
+func game_won():
+	game_is_over = true
+	GlobalSceneTransition.change_scene(Global.SCENES_DICTIONARY["WinScene"])

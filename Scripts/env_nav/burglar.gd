@@ -71,6 +71,12 @@ func _physics_process(delta: float) -> void:
 			push_error(self, " state machine error")
 
 func getting_to_item() -> void:
+	if item_planned_to_steal == null or item_planned_to_steal.is_queued_for_deletion():
+		check_for_new_item()
+		if item_planned_to_steal == null:
+			destination = backup_location_to_go
+		return
+	
 	if !item_is_ok_to_steal(item_planned_to_steal):
 		check_for_new_item()
 		if item_planned_to_steal == null:
@@ -130,16 +136,17 @@ func check_for_new_item() -> void:
 		state = "GiveUp"
 	
 	for detected_item in item_detection_area.get_overlapping_bodies():
-		if detected_item is GrabbableObject:
+		if detected_item is GrabbableObject and not detected_item.is_queued_for_deletion():
 			evaluate_item_over_planned(detected_item)
 	if !item_is_ok_to_steal(item_planned_to_steal):
 		item_planned_to_steal = null
 
 func _on_detection_area_body_entered(body: Node3D) -> void:
 	if state == "GetToItem":
-		if body is GrabbableObject:
-			if item_is_ok_to_steal(body):
-				evaluate_item_over_planned(body)
+		if body and not body.is_queued_for_deletion():
+			if body is GrabbableObject:
+				if item_is_ok_to_steal(body):
+					evaluate_item_over_planned(body)
 
 
 func evaluate_item_over_planned(new_item) -> void:

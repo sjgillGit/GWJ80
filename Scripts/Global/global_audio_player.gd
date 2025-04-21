@@ -1,9 +1,10 @@
 extends AudioStreamPlayer
 
-const MUSIC_DICTIONARY : Dictionary [String , AudioStream] = {
-	"Menu" : preload("res://Assets/Music/Menu.ogg"),
-	"DayTime" : preload("res://Assets/Music/Daytime.ogg"),
-	"NightTime" : preload("res://Assets/Music/NightTime.ogg")
+const MUSIC_DICTIONARY : Dictionary [String , String] = {
+	"Menu" : "res://Assets/Music/NightTime.ogg" ,
+	#"Menu" : "res://Assets/Music/Menu.ogg",
+	"DayTime" : "res://Assets/Music/Daytime.ogg",
+	"NightTime" : "res://Assets/Music/NightTime.ogg"
 }
 
 
@@ -18,8 +19,8 @@ func play_music(music_to_play : String, from_position : float = 0.0) -> void:
 		push_error(self, " trying to play music that's not in dictionary: ", music_to_play)
 		return
 	
-	if stream != MUSIC_DICTIONARY[music_to_play]:
-		stream = MUSIC_DICTIONARY[music_to_play]
+	if stream != load(MUSIC_DICTIONARY[music_to_play]):
+		stream = load(MUSIC_DICTIONARY[music_to_play])
 		play()
 
 func swap_music(music_to_play : String) -> void:
@@ -27,10 +28,10 @@ func swap_music(music_to_play : String) -> void:
 		push_error(self, " trying to play music that's not in dictionary: ", music_to_play)
 		return
 	
-	pause_music()
+	
 	var current_position = get_playback_position()
-	stream = MUSIC_DICTIONARY[music_to_play]
-	unpause_music()
+	stop()
+	stream = load(MUSIC_DICTIONARY[music_to_play])
 	play(current_position)
 
 func pause_music() -> void:

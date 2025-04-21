@@ -49,6 +49,6 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 			self_drop.emit()
 			return
 		
-		var spring_force = displacement * stiffness
+		var spring_force = displacement * stiffness * 2
 		var damping_force = -state.linear_velocity * damping
 		state.apply_force(spring_force + damping_force)

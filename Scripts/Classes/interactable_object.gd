@@ -56,6 +56,7 @@ func _ready() -> void:
 	if self is GrabbableObject:
 		add_to_group("GrabbableObject")
 	add_outline_material()
+	set_collision_mask_value(4, true)
 
 func add_outline_material():
 	var outline_material = load("res://Assets/Materials/outline.tres").duplicate()
@@ -96,9 +97,9 @@ func count_damage_from_collision(impact : float, other_body):
 		return
 	var napkin_damage : float
 	if other_body:
-		napkin_damage = mass * impact / other_body.mass * fragility
+		napkin_damage = other_body.mass * impact / (mass * fragility)
 	else:
-		napkin_damage = mass * impact / fragility
+		napkin_damage =  impact / (mass * fragility)
 	if napkin_damage > 3:
 		durability -= napkin_damage
 		collision_spam_prevention_timer.start()

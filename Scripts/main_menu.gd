@@ -2,6 +2,7 @@ extends Control
 
 func _ready() -> void:
 	GlobalAudioPlayer.play_music("Menu")
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_start_pressed() -> void:
 	GlobalSceneTransition.start_level("DuttLevel")
