@@ -106,3 +106,4 @@ avoidance/layer_3="Rigid Bodies"
 3d/physics_engine="Jolt Physics"
 jolt_physics_3d/queries/enable_ray_cast_face_index=true
 jolt_physics_3d/limits/max_angular_velocity=0.523599
+3d/solver/default_contact_bias=0.9

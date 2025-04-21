@@ -72,6 +72,7 @@ region_merge_size = 10.0
 
 [node name="DuttLevel" type="Node3D"]
 script = ExtResource("1_qosmx")
+part_value_saved_to_win = 0.15
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vxu3o")
@@ -434,7 +435,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2466, 0, -8.85431)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.2466, 0, 29.2793)
 
 [node name="Player" parent="." instance=ExtResource("22_rhdcr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.706, 0, 3.989)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.764, 0, 36.889)
 jump_velocity = 6.0
 
 [node name="DayNightController" parent="." node_paths=PackedStringArray("worldEnvironment") instance=ExtResource("23_tbmip")]
@@ -465,7 +466,8 @@ transform = Transform3D(-0.109457, 0, 0.993992, 0, 1, 0, -0.993992, 0, -0.109457
 transform = Transform3D(-0.99403, 0, 0.10911, 0, 1, 0, -0.10911, 0, -0.99403, 5.08375, 1.25944, -4.28995)
 
 [node name="Bottle" parent="." instance=ExtResource("10_1brc1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47807, 1.25993, -6.58629)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47807, 1.37164, -6.58629)
+sleeping = true
 
 [node name="Baseball" parent="." instance=ExtResource("11_31lle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.35406, 1.91415, -9.50433)
@@ -535,16 +537,20 @@ transform = Transform3D(-0.771935, 0, 0.635701, 0, 1, 0, -0.635701, 0, -0.771935
 transform = Transform3D(-0.830839, 0, -0.556513, 0, 1, 0, 0.556513, 0, -0.830839, 6.80066, 0.567292, -17.3378)
 
 [node name="Bottle2" parent="." instance=ExtResource("10_1brc1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.67452, 1.27674, -12.7266)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.67452, 1.37164, -12.7266)
+sleeping = true
 
 [node name="Bottle3" parent="." instance=ExtResource("10_1brc1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.77439, 1.27674, -10.9981)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.77439, 1.37164, -10.9981)
+sleeping = true
 
 [node name="Bottle4" parent="." instance=ExtResource("10_1brc1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.67469, 1.25993, -13.9409)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.67469, 1.37164, -13.9409)
+sleeping = true
 
 [node name="Bottle5" parent="." instance=ExtResource("10_1brc1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80996, 1.27674, -13.1475)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80996, 1.37164, -13.1475)
+sleeping = true
 
 [node name="Baseball2" parent="." instance=ExtResource("11_31lle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10097, 0.161692, -13.4994)
@@ -583,25 +589,32 @@ transform = Transform3D(0.0905282, 0.229625, -0.96906, -0.0213582, 0.973279, 0.2
 transform = Transform3D(0.673374, 0, 0.739302, 0, 1, 0, -0.739302, 0, 0.673374, -7.81745, 1.34187, -30.6783)
 
 [node name="Bottle6" parent="." instance=ExtResource("10_1brc1")]
-transform = Transform3D(0.751667, 0, 0.659543, 0, 1, 0, -0.659543, 0, 0.751667, -3.78304, 1.34869, -26.192)
+transform = Transform3D(0.751667, 0, 0.659543, 0, 1, 0, -0.659543, 0, 0.751667, -3.78304, 1.48642, -26.192)
+sleeping = true
 
 [node name="Bottle7" parent="." instance=ExtResource("10_1brc1")]
-transform = Transform3D(0.751667, 0, 0.659543, 0, 1, 0, -0.659543, 0, 0.751667, -3.2202, 1.34869, -25.9642)
+transform = Transform3D(0.751667, 0, 0.659543, 0, 1, 0, -0.659543, 0, 0.751667, -3.2202, 1.48642, -25.9642)
+sleeping = true
 
 [node name="Bottle8" parent="." instance=ExtResource("10_1brc1")]
-transform = Transform3D(0.751667, 0, 0.659543, 0, 1, 0, -0.659543, 0, 0.751667, -3.47115, 1.34869, -26.0666)
+transform = Transform3D(0.751667, 0, 0.659543, 0, 1, 0, -0.659543, 0, 0.751667, -3.47115, 1.48642, -26.0666)
+sleeping = true
 
 [node name="Bottle9" parent="." instance=ExtResource("10_1brc1")]
-transform = Transform3D(0.751667, 0, 0.659543, 0, 1, 0, -0.659543, 0, 0.751667, -3.57472, 1.34869, -26.2471)
+transform = Transform3D(0.751667, 0, 0.659543, 0, 1, 0, -0.659543, 0, 0.751667, -3.57472, 1.48642, -26.2471)
+sleeping = true
 
 [node name="Bottle10" parent="." instance=ExtResource("10_1brc1")]
-transform = Transform3D(0.751667, 0, 0.659543, 0, 1, 0, -0.659543, 0, 0.751667, -2.93038, 1.34869, -26.3703)
+transform = Transform3D(0.751667, 0, 0.659543, 0, 1, 0, -0.659543, 0, 0.751667, -2.93038, 1.48642, -26.3703)
+sleeping = true
 
 [node name="Bottle11" parent="." instance=ExtResource("10_1brc1")]
-transform = Transform3D(0.751667, 0.659543, -2.88295e-08, 0, -4.37114e-08, -1, -0.659543, 0.751667, -3.28564e-08, -3.33287, 1.4189, -26.3377)
+transform = Transform3D(0.751667, 0.659543, -2.88295e-08, 0, -4.37114e-08, -1, -0.659543, 0.751667, -3.28564e-08, -3.33287, 1.4675, -26.3377)
+sleeping = true
 
 [node name="Bottle12" parent="." instance=ExtResource("10_1brc1")]
-transform = Transform3D(0.265994, 0.96347, 0.0311872, 0, 0.0323527, -0.999476, -0.963975, 0.265854, 0.00860561, -3.63566, 1.45167, -26.5226)
+transform = Transform3D(0.265994, 0.96347, 0.0311872, 0, 0.0323527, -0.999476, -0.963975, 0.265854, 0.00860561, -3.63566, 1.47142, -26.5226)
+sleeping = true
 
 [node name="plant pot2" parent="." instance=ExtResource("8_5ewj5")]
 transform = Transform3D(0.596603, 0, -0.802536, 0, 1, 0, 0.802536, 0, 0.596603, -7.77232, 0.0359451, -27.1054)
