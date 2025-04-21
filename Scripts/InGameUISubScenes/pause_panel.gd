@@ -8,10 +8,8 @@ func _input(event: InputEvent) -> void:
 
 func _handle_pause():
     if visible:
-        print("unpaused")
         _unpause()
     else:
-        print("paused")
         _pause()
 
         
@@ -28,6 +26,5 @@ func _unpause():
 
 
 func _on_resume_button_pressed() -> void:
-    print("resume button pressed")
     _handle_pause()
     
