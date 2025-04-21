@@ -15,14 +15,37 @@ script = ExtResource("2_yt2lp")
 value = 35
 damage_sound = "res://Assets/SFX/plastic pipe 1.wav"
 
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00421246, 0.00590937, -0.018772)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0355686, 0.189443, 0.172531)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00817978, 0.164761, 0.0061913)
 shape = SubResource("BoxShape3D_yt2lp")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0401005, 0.42101, 0.145432)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00364788, 0.396328, -0.0209077)
 shape = SubResource("BoxShape3D_t46n0")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="9"]
-avoidance_enabled = true
-height = 0.1
+[node name="Cylinder" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.245885, 0.156043, 0.179328)
+
+[node name="Cylinder_001" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.250353, 0.156043, 0.179328)
+
+[node name="Cylinder_002" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.0760868, 0.261368, 0.1581)
+
+[node name="Cylinder_003" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.0169059, 0.261368, 0.1581)
+
+[node name="Cylinder_004" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.0415869, 0.261368, 0.1581)
+
+[node name="Cube_001" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27939, 0.369526, -0.0169747)
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.174189, 0)
+radius = 0.4
+avoidance_layers = 4
+use_3d_avoidance = true

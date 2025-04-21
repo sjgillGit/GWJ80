@@ -32,6 +32,8 @@ shape = SubResource("CapsuleShape3D_lrg4q")
 transform = Transform3D(-0.98433, -0.133039, 0.115737, -0.149773, 0.977196, -0.150517, -0.093073, -0.165493, -0.98181, -0.159311, 0.513513, -0.0838469)
 shape = SubResource("CapsuleShape3D_rs5k8")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="11"]
-avoidance_enabled = true
-radius = 0.3
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.374189, 0)
+radius = 0.4
+avoidance_layers = 4
+use_3d_avoidance = true

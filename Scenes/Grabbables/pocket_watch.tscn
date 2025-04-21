@@ -26,6 +26,8 @@ shape = SubResource("CylinderShape3D_j3ujb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00540859, 0.00868225, -0.282567)
 shape = SubResource("CylinderShape3D_ldj6l")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="4"]
-avoidance_enabled = true
-radius = 0.2
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00776863, -0.0664204)
+radius = 0.3
+avoidance_layers = 4
+use_3d_avoidance = true

@@ -11,7 +11,6 @@ height = 1.8
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("2_nnii4")
-speed = 5.0
 
 [node name="Armature" parent="." index="0"]
 transform = Transform3D(0.16171, 0, 0, 0, 0.16171, 0, 0, 0, 0.16171, 0.00134277, 0.808264, -0.0887939)
@@ -51,11 +50,11 @@ shape = SubResource("CapsuleShape3D_nnii4")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="3"]
 target_desired_distance = 2.0
-navigation_layers = 3
 avoidance_enabled = true
 height = 1.5
-avoidance_layers = 3
-avoidance_mask = 3
+avoidance_layers = 2
+avoidance_mask = 7
+avoidance_priority = 0.1
 debug_use_custom = true
 debug_path_custom_color = Color(4.52429e-06, 0, 0.871864, 1)
 

@@ -19,6 +19,8 @@ damage_sound = "res://Assets/SFX/shatter 1.wav"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.122916, 0)
 shape = SubResource("CapsuleShape3D_8luuj")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="2"]
-height = 0.03
-radius = 0.05
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)
+radius = 0.16
+avoidance_layers = 4
+use_3d_avoidance = true

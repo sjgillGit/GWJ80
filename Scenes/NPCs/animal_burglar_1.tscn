@@ -49,16 +49,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.890154, 0.00313295)
 shape = SubResource("CapsuleShape3D_uxtb1")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="3"]
-target_desired_distance = 2.0
-path_max_distance = 50.01
+path_desired_distance = 2.0
+target_desired_distance = 3.5
+path_max_distance = 5.01
 avoidance_enabled = true
 height = 2.0
 radius = 0.25
-use_3d_avoidance = true
-avoidance_layers = 3
-avoidance_mask = 3
-debug_use_custom = true
-debug_path_custom_color = Color(4.52429e-06, 0, 0.871864, 1)
+neighbor_distance = 10.0
+time_horizon_agents = 1.5
+avoidance_layers = 2
+avoidance_mask = 7
+avoidance_priority = 0.9
 
 [node name="DetectionArea" type="Area3D" parent="." index="4"]
 monitorable = false

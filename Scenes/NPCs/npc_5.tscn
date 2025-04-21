@@ -11,6 +11,7 @@ height = 1.58
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("2_kqf1n")
+speed = 3.0
 
 [node name="Skeleton3D" parent="Armature_002" index="0"]
 bones/2/rotation = Quaternion(0.0674546, 1.18938e-07, 8.04121e-09, 0.997722)
@@ -47,8 +48,9 @@ navigation_layers = 3
 avoidance_enabled = true
 height = 2.0
 use_3d_avoidance = true
-avoidance_layers = 3
-avoidance_mask = 3
+avoidance_layers = 2
+avoidance_mask = 7
+avoidance_priority = 0.1
 debug_use_custom = true
 debug_path_custom_color = Color(4.52429e-06, 0, 0.871864, 1)
 
