@@ -8,6 +8,7 @@ size = Vector3(1.09546, 0.0711975, 1.461)
 
 [node name="Painting 2" instance=ExtResource("1_stix7")]
 script = ExtResource("2_by50h")
+value = 1000
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.00134277, 0.723592, -0.00804138)

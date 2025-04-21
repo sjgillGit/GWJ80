@@ -10,7 +10,9 @@ size = Vector3(1.06302, 0.115463, 1.05951)
 size = Vector3(0.914307, 1.17767, 0.969238)
 
 [node name="Nightstand" instance=ExtResource("1_pvhos")]
+mass = 15.0
 script = ExtResource("2_w0uxj")
+value = 200
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00145095, 1.26982, 0.791923)

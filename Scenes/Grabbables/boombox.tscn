@@ -10,7 +10,9 @@ size = Vector3(0.742065, 0.33876, 0.39856)
 size = Vector3(0.592255, 0.137451, 0.0366211)
 
 [node name="Boombox" instance=ExtResource("1_bf448")]
+mass = 5.0
 script = ExtResource("2_yt2lp")
+value = 35
 damage_sound = "res://Assets/SFX/plastic pipe 1.wav"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]

@@ -2,12 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cfbvn3hmfllby" path="res://Scenes/DayNight/day_night_light.gd" id="1_1e40d"]
 
-[node name="DayNightController" type="DirectionalLight3D" node_paths=PackedStringArray("worldEnvironment", "nightLight")]
+[node name="DayNightController" type="DirectionalLight3D" node_paths=PackedStringArray("nightLight")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 light_energy = 0.0
 shadow_enabled = true
 script = ExtResource("1_1e40d")
-worldEnvironment = NodePath("")
 nightLight = NodePath("DirectionalLight3D")
 speedMultiplier = 25.0
 dayColor = Color(0.81272, 0.739029, 0.504405, 1)
