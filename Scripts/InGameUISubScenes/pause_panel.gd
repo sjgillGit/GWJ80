@@ -1,0 +1,33 @@
+extends PanelContainer
+
+
+func _input(event: InputEvent) -> void:
+    if event.is_action_pressed("ui_cancel"):
+        _handle_pause()
+
+
+func _handle_pause():
+    if visible:
+        print("unpaused")
+        _unpause()
+    else:
+        print("paused")
+        _pause()
+
+        
+func _pause():
+    show()
+    get_tree().paused = true
+    Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func _unpause():
+    hide()
+    get_tree().paused = false
+    Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func _on_resume_button_pressed() -> void:
+    print("resume button pressed")
+    _handle_pause()
+    
