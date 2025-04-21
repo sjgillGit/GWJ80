@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://0u12ygea35q"]
+[gd_scene load_steps=9 format=3 uid="uid://crrsf8y1bslk2"]
 
 [ext_resource type="Script" uid="uid://5dipfswld5ci" path="res://Scripts/in_game_ui.gd" id="1_d072m"]
 [ext_resource type="PackedScene" uid="uid://pxstp0eubbcl" path="res://Scenes/InGameUISubScenes/timer_panel.tscn" id="2_6vmd0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://v121yj4qv31i" path="res://Scenes/InGameUISubScenes/level_progress_bar.tscn" id="2_m00a7"]
 [ext_resource type="PackedScene" uid="uid://b5sqb848jv55a" path="res://Scenes/InGameUISubScenes/pocket_inventory.tscn" id="3_rrm0x"]
 [ext_resource type="Texture2D" uid="uid://dg6nxgbmbblrn" path="res://Assets/2D_Assets/crosshair.png" id="6_2ovgp"]
+[ext_resource type="PackedScene" uid="uid://dgipl7dkdy5y0" path="res://Scenes/InGameUISubScenes/pause_panel.tscn" id="7_dfbn1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86nw1"]
 
@@ -82,3 +83,8 @@ visible = false
 layout_mode = 2
 mouse_filter = 2
 pockets_amount = 5
+
+[node name="PausePanel" parent="MarginContainer/ScreenSplit/RestOfScreen" instance=ExtResource("7_dfbn1")]
+process_mode = 3
+visible = false
+layout_mode = 2
