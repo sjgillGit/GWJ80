@@ -8,7 +8,9 @@ radius = 0.0689525
 height = 0.957957
 
 [node name="Baseball bat" instance=ExtResource("1_khfmx")]
+mass = 5.0
 script = ExtResource("2_xln62")
+value = 30
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.432309, 0)
