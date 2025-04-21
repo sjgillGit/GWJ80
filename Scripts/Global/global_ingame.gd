@@ -5,6 +5,7 @@ signal report_stolen_item(item : GrabbableObject)
 
 var player
 var level : Node3D
+signal level_ready
 
 #region in-game-UI 
 var player_UI : InGameUI

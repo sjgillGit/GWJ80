@@ -434,7 +434,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2466, 0, -8.85431)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.2466, 0, 29.2793)
 
 [node name="Player" parent="." instance=ExtResource("22_rhdcr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.706, 2.08819, 3.989)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.706, 0, 3.989)
 jump_velocity = 6.0
 
 [node name="DayNightController" parent="." node_paths=PackedStringArray("worldEnvironment") instance=ExtResource("23_tbmip")]
