@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://ckmnw2q3lrapg" path="res://Scenes/StaticEnvironment/sidewalk.tscn" id="20_hqmeu"]
 [ext_resource type="PackedScene" uid="uid://b4x23v4eaolll" path="res://Scenes/Grabbables/nightstand.tscn" id="20_vyckp"]
 [ext_resource type="PackedScene" uid="uid://dmnpa4b3yljwh" path="res://Scenes/Grabbables/silver_ware.tscn" id="21_xnho0"]
-[ext_resource type="PackedScene" uid="uid://bg1o7x344k0vj" path="res://PrivateDevRoom/player.tscn" id="22_rhdcr"]
+[ext_resource type="PackedScene" uid="uid://bg1o7x344k0vj" path="res://Scenes/player.tscn" id="22_rhdcr"]
 [ext_resource type="PackedScene" uid="uid://x4n1u0yvhq6c" path="res://Scenes/DayNight/day_night_controller.tscn" id="23_tbmip"]
 [ext_resource type="PackedScene" uid="uid://1hgkm1lo5llm" path="res://Scenes/Grabbables/pocket_watch.tscn" id="26_5ewj5"]
 [ext_resource type="PackedScene" uid="uid://u3aeonjndy3o" path="res://Scenes/StaticEnvironment/house_1.tscn" id="27_0sb2a"]

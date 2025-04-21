@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbccdbgxduanj"]
-
-[ext_resource type="Script" uid="uid://bobuwpmqhai4d" path="res://PrivateDevRoom/env_nav/npc_entrance.gd" id="1_jusay"]
-
-[node name="NpcEntrance" type="Marker3D" groups=["NPC_Entrance"]]
-script = ExtResource("1_jusay")
-
-[node name="SpawnTimer" type="Timer" parent="."]
-unique_name_in_owner = true

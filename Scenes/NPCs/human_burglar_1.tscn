@@ -54,7 +54,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.890154, 0.00313295)
 shape = SubResource("CapsuleShape3D_gtasx")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="3"]
-target_desired_distance = 2.0
+path_desired_distance = 2.0
+target_desired_distance = 2.5
 path_max_distance = 50.01
 avoidance_enabled = true
 height = 2.0
