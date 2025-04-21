@@ -7,7 +7,11 @@
 size = Vector3(0.801392, 0.0513306, 0.559631)
 
 [node name="Laptop" instance=ExtResource("1_uvxuk")]
+mass = 2.0
 script = ExtResource("2_ilwax")
+stiffness = 165.0
+damping = 75.0
+value = 300
 damage_sound = "res://Assets/SFX/clang 2.wav"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
