@@ -15,6 +15,8 @@ size = Vector3(1.86537, 0.74884, 0.0685425)
 [node name="TV" instance=ExtResource("1_5pnvd")]
 mass = 20.0
 script = ExtResource("2_nh51d")
+stiffness = 73.333
+damping = 70.0
 value = 2000
 damage_sound = "res://Assets/SFX/plastic pipe 2.wav"
 

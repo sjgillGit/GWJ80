@@ -13,6 +13,8 @@ size = Vector3(0.156357, 0.817169, 0.862793)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.533516, 0)
 mass = 5.0
 script = ExtResource("2_yuqos")
+stiffness = 143.0
+damping = 60.0
 value = 50
 damage_sound = "res://Assets/SFX/thump 2.wav"
 

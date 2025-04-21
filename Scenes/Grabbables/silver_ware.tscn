@@ -9,6 +9,8 @@ size = Vector3(0.537308, 0.114258, 0.629639)
 [node name="Silver ware" instance=ExtResource("1_mcw5h")]
 mass = 2.0
 script = ExtResource("2_gxx87")
+stiffness = 187.0
+damping = 65.0
 value = 20
 damage_sound = "res://Assets/SFX/clang 1.wav"
 

@@ -9,6 +9,7 @@ size = Vector3(0.605408, 0.414612, 0.613892)
 [node name="Cardboard box 2" instance=ExtResource("1_h5w7u")]
 mass = 10.0
 script = ExtResource("2_5olsu")
+damping = 100.0
 value = 100
 damage_sound = "res://Assets/SFX/thump 2.wav"
 

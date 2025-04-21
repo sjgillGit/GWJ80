@@ -9,6 +9,7 @@ size = Vector3(1.19702, 1.21741, 1.20801)
 [node name="Crate" instance=ExtResource("1_0pwhh")]
 mass = 10.0
 script = ExtResource("2_qy2gf")
+damping = 100.0
 value = 100
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]

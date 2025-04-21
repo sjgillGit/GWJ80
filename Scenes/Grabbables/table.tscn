@@ -15,7 +15,8 @@ size = Vector3(0.248474, 0.225952, 1.54779)
 [node name="Table" instance=ExtResource("1_4v8od")]
 mass = 20.0
 script = ExtResource("2_70boy")
-stiffness = 100.0
+drag_max_distance = 10.0
+stiffness = 55.0
 value = 1000
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
