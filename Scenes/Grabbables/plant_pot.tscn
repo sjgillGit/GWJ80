@@ -17,6 +17,7 @@ height = 0.641858
 
 [node name="plant pot" instance=ExtResource("1_rdcm5")]
 script = ExtResource("2_lrg4q")
+listed_name = "Cactus"
 value = 10
 damage_sound = "res://Assets/SFX/plastic pipe 2.wav"
 

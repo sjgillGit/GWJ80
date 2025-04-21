@@ -177,10 +177,10 @@ func _input(event: InputEvent) -> void:
 				if object_to_grab:
 					if object_to_grab is GrabbableObject and object_to_grab.mass <= pickup_mass_limit:
 						grab_grabbable_object(object_to_grab)
-					elif object_to_grab is PocketableObject:
-						grab_pocket_item(object_to_grab)
-		elif event.is_action_pressed("drop_pocket_item"):
-			drop_pocket_item()
+					#elif object_to_grab is PocketableObject:
+						#grab_pocket_item(object_to_grab)
+		#elif event.is_action_pressed("drop_pocket_item"):
+			#drop_pocket_item()
 	#elif event is InputEvent:
 		## Sets the distance of the grabbed object based on mouse wheel scroll
 		#detect_scroll_to_set_distance(event)
@@ -218,14 +218,14 @@ func process_grabbed_object():
 			camera.global_transform.basis.z * current_hold_distance
 			)
 
-func grab_pocket_item(item : PocketableObject):
-	item.grab_in_pocket()
-
-func drop_pocket_item():
-	var item : PocketableObject # get from UI from selected slot.
-		#If no slot selected - try dropping slot 1 (default slot)
-	if item:
-		item.enable_existance(self)
+#func grab_pocket_item(item : PocketableObject):
+	#item.grab_in_pocket()
+#
+#func drop_pocket_item():
+	#var item : PocketableObject # get from UI from selected slot.
+		##If no slot selected - try dropping slot 1 (default slot)
+	#if item:
+		#item.enable_existance(self)
 # disabled, bugged
 #func detect_scroll_to_set_distance(event: InputEvent) -> void:
 	#var new_grab_distance: float

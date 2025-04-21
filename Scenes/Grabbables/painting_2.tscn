@@ -10,6 +10,7 @@ size = Vector3(1.09546, 0.0711975, 1.461)
 script = ExtResource("2_by50h")
 stiffness = 187.0
 damping = 70.0
+listed_name = "Painting \"Flashy Lights\""
 value = 1000
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]

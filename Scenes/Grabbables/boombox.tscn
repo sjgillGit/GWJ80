@@ -12,6 +12,7 @@ size = Vector3(0.592255, 0.137451, 0.0366211)
 [node name="Boombox" instance=ExtResource("1_bf448")]
 mass = 5.0
 script = ExtResource("2_yt2lp")
+listed_name = "Boombox"
 value = 35
 damage_sound = "res://Assets/SFX/plastic pipe 1.wav"
 

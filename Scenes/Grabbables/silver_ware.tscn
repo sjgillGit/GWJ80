@@ -11,6 +11,7 @@ mass = 2.0
 script = ExtResource("2_gxx87")
 stiffness = 187.0
 damping = 65.0
+listed_name = "Silverware"
 value = 20
 damage_sound = "res://Assets/SFX/clang 1.wav"
 

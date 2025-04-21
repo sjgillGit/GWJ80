@@ -16,6 +16,7 @@ mass = 0.5
 script = ExtResource("2_ldj6l")
 stiffness = 220.0
 damping = 100.0
+listed_name = "Pocket Watch"
 value = 200
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]

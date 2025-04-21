@@ -15,6 +15,7 @@ mass = 5.0
 script = ExtResource("2_yuqos")
 stiffness = 143.0
 damping = 60.0
+listed_name = "Chair"
 value = 50
 damage_sound = "res://Assets/SFX/thump 2.wav"
 

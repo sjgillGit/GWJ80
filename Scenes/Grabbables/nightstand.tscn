@@ -12,6 +12,7 @@ size = Vector3(0.914307, 1.17767, 0.969238)
 [node name="Nightstand" instance=ExtResource("1_pvhos")]
 mass = 15.0
 script = ExtResource("2_w0uxj")
+listed_name = "Nightstand"
 value = 200
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]

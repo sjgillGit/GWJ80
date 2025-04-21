@@ -10,6 +10,7 @@ size = Vector3(0.668635, 0.435213, 0.661333)
 mass = 10.0
 script = ExtResource("2_7blvs")
 damping = 100.0
+listed_name = "Box of plates"
 value = 100
 damage_sound = "res://Assets/SFX/thump 2.wav"
 

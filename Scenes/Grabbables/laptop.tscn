@@ -11,6 +11,7 @@ mass = 2.0
 script = ExtResource("2_ilwax")
 stiffness = 165.0
 damping = 75.0
+listed_name = "Laptop"
 value = 300
 damage_sound = "res://Assets/SFX/clang 2.wav"
 

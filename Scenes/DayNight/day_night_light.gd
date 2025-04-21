@@ -102,8 +102,6 @@ func _physics_process(delta):
 func update_clock():
 	if GlobalInGame.player_UI:
 		GlobalInGame.pass_time_to_UI(currentTime)
-	else:
-		print("UI not ready")
 	hours = int(currentTime / 60)
 	if (hours > cutoffHour):
 		speedMultiplier = 0

@@ -1,5 +1,8 @@
 extends Control
 
+func _ready() -> void:
+	GlobalAudioPlayer.play_music("Menu")
+
 func _on_start_pressed() -> void:
 	GlobalSceneTransition.start_level("DuttLevel")
 

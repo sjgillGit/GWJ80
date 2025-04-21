@@ -28,24 +28,24 @@ func pass_collected_items_amount(collected_items_dictionary : Dictionary) -> voi
 #endregion
 
 #region PocketInventory
-func pockets_select_next_pocket_slot() -> void:
-	pocket_inventory.select_next_pocket()
-
-func pockets_select_previous_pocket_slot() -> void:
-	pocket_inventory.select_previous_pocket()
-
-func pockets_add_item(item_to_collect : PocketableObject) -> bool:
-	return pocket_inventory.collect_item(item_to_collect)
-
-func drop_item_in_selected_slot() : # -> pocket_item class
-	return pocket_inventory.drop_item_in_selected_slot()
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.is_action_pressed("pockets_next_slot"):
-			pocket_inventory.select_next_pocket()
-		elif event.is_action_pressed("pockets_prev_slot"):
-			pocket_inventory.select_previous_pocket()
+#func pockets_select_next_pocket_slot() -> void:
+	#pocket_inventory.select_next_pocket()
+#
+#func pockets_select_previous_pocket_slot() -> void:
+	#pocket_inventory.select_previous_pocket()
+#
+#func pockets_add_item(item_to_collect : PocketableObject) -> bool:
+	#return pocket_inventory.collect_item(item_to_collect)
+#
+#func drop_item_in_selected_slot() : # -> pocket_item class
+	#return pocket_inventory.drop_item_in_selected_slot()
+#
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event is InputEventMouseButton:
+		#if event.is_action_pressed("pockets_next_slot"):
+			#pocket_inventory.select_next_pocket()
+		#elif event.is_action_pressed("pockets_prev_slot"):
+			#pocket_inventory.select_previous_pocket()
 #endregion
 
 #region LevelProgressBar

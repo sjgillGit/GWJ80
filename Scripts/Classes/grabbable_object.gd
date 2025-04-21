@@ -3,7 +3,7 @@ extends InteractableObject
 
 #@export_group("Internal Connections")
 @export_group("Grabbing settings")
-@export var drag_max_distance : float = 6.0
+@export var drag_max_distance : float = 3.0
 @export var stiffness : float = 110.0
 @export var damping : float = 50.0
 

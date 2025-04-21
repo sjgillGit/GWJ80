@@ -142,17 +142,17 @@ func _on_detection_area_body_entered(body: Node3D) -> void:
 				evaluate_item_over_planned(body)
 
 
-func evaluate_item_over_planned(new_item : GrabbableObject) -> void:
-	print("Evaluating: " ,  new_item)
-	if !item_is_ok_to_steal(new_item):
-		return
-	if item_planned_to_steal:
-		if new_item.value > item_planned_to_steal.value:
-			print("Changed mind from stealing ", item_planned_to_steal, ". Now stealing: ", new_item)
+func evaluate_item_over_planned(new_item) -> void:
+	if !new_item: return
+	if new_item is GrabbableObject:
+		if !item_is_ok_to_steal(new_item):
+			return
+		if item_planned_to_steal:
+			if new_item.value > item_planned_to_steal.value:
+				item_planned_to_steal = new_item
+				
+		else:
 			item_planned_to_steal = new_item
-			
-	else:
-		item_planned_to_steal = new_item
 
 func item_is_ok_to_steal(item : GrabbableObject) -> bool:
 	if item:

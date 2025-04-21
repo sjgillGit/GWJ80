@@ -8,10 +8,10 @@ radius = 0.0482559
 height = 0.292422
 
 [node name="Bottle" instance=ExtResource("1_8luuj")]
-mass = 0.25
 script = ExtResource("2_g50yc")
 stiffness = 220.0
-damping = 100.0
+damping = 110.0
+listed_name = "Bottle"
 value = 5
 damage_sound = "res://Assets/SFX/shatter 1.wav"
 

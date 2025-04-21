@@ -10,6 +10,7 @@ size = Vector3(1.10321, 0.109131, 1.44507)
 script = ExtResource("2_ovm1o")
 stiffness = 187.0
 damping = 70.0
+listed_name = "Painting \"Energy\""
 value = 1000
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]

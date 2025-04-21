@@ -2,12 +2,13 @@ class_name InteractableObject
 extends RigidBody3D
 
 @export_group("Object settings")
+@export var listed_name : String = ""
 @export var value : int = 10000
 @export_range(0, 100, 0.1) var durability : float = 100:
 	set(new_value):
 		new_value = clampf(new_value, 0.0 , 100.0)
 		report_value_loss(roundi(
-			value * (durability - new_value)
+			value * (durability - new_value) / 100
 		))
 		durability = new_value
 		
@@ -73,12 +74,8 @@ func change_outline_color(new_color : Color = Color.BLACK) -> void:
 		if child is MeshInstance3D:
 			child.material_overlay.albedo_color = new_color
 
-#TODO Connect value reporting to MVP
-func report_starting_value(amount : int) -> void:
-	pass
-
 func report_value_loss(amount : int) -> void:
-	pass
+	GlobalInGame.item_was_damaged.emit(amount)
 
 func _physics_process(delta: float) -> void:
 	real_velocity = (global_position - _last_position) / delta

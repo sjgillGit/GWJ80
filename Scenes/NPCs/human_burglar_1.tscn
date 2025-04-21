@@ -75,7 +75,6 @@ time_horizon_agents = 1.5
 avoidance_layers = 2
 avoidance_mask = 7
 avoidance_priority = 0.9
-debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.133333, 1, 1, 1)
 
