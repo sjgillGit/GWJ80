@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://yus0fjloxr3l" path="res://Assets/3D Assets/Neighborhood/Lamp.glb" id="1_d6ic7"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ich0k"]
-points = PackedVector3Array(-0.12484, -0.00768304, -0.11384, 0.0485504, 3.63368, 0.384778, 0.0485504, 3.63368, 0.146256, 0.135309, 0.0140597, 0.124683, 0.135309, 0.0140597, -0.11384, -0.12484, -0.00768304, 0.124683, -0.0336, 3.32781, -0.0296219, -0.0598024, 3.56845, 0.363059, 0.0485504, 3.50358, -0.048779, -0.0164358, 3.11328, 0.384778, -0.0381064, 3.61194, 0.037952, -0.0598024, 3.63368, 0.319718, 0.0268798, 3.11328, 0.384778, -0.12484, 0.0358024, -0.11384, 0.0485504, 3.61194, 0.037952, -0.0381064, 3.63368, 0.384778, -0.12484, 0.0358024, 0.103012, 0.0485504, 3.54671, 0.384778, -0.0381064, 3.63368, 0.146256, 0.0485504, 3.54671, -0.0271085, -0.0381064, 3.54671, 0.384778)
+[sub_resource type="BoxShape3D" id="BoxShape3D_l0my7"]
+size = Vector3(0.313293, 3.60641, 0.603867)
 
 [node name="Lamp" instance=ExtResource("1_d6ic7")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00140798, -0.0162321, -0.00944878)
-shape = SubResource("ConvexPolygonShape3D_ich0k")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00778615, 1.8084, 0.190785)
+shape = SubResource("BoxShape3D_l0my7")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.85617, 0.346497)

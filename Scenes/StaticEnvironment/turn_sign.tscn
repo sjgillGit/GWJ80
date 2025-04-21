@@ -2,18 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://dhcisxqojbq44" path="res://Assets/3D Assets/Neighborhood/Turn sign.glb" id="1_a8vrt"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2qh2j"]
-points = PackedVector3Array(-0.0388937, -0.00947158, -0.0278142, -0.0388937, -0.00947158, 0.0278142, -0.0388937, 2.18455, -0.0278142, 0.0388937, -0.00947158, -0.0278142, 0.0388937, -0.00947158, 0.0278142, -0.0388937, 2.18455, 0.0278142, 0.0388937, 2.18455, -0.0278142, 0.0388937, 2.18455, 0.0278142)
+[sub_resource type="BoxShape3D" id="BoxShape3D_a8vrt"]
+size = Vector3(0.0813293, 1.97419, 0.0605469)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3lf16"]
-points = PackedVector3Array(0.691693, 0.0807353, -0.000141919, 0.691693, 0, -0.000141919, -0.000135422, 0.0807353, -0.724877, -0.000135422, 0.0807353, 0.724877, -0.000135422, 0, 0.724877, -0.000135422, 0, -0.724877, -0.691693, 0.0807353, -0.000141919, -0.691693, 0, -0.000141919)
+[sub_resource type="BoxShape3D" id="BoxShape3D_2qh2j"]
+size = Vector3(1.38525, 0.0892029, 1.44893)
 
 [node name="Turn sign" instance=ExtResource("1_a8vrt")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0205331, -0.0772045, 0.0173618)
-shape = SubResource("ConvexPolygonShape3D_2qh2j")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0203653, 0.898584, 0.0193149)
+shape = SubResource("BoxShape3D_a8vrt")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.0226994, 2.6102, -0.0157428)
-shape = SubResource("ConvexPolygonShape3D_3lf16")
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.0224553, 2.61121, 0.0263562)
+shape = SubResource("BoxShape3D_2qh2j")
